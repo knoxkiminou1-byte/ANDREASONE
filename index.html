@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMLY Animated Hero</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="hero" aria-label="Animated brand hero section">
+      <div class="gradient-layer gradient-layer--base" aria-hidden="true"></div>
+      <div class="gradient-layer gradient-layer--swirl" aria-hidden="true"></div>
+      <div class="glow glow--orange" aria-hidden="true"></div>
+      <div class="glow glow--olive" aria-hidden="true"></div>
+
+      <section class="logo-wrap" aria-label="Pyramid logo with halo and pendulum interaction">
+        <button
+          class="logo-button"
+          id="logoButton"
+          type="button"
+          aria-label="Trigger pendulum hit on pyramid logo"
+        >
+          <svg
+            class="logo"
+            viewBox="0 0 320 360"
+            role="img"
+            aria-labelledby="logoTitle logoDesc"
+          >
+            <title id="logoTitle">Pyramid with halo logo</title>
+            <desc id="logoDesc">
+              A pyramid centered on the page with a floating halo and a line beneath.
+            </desc>
+
+            <circle class="logo-ring" cx="160" cy="114" r="74" />
+            <circle class="logo-ring logo-ring--outer" cx="160" cy="114" r="98" />
+
+            <polygon class="logo-pyramid" points="160,122 74,274 246,274" />
+            <line class="logo-base-line" x1="70" y1="304" x2="250" y2="304" />
+          </svg>
+
+          <div class="pendulum" id="pendulum" aria-hidden="true">
+            <span class="pendulum-line"></span>
+            <span class="pendulum-ball"></span>
+          </div>
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
