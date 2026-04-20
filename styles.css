@@ -33,7 +33,7 @@ body {
   background:
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35) 0%, transparent 34%),
     linear-gradient(135deg, var(--soft-cream-tint) 0%, var(--warm-canvas) 100%);
-  animation: sceneVibrate 0.26s steps(2, end) infinite;
+  animation: sceneVibrate 0.14s steps(2, end) infinite;
 }
 
 .gradient-layer {
@@ -115,6 +115,21 @@ body {
   animation: orbitOlive 10s ease-in-out infinite alternate;
 }
 
+.water-particles {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.28) 0 0.45%, transparent 0.6%),
+    radial-gradient(circle at 72% 34%, rgba(255, 255, 255, 0.22) 0 0.4%, transparent 0.55%),
+    radial-gradient(circle at 42% 68%, rgba(255, 255, 255, 0.26) 0 0.52%, transparent 0.68%),
+    radial-gradient(circle at 84% 76%, rgba(255, 255, 255, 0.2) 0 0.35%, transparent 0.5%),
+    radial-gradient(circle at 24% 84%, rgba(255, 255, 255, 0.18) 0 0.38%, transparent 0.55%);
+  mix-blend-mode: soft-light;
+  opacity: 0.58;
+  animation: waterParticles 2.8s linear infinite, waterWave 4.2s ease-in-out infinite;
+}
+
 .logo-wrap {
   position: relative;
   z-index: 1;
@@ -173,34 +188,37 @@ body {
 
 .pendulum {
   position: absolute;
-  top: -52%;
+  top: -56%;
   left: 50%;
-  width: 280px;
-  height: 350px;
+  width: 320px;
+  height: 420px;
   transform-origin: 50% 0;
-  transform: translateX(-50%) rotate(-58deg);
+  transform: translateX(-50%) rotate(-60deg);
   opacity: 0;
   pointer-events: none;
 }
 
-.pendulum-line {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 3px);
-  width: 6px;
-  height: 272px;
-  background: var(--black);
+.pendulum-sigil {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.28));
 }
 
-.pendulum-ball {
-  position: absolute;
-  top: 250px;
-  left: calc(50% - 26px);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--black);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+.sigil-stroke {
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sigil-text {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  fill: var(--black);
+  text-anchor: middle;
 }
 
 .logo-wrap.hit-active {
@@ -219,16 +237,19 @@ body {
 
 @keyframes sceneVibrate {
   0% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) rotate(0deg);
   }
-  35% {
-    transform: translate(0.8px, -0.9px);
+  20% {
+    transform: translate(1.4px, -1.6px) rotate(0.12deg);
   }
-  65% {
-    transform: translate(-1px, 0.6px);
+  50% {
+    transform: translate(-1.8px, 1.2px) rotate(-0.14deg);
+  }
+  80% {
+    transform: translate(1.1px, 0.9px) rotate(0.08deg);
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) rotate(0deg);
   }
 }
 
@@ -268,6 +289,36 @@ body {
   }
 }
 
+@keyframes waterParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    background-size: 100% 100%;
+  }
+  50% {
+    transform: translateY(-1.8%) scale(1.02);
+    background-size: 108% 108%;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes waterWave {
+  0% {
+    filter: blur(0px);
+    opacity: 0.44;
+  }
+  50% {
+    filter: blur(1.4px);
+    opacity: 0.62;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 0.44;
+  }
+}
+
 @keyframes orbitOrange {
   0% {
     transform: translate(0, 0) scale(1);
@@ -298,7 +349,7 @@ body {
 
 @keyframes pendulumHit {
   0% {
-    transform: translateX(-50%) rotate(-58deg);
+    transform: translateX(-50%) rotate(-60deg);
   }
   62% {
     transform: translateX(-50%) rotate(16deg);
@@ -341,19 +392,16 @@ body {
   }
 
   .pendulum {
-    width: 220px;
-    height: 285px;
-    top: -44%;
+    width: 250px;
+    height: 330px;
+    top: -46%;
   }
 
-  .pendulum-line {
-    height: 220px;
+  .sigil-stroke {
+    stroke-width: 8;
   }
 
-  .pendulum-ball {
-    top: 204px;
-    width: 44px;
-    height: 44px;
-    left: calc(50% - 22px);
+  .sigil-text {
+    font-size: 40px;
   }
 }
