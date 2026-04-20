@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FMLY Animated Hero</title>
+    <title>AndreasOne</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="hero" aria-label="Animated brand hero section">
+    <main class="hero" aria-label="Animated brand hero section" id="heroScene">
       <div class="gradient-layer gradient-layer--base" aria-hidden="true"></div>
       <div class="gradient-layer gradient-layer--swirl" aria-hidden="true"></div>
+      <div class="gradient-layer gradient-layer--pulse" aria-hidden="true"></div>
       <div class="glow glow--orange" aria-hidden="true"></div>
       <div class="glow glow--olive" aria-hidden="true"></div>
+      <div class="water-particles" aria-hidden="true"></div>
 
       <section class="logo-wrap" aria-label="Pyramid logo with halo and pendulum interaction">
         <button
@@ -39,12 +41,58 @@
           </svg>
 
           <div class="pendulum" id="pendulum" aria-hidden="true">
-            <span class="pendulum-line"></span>
-            <span class="pendulum-ball"></span>
+            <svg class="pendulum-sigil" viewBox="0 0 180 300" role="presentation">
+              <circle class="sigil-stroke" cx="90" cy="24" r="17" />
+              <line class="sigil-stroke" x1="90" y1="42" x2="90" y2="198" />
+              <path class="sigil-stroke" d="M56 66 L124 66" />
+              <path class="sigil-stroke" d="M36 108 L144 108" />
+              <path class="sigil-stroke" d="M52 146 L128 146" />
+              <circle class="sigil-stroke" cx="90" cy="226" r="64" />
+              <line class="sigil-stroke" x1="28" y1="226" x2="152" y2="226" />
+              <line class="sigil-stroke" x1="90" y1="198" x2="90" y2="290" />
+              <text class="sigil-text" x="58" y="242">A</text>
+              <text class="sigil-text" x="106" y="242">O</text>
+            </svg>
           </div>
         </button>
       </section>
     </main>
+
+    <section class="site-content" id="siteContent" aria-label="AndreasOne website menu" tabindex="-1">
+      <header class="site-header">
+        <h1>AndreasOne</h1>
+        <nav aria-label="Main menu">
+          <a href="#">Menu</a>
+          <a href="#">Join Email List</a>
+          <a href="#">Shop</a>
+          <a href="#">Work</a>
+          <a href="#">Links</a>
+        </nav>
+      </header>
+
+      <article class="bio">
+        <h2>BIO</h2>
+        <p>
+          AndreasOne is a DJ, producer, artist, creative director, and culture curator shaping the evolution of
+          Global Dance Music Culture. As the founder and visionary behind FMLY BZNS, he defines the brand’s
+          creative language—merging Afro-diaspora sound, immersive environments, and bold visual identity into
+          cohesive, multi-sensory experiences. His work exists at the intersection of music, design, and culture,
+          bridging festival stages, nightlife, and intentional community through a distinct and evolving artistic
+          vision.
+        </p>
+      </article>
+
+      <section class="inspo" aria-label="Inspiration links">
+        <h2>INSPO</h2>
+        <ul>
+          <li><a href="https://www.pangeasound.co/" target="_blank" rel="noreferrer">Pangea Sound</a></li>
+          <li><a href="https://www.afronation.com/" target="_blank" rel="noreferrer">Afro Nation</a></li>
+          <li><a href="https://www.everydayppl.nyc/" target="_blank" rel="noreferrer">Everyday People</a></li>
+          <li><a href="https://friedrice-nyc.com/" target="_blank" rel="noreferrer">Fried Rice NYC</a></li>
+          <li><a href="https://www.andreasone.co/" target="_blank" rel="noreferrer">Old AndreasOne Website</a></li>
+        </ul>
+      </section>
+    </section>
 
     <script src="script.js"></script>
   </body>
