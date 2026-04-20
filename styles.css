@@ -75,7 +75,28 @@ body {
     );
   mix-blend-mode: soft-light;
   opacity: 0.86;
-  animation: swirlTwo 22s ease-in-out infinite alternate;
+  animation: swirlTwo 13s linear infinite;
+}
+
+.gradient-layer--vibrate {
+  background:
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(17, 17, 17, 0.04) 0deg 7deg,
+      rgba(255, 255, 255, 0.06) 7deg 12deg
+    ),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(207, 93, 39, 0.18) 0 3.5%,
+      rgba(68, 88, 41, 0.08) 3.5% 7%,
+      rgba(246, 196, 90, 0.16) 7% 10.5%,
+      rgba(239, 231, 215, 0.04) 10.5% 14%
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  filter: blur(1.2px) saturate(118%) contrast(106%);
+  animation: vibrateSwirl 2.4s steps(18, end) infinite,
+    swirlPulse 4.6s ease-in-out infinite;
 }
 
 .glow {
@@ -212,13 +233,46 @@ body {
 
 @keyframes swirlTwo {
   0% {
-    transform: translate3d(2%, -2%, 0) rotate(0deg) scale(1.06);
+    transform: translate3d(0%, 0%, 0) rotate(0deg) scale(1.07);
   }
   50% {
-    transform: translate3d(-4%, 3%, 0) rotate(-110deg) scale(1.12);
+    transform: translate3d(1%, -1%, 0) rotate(-180deg) scale(1.13);
   }
   100% {
-    transform: translate3d(3%, -4%, 0) rotate(-220deg) scale(1.08);
+    transform: translate3d(0%, 0%, 0) rotate(-360deg) scale(1.08);
+  }
+}
+
+@keyframes vibrateSwirl {
+  0% {
+    transform: translate3d(0px, 0px, 0) rotate(0deg) scale(1.02);
+  }
+  20% {
+    transform: translate3d(8px, -6px, 0) rotate(8deg) scale(1.06);
+  }
+  40% {
+    transform: translate3d(-8px, 7px, 0) rotate(16deg) scale(1.08);
+  }
+  60% {
+    transform: translate3d(6px, 8px, 0) rotate(24deg) scale(1.06);
+  }
+  80% {
+    transform: translate3d(-7px, -5px, 0) rotate(32deg) scale(1.04);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) rotate(40deg) scale(1.02);
+  }
+}
+
+@keyframes swirlPulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter: blur(0.9px) saturate(112%) contrast(102%);
+  }
+  50% {
+    opacity: 0.68;
+    filter: blur(1.8px) saturate(128%) contrast(116%);
   }
 }
 
