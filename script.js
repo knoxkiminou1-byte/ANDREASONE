@@ -3,10 +3,17 @@ const logoWrap = document.querySelector('.logo-wrap');
 const pendulum = document.getElementById('pendulum');
 
 if (logoButton && logoWrap && pendulum) {
+  let hitTimer;
+
   const triggerImpact = () => {
+    clearTimeout(hitTimer);
     logoWrap.classList.remove('hit-active', 'knocked-out');
     void logoWrap.offsetWidth;
     logoWrap.classList.add('hit-active');
+
+    hitTimer = setTimeout(() => {
+      logoWrap.classList.add('knocked-out');
+    }, 860);
   };
 
   logoButton.addEventListener('click', triggerImpact);
@@ -17,14 +24,9 @@ if (logoButton && logoWrap && pendulum) {
     }
   });
 
-  pendulum.addEventListener('animationend', (event) => {
-    if (event.animationName === 'pendulumHit') {
-      logoWrap.classList.add('knocked-out');
-    }
-  });
-
   logoWrap.addEventListener('animationend', (event) => {
     if (event.animationName === 'logoKnockOut') {
+      clearTimeout(hitTimer);
       logoWrap.classList.remove('hit-active', 'knocked-out');
     }
   });
