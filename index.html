@@ -10,8 +10,10 @@
     <main class="hero" aria-label="Animated brand hero section">
       <div class="gradient-layer gradient-layer--base" aria-hidden="true"></div>
       <div class="gradient-layer gradient-layer--swirl" aria-hidden="true"></div>
+      <div class="gradient-layer gradient-layer--pulse" aria-hidden="true"></div>
       <div class="glow glow--orange" aria-hidden="true"></div>
       <div class="glow glow--olive" aria-hidden="true"></div>
+      <div class="water-particles" aria-hidden="true"></div>
 
       <section class="logo-wrap" aria-label="Pyramid logo with halo and pendulum interaction">
         <button
@@ -39,8 +41,18 @@
           </svg>
 
           <div class="pendulum" id="pendulum" aria-hidden="true">
-            <span class="pendulum-line"></span>
-            <span class="pendulum-ball"></span>
+            <svg class="pendulum-sigil" viewBox="0 0 180 300" role="presentation">
+              <circle class="sigil-stroke" cx="90" cy="24" r="17" />
+              <line class="sigil-stroke" x1="90" y1="42" x2="90" y2="198" />
+              <path class="sigil-stroke" d="M56 66 L124 66" />
+              <path class="sigil-stroke" d="M36 108 L144 108" />
+              <path class="sigil-stroke" d="M52 146 L128 146" />
+              <circle class="sigil-stroke" cx="90" cy="226" r="64" />
+              <line class="sigil-stroke" x1="28" y1="226" x2="152" y2="226" />
+              <line class="sigil-stroke" x1="90" y1="198" x2="90" y2="290" />
+              <text class="sigil-text" x="58" y="242">A</text>
+              <text class="sigil-text" x="106" y="242">O</text>
+            </svg>
           </div>
         </button>
       </section>
