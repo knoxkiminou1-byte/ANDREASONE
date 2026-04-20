@@ -33,13 +33,15 @@ body {
   background:
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35) 0%, transparent 34%),
     linear-gradient(135deg, var(--soft-cream-tint) 0%, var(--warm-canvas) 100%);
-  animation: sceneVibrate 0.14s steps(2, end) infinite;
+  animation: sceneVibrate 0.1s steps(2, end) infinite;
 }
 
 .gradient-layer {
   position: absolute;
   inset: -35%;
   transform-origin: 50% 50%;
+  border-radius: 50%;
+  will-change: transform, filter;
 }
 
 .gradient-layer--base {
@@ -57,7 +59,7 @@ body {
       #cf5d27
     );
   filter: saturate(116%) contrast(108%);
-  animation: swirlOne 12s linear infinite;
+  animation: swirlOne 12s linear infinite, colorCycle 8s linear infinite;
 }
 
 .gradient-layer--swirl {
@@ -75,7 +77,7 @@ body {
     );
   mix-blend-mode: soft-light;
   opacity: 0.88;
-  animation: swirlTwo 9s linear infinite reverse;
+  animation: swirlTwo 9s linear infinite reverse, colorCycle 10s linear infinite reverse;
 }
 
 .gradient-layer--pulse {
@@ -88,7 +90,7 @@ body {
     );
   mix-blend-mode: multiply;
   opacity: 0.36;
-  animation: swirlPulse 2.2s ease-in-out infinite;
+  animation: swirlPulse 2.2s ease-in-out infinite, colorCycle 12s linear infinite;
 }
 
 .glow {
@@ -118,6 +120,7 @@ body {
 .water-particles {
   position: absolute;
   inset: -20%;
+  border-radius: 50%;
   pointer-events: none;
   background:
     radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.28) 0 0.45%, transparent 0.6%),
@@ -127,7 +130,7 @@ body {
     radial-gradient(circle at 24% 84%, rgba(255, 255, 255, 0.18) 0 0.38%, transparent 0.55%);
   mix-blend-mode: soft-light;
   opacity: 0.58;
-  animation: waterParticles 2.8s linear infinite, waterWave 4.2s ease-in-out infinite;
+  animation: waterParticles 2.4s ease-in-out infinite, waterWave 3.6s ease-in-out infinite, colorCycle 9s linear infinite;
 }
 
 .logo-wrap {
@@ -208,15 +211,15 @@ body {
 .sigil-stroke {
   fill: none;
   stroke: var(--black);
-  stroke-width: 7;
+  stroke-width: 6.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .sigil-text {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 37px;
+  font-weight: 800;
   fill: var(--black);
   text-anchor: middle;
 }
@@ -228,7 +231,7 @@ body {
 
 .logo-wrap.hit-active .pendulum {
   opacity: 1;
-  animation: pendulumHit 0.95s cubic-bezier(0.19, 0.89, 0.3, 1) forwards;
+  animation: pendulumHit 1.95s cubic-bezier(0.2, 0.75, 0.28, 1) forwards;
 }
 
 .logo-wrap.knocked-out {
@@ -286,6 +289,21 @@ body {
   50% {
     transform: scale(1.13) rotate(36deg);
     opacity: 0.44;
+  }
+}
+
+@keyframes colorCycle {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.02);
+  }
+  33% {
+    filter: hue-rotate(42deg) saturate(1.15);
+  }
+  66% {
+    filter: hue-rotate(-38deg) saturate(1.12);
+  }
+  100% {
+    filter: hue-rotate(0deg) saturate(1.02);
   }
 }
 
@@ -350,13 +368,22 @@ body {
 @keyframes pendulumHit {
   0% {
     transform: translateX(-50%) rotate(-60deg);
+    opacity: 0;
   }
-  62% {
-    transform: translateX(-50%) rotate(16deg);
+  12% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(-50%) rotate(20deg);
+    opacity: 1;
+  }
+  72% {
+    transform: translateX(-50%) rotate(-12deg);
+    opacity: 1;
   }
   100% {
-    transform: translateX(-50%) rotate(-28deg);
-    opacity: 0;
+    transform: translateX(-50%) rotate(-24deg);
+    opacity: 0.25;
   }
 }
 
