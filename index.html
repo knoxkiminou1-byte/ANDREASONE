@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMLY Animated Hero</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="hero" aria-label="Animated brand hero section">
+      <div class="gradient-layer" aria-hidden="true"></div>
+      <div class="glow glow--orange" aria-hidden="true"></div>
+      <div class="glow glow--olive" aria-hidden="true"></div>
+
+      <section class="logo-wrap" aria-label="Pyramid logo with halo">
+        <svg
+          class="logo"
+          viewBox="0 0 280 300"
+          role="img"
+          aria-labelledby="logoTitle logoDesc"
+        >
+          <title id="logoTitle">Pyramid with halo logo</title>
+          <desc id="logoDesc">
+            A pyramid centered on the page with a floating halo and a line beneath.
+          </desc>
+
+          <ellipse class="logo-stroke" cx="140" cy="45" rx="60" ry="15" />
+
+          <polygon
+            class="logo-stroke"
+            points="140,90 70,220 210,220"
+            fill="none"
+          />
+
+          <line class="logo-stroke" x1="92" y1="220" x2="188" y2="220" />
+        </svg>
+      </section>
+    </main>
+  </body>
+</html>
