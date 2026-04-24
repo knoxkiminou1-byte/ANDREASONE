@@ -4,6 +4,8 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+The primary artifact is **AndreasOne** (`artifacts/andreasone`) — a presentation-first React + Vite microsite for DJ/producer/artist AndreasOne (music, events, art, shop, fmly community, join, contact). Uses wouter for routing, Tailwind v4, shadcn/ui, framer-motion. Image assets live in the workspace-root `attached_assets/` directory and are aliased as `@assets`.
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
