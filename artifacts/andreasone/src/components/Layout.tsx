@@ -43,14 +43,12 @@ export function Layout({ children }: LayoutProps) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {links.map((link) => (
-              <Link 
-                key={link.href} 
+              <Link
+                key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-primary ${
-                  location === link.href ? "text-primary" : "text-muted-foreground"
-                }`}
+                className={`nav-item text-xs font-medium ${location === link.href ? "is-active" : ""}`}
               >
                 {link.label}
               </Link>
@@ -59,18 +57,18 @@ export function Layout({ children }: LayoutProps) {
 
           <div className="hidden md:flex items-center gap-4">
             {socialLinks.map((social) => (
-              <a 
-                key={social.label} 
+              <a
+                key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary hover:-translate-y-0.5 hover:rotate-[-6deg] transition-transform duration-300"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />
               </a>
             ))}
-            <Button variant="ghost" size="icon" className="ml-2 hover:bg-primary/10 hover:text-primary">
+            <Button variant="ghost" size="icon" className="ml-2 hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5 transition-transform">
               <ShoppingBag className="w-5 h-5" />
             </Button>
           </div>

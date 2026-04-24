@@ -107,6 +107,15 @@
   /* Burnt orange: #cf5d27 -> 20 68% 48% (now secondary accent) */
   --secondary: 20 68% 48%;
   --secondary-foreground: 0 0% 100%;
+
+  /* Direct FMLY palette tokens for utility access (Tailwind v4 @theme) */
+  --color-warm-canvas:  #f3efe6;
+  --color-soft-cream:   #efe7d7;
+  --color-burnt-orange: #cf5d27;
+  --color-olive-green:  #445829;
+  --color-mustard-gold: #f6c45a;
+  --color-sage-gray:    #d9decf;
+  --color-fmly-black:   #111111;
   
   --muted: 40 40% 85%;
   --muted-foreground: 0 0% 40%;
@@ -265,6 +274,141 @@ a:hover, button:hover {
 a.font-display:hover, button.font-display:hover {
   transform: translate3d(0, -4px, 0) rotateX(6deg);
 }
+
+/* Animated nav menu items — sliding underline + lift + mustard pop */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 0.35rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  transition:
+    color 0.25s ease,
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    letter-spacing 0.35s ease;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    hsl(var(--primary)) 0%,
+    #f6c45a 50%,
+    hsl(var(--secondary)) 100%);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(.2,.7,.2,1);
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+  border-radius: 4px;
+  background: radial-gradient(120% 120% at 50% 100%, hsl(var(--primary) / 0.10), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.nav-item:hover,
+.nav-item.is-active {
+  color: hsl(var(--foreground));
+  transform: translate3d(0, -2px, 0);
+  letter-spacing: 0.22em;
+}
+
+.nav-item:hover::before,
+.nav-item.is-active::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.nav-item:hover::after { opacity: 1; }
+
+.nav-item.is-active { color: hsl(var(--primary)); }
+
+/* Pointer-following 3D tilt for cards and images.
+ * Containers get a perspective + transform driven by --tilt-x/--tilt-y
+ * set by the JS handler in main.tsx. Inner images get a sheen.
+ */
+.group, [data-tilt] {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.group, [data-tilt] {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --tilt-mx: 50%;
+  --tilt-my: 50%;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
+}
+
+.group.is-tilting,
+[data-tilt].is-tilting {
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transition: transform 0.12s linear, box-shadow 0.5s ease;
+  box-shadow:
+    0 18px 40px hsl(var(--foreground) / 0.18),
+    0 6px 12px hsl(var(--primary) / 0.18);
+}
+
+.group img,
+[data-tilt] img {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s ease;
+}
+
+.group.is-tilting img,
+[data-tilt].is-tilting img {
+  transform: translateZ(30px) scale(1.04);
+  filter: saturate(1.1) contrast(1.04);
+}
+
+/* Sheen layer driven by pointer position */
+.group::after,
+[data-tilt]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    260px circle at var(--tilt-mx) var(--tilt-my),
+    rgba(255,255,255, 0.18),
+    rgba(255,255,255, 0.04) 35%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+.group.is-tilting::after,
+[data-tilt].is-tilting::after { opacity: 1; }
+
+/* Brand surface utilities — bolder use of the FMLY palette */
+.surface-olive   { background: #445829; color: #f3efe6; }
+.surface-orange  { background: #cf5d27; color: #f3efe6; }
+.surface-mustard { background: #f6c45a; color: #111111; }
+.surface-cream   { background: #efe7d7; color: #111111; }
+.surface-sage    { background: #d9decf; color: #111111; }
+
+.glow-olive  { box-shadow: 0 18px 60px rgba(68, 88, 41, 0.32); }
+.glow-orange { box-shadow: 0 18px 60px rgba(207, 93, 39, 0.32); }
+.glow-gold   { box-shadow: 0 18px 60px rgba(246, 196, 90, 0.32); }
+
+.text-mustard { color: #f6c45a; }
+.text-orange  { color: #cf5d27; }
+.text-olive   { color: #445829; }
 
 /* Animations */
 @keyframes swirlOne {
