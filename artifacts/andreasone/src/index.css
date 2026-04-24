@@ -90,7 +90,7 @@
   /* Soft cream: #efe7d7 -> 40 40% 89% */
   --border: 40 40% 80%; /* slightly darker for actual borders */
   --input: 40 40% 80%;
-  --ring: 20 68% 48%; /* burnt orange */
+  --ring: 85 36% 25%; /* olive green */
   
   --card: 40 40% 89%;
   --card-foreground: 0 0% 7%;
@@ -100,13 +100,13 @@
   --popover-foreground: 0 0% 7%;
   --popover-border: 40 40% 80%;
   
-  /* Burnt orange: #cf5d27 -> 20 68% 48% */
-  --primary: 20 68% 48%;
-  --primary-foreground: 0 0% 100%;
+  /* Olive green: #445829 -> 85 36% 25% (now primary) */
+  --primary: 85 36% 25%;
+  --primary-foreground: 43 41% 93%;
   
-  /* Olive green: #445829 -> 85 36% 25% */
-  --secondary: 85 36% 25%;
-  --secondary-foreground: 43 41% 93%; /* warm canvas */
+  /* Burnt orange: #cf5d27 -> 20 68% 48% (now secondary accent) */
+  --secondary: 20 68% 48%;
+  --secondary-foreground: 0 0% 100%;
   
   --muted: 40 40% 85%;
   --muted-foreground: 0 0% 40%;
@@ -125,11 +125,11 @@
   --sidebar: 43 41% 93%;
   --sidebar-foreground: 0 0% 7%;
   --sidebar-border: 40 40% 80%;
-  --sidebar-primary: 20 68% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-primary: 85 36% 25%;
+  --sidebar-primary-foreground: 43 41% 93%;
   --sidebar-accent: 40 40% 85%;
   --sidebar-accent-foreground: 0 0% 7%;
-  --sidebar-ring: 20 68% 48%;
+  --sidebar-ring: 85 36% 25%;
 
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
@@ -153,17 +153,17 @@
   --foreground: 43 41% 93%;
   --border: 0 0% 20%;
   --input: 0 0% 20%;
-  --ring: 20 68% 48%;
+  --ring: 85 36% 25%;
   --card: 0 0% 10%;
   --card-foreground: 43 41% 93%;
   --card-border: 0 0% 20%;
   --popover: 0 0% 7%;
   --popover-foreground: 43 41% 93%;
   --popover-border: 0 0% 20%;
-  --primary: 20 68% 48%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 85 36% 25%;
-  --secondary-foreground: 43 41% 93%;
+  --primary: 85 36% 25%;
+  --primary-foreground: 43 41% 93%;
+  --secondary: 20 68% 48%;
+  --secondary-foreground: 0 0% 100%;
   --muted: 0 0% 20%;
   --muted-foreground: 0 0% 60%;
   --accent: 41 91% 66%;
@@ -174,11 +174,11 @@
   --sidebar: 0 0% 7%;
   --sidebar-foreground: 43 41% 93%;
   --sidebar-border: 0 0% 20%;
-  --sidebar-primary: 20 68% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-primary: 85 36% 25%;
+  --sidebar-primary-foreground: 43 41% 93%;
   --sidebar-accent: 0 0% 20%;
   --sidebar-accent-foreground: 43 41% 93%;
-  --sidebar-ring: 20 68% 48%;
+  --sidebar-ring: 85 36% 25%;
   
   --button-outline: rgba(255,255,255, .10);
   --badge-outline: rgba(255,255,255, .05);
@@ -194,26 +194,76 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  html {
+    perspective: 1200px;
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-wide uppercase;
   }
   .font-display {
+    transform-style: preserve-3d;
     text-shadow:
-      0 1px 0 hsl(var(--foreground) / 0.18),
-      0 2px 0 hsl(var(--foreground) / 0.14),
-      0 3px 0 hsl(var(--foreground) / 0.10),
-      0 4px 0 hsl(var(--foreground) / 0.07),
-      0 6px 12px hsl(var(--foreground) / 0.18),
-      0 14px 28px hsl(var(--foreground) / 0.18);
-    transform: translateZ(0);
+      0 1px 0 hsl(var(--primary) / 0.95),
+      0 2px 0 hsl(var(--primary) / 0.85),
+      0 3px 0 hsl(var(--primary) / 0.75),
+      0 4px 0 hsl(var(--primary) / 0.65),
+      0 5px 0 hsl(var(--primary) / 0.55),
+      0 6px 0 hsl(var(--primary) / 0.45),
+      0 7px 0 hsl(var(--primary) / 0.35),
+      0 8px 0 hsl(var(--primary) / 0.28),
+      0 14px 18px hsl(var(--foreground) / 0.28),
+      0 22px 32px hsl(var(--foreground) / 0.22),
+      0 32px 60px hsl(var(--foreground) / 0.18);
     will-change: transform;
-    animation: floatLift 6s ease-in-out infinite;
+    animation: floatLift 5.5s ease-in-out infinite;
+  }
+  .font-display:hover {
+    animation-duration: 2.4s;
   }
 }
 
 @keyframes floatLift {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(0, -3px, 0); }
+  0%   { transform: translate3d(0, 0, 0)      rotateX(0deg)  rotateY(0deg)  rotateZ(0deg); }
+  25%  { transform: translate3d(0, -10px, 0)  rotateX(6deg)  rotateY(-3deg) rotateZ(-0.4deg); }
+  50%  { transform: translate3d(0, -16px, 0)  rotateX(0deg)  rotateY(0deg)  rotateZ(0deg); }
+  75%  { transform: translate3d(0, -10px, 0)  rotateX(-6deg) rotateY(3deg)  rotateZ(0.4deg); }
+  100% { transform: translate3d(0, 0, 0)      rotateX(0deg)  rotateY(0deg)  rotateZ(0deg); }
+}
+
+/* Subtle entrance + drift utilities applied to common interactive surfaces */
+@keyframes driftIn {
+  0%   { opacity: 0; transform: translate3d(0, 18px, 0) rotateX(8deg); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0)   rotateX(0deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 6px 20px hsl(var(--primary) / 0.18); }
+  50%      { box-shadow: 0 14px 38px hsl(var(--primary) / 0.38); }
+}
+
+main, section, article {
+  perspective: 1200px;
+}
+
+main > *, section > *, article > * {
+  animation: driftIn 0.9s cubic-bezier(.2,.7,.2,1) both;
+}
+
+a, button {
+  transition:
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+a:hover, button:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+a.font-display:hover, button.font-display:hover {
+  transform: translate3d(0, -4px, 0) rotateX(6deg);
 }
 
 /* Animations */
