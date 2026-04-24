@@ -201,7 +201,16 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased text-foreground;
+    background-color: #efe7d7;
+    background-image:
+      /* Soft warm color washes drifting across the page */
+      radial-gradient(60vw 60vh at 12% 8%,  rgba(207, 93, 39, 0.18), transparent 60%),
+      radial-gradient(55vw 55vh at 88% 28%, rgba(246, 196, 90, 0.22), transparent 60%),
+      radial-gradient(70vw 70vh at 50% 95%, rgba(68, 88, 41, 0.18),  transparent 60%),
+      radial-gradient(45vw 45vh at 8% 80%,  rgba(207, 93, 39, 0.10), transparent 60%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   html {
     perspective: 1200px;
@@ -524,5 +533,93 @@ a.font-display:hover, button.font-display:hover {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     opacity: 0.05;
     mix-blend-mode: multiply;
+  }
+}
+
+/* ============================================================
+ * Tribal kente-style stripe panels on the left and right edges.
+ * Inspired by Afronation / West African strip cloth: alternating
+ * solid color bands punctuated by a triangular zigzag overlay
+ * and a thin black trim where the panel meets the page content.
+ * Hidden on small screens so mobile content has full width.
+ * ============================================================ */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  z-index: 30;
+  pointer-events: none;
+  background-color: #cf5d27;
+  background-image:
+    /* Diamond zigzag overlay (two crossed triangles) */
+    linear-gradient(135deg,
+      transparent 46%,
+      rgba(17, 17, 17, 0.55) 46% 54%,
+      transparent 54%),
+    linear-gradient(45deg,
+      transparent 46%,
+      rgba(17, 17, 17, 0.35) 46% 54%,
+      transparent 54%),
+    /* Horizontal kente bands cycling through the FMLY palette */
+    repeating-linear-gradient(
+      to bottom,
+      #cf5d27 0px,         /* burnt orange */
+      #cf5d27 28px,
+      #111111 28px,
+      #111111 32px,
+      #f6c45a 32px,        /* mustard gold */
+      #f6c45a 60px,
+      #111111 60px,
+      #111111 64px,
+      #445829 64px,        /* olive green */
+      #445829 92px,
+      #111111 92px,
+      #111111 96px,
+      #efe7d7 96px,        /* soft cream */
+      #efe7d7 112px,
+      #111111 112px,
+      #111111 116px,
+      #cf5d27 116px,
+      #cf5d27 144px
+    );
+  background-size: 44px 44px, 44px 44px, 100% 144px;
+  background-repeat: repeat-y;
+  border-top: 4px solid #111;
+  border-bottom: 4px solid #111;
+  box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.2) inset;
+}
+
+body::before { left: 0; }
+body::after  { right: 0; }
+
+/* Inner trim line so the stripe reads as a separate panel from
+ * the page content, not bleeding into the layout */
+@media (min-width: 768px) {
+  body::before { box-shadow: 4px 0 0 #111111, 8px 0 16px rgba(17,17,17,0.18); }
+  body::after  { box-shadow: -4px 0 0 #111111, -8px 0 16px rgba(17,17,17,0.18); }
+}
+
+/* On small screens collapse the panels to a slim accent strip
+ * so they don't crowd narrow content. */
+@media (max-width: 767px) {
+  body::before, body::after { width: 14px; }
+}
+
+/* Push the page header inward so the wordmark and CTAs don't
+ * sit underneath the stripes. The header is `fixed`, so we
+ * style it directly. */
+@media (min-width: 768px) {
+  header.fixed {
+    left: 44px !important;
+    right: 44px !important;
+  }
+}
+@media (max-width: 767px) {
+  header.fixed {
+    left: 14px !important;
+    right: 14px !important;
   }
 }
