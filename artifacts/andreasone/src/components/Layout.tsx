@@ -12,6 +12,14 @@ export function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  React.useEffect(() => {
+    const slug = location === "/" ? "home" : location.replace(/^\//, "").replace(/\//g, "-");
+    document.body.dataset.page = slug || "home";
+    return () => {
+      delete document.body.dataset.page;
+    };
+  }, [location]);
+
   const links = [
     { label: "Home", href: "/" },
     { label: "Music", href: "/music" },

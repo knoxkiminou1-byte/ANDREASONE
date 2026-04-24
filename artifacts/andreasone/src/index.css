@@ -541,8 +541,25 @@ a.font-display:hover, button.font-display:hover {
  * Inspired by Afronation / West African strip cloth: alternating
  * solid color bands punctuated by a triangular zigzag overlay
  * and a thin black trim where the panel meets the page content.
- * Hidden on small screens so mobile content has full width.
+ *
+ * Each page gets its own variant via body[data-page="..."] which
+ * sets:
+ *   --stripe-hue       hue-rotate angle on the panel pattern
+ *   --stripe-scroll    duration of the vertical scroll loop
+ *   --stripe-glow      glow tint color
+ *   --stripe-glow-2    second glow tint for the pulse
+ *
+ * The pattern itself scrolls vertically and the brightness pulses
+ * in time with a colored box-shadow halo, so each panel reads as
+ * a lit-up festival band that's slightly different on every page.
  * ============================================================ */
+:root {
+  --stripe-hue: 0deg;
+  --stripe-scroll: 22s;
+  --stripe-glow: rgba(207, 93, 39, 0.45);
+  --stripe-glow-2: rgba(246, 196, 90, 0.55);
+}
+
 body::before,
 body::after {
   content: "";
@@ -587,25 +604,123 @@ body::after {
     );
   background-size: 44px 44px, 44px 44px, 100% 144px;
   background-repeat: repeat-y;
+  background-position: 0 0, 0 0, 0 0;
   border-top: 4px solid #111;
   border-bottom: 4px solid #111;
-  box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.2) inset;
+  filter: hue-rotate(var(--stripe-hue)) saturate(1.05);
+  animation:
+    kenteScroll var(--stripe-scroll) linear infinite,
+    kenteGlow 4.5s ease-in-out infinite;
 }
 
 body::before { left: 0; }
-body::after  { right: 0; }
+body::after  { right: 0; animation-direction: reverse, alternate; }
+
+@keyframes kenteScroll {
+  0%   { background-position: 0 0,     0 0,     0 0; }
+  100% { background-position: 0 -44px, 0 -44px, 0 -144px; }
+}
+
+@keyframes kenteGlow {
+  0%, 100% {
+    filter: hue-rotate(var(--stripe-hue)) brightness(1) saturate(1.1);
+    box-shadow:
+      0 0 0 1px rgba(17, 17, 17, 0.25) inset,
+      0 0 18px var(--stripe-glow);
+  }
+  50% {
+    filter: hue-rotate(var(--stripe-hue)) brightness(1.18) saturate(1.35);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+      0 0 42px var(--stripe-glow-2);
+  }
+}
 
 /* Inner trim line so the stripe reads as a separate panel from
  * the page content, not bleeding into the layout */
 @media (min-width: 768px) {
-  body::before { box-shadow: 4px 0 0 #111111, 8px 0 16px rgba(17,17,17,0.18); }
-  body::after  { box-shadow: -4px 0 0 #111111, -8px 0 16px rgba(17,17,17,0.18); }
+  body::before {
+    box-shadow:
+      4px 0 0 #111111,
+      8px 0 22px var(--stripe-glow),
+      0 0 0 1px rgba(17, 17, 17, 0.25) inset;
+  }
+  body::after {
+    box-shadow:
+      -4px 0 0 #111111,
+      -8px 0 22px var(--stripe-glow),
+      0 0 0 1px rgba(17, 17, 17, 0.25) inset;
+  }
 }
 
 /* On small screens collapse the panels to a slim accent strip
  * so they don't crowd narrow content. */
 @media (max-width: 767px) {
   body::before, body::after { width: 14px; }
+}
+
+/* ---------- Per-page variants ---------- */
+body[data-page="home"] {
+  --stripe-hue: 0deg;
+  --stripe-scroll: 24s;
+  --stripe-glow: rgba(207, 93, 39, 0.45);
+  --stripe-glow-2: rgba(246, 196, 90, 0.6);
+}
+body[data-page="music"] {
+  --stripe-hue: 28deg;
+  --stripe-scroll: 14s;
+  --stripe-glow: rgba(246, 196, 90, 0.55);
+  --stripe-glow-2: rgba(207, 93, 39, 0.55);
+}
+body[data-page="events"] {
+  --stripe-hue: -25deg;
+  --stripe-scroll: 10s;
+  --stripe-glow: rgba(207, 93, 39, 0.6);
+  --stripe-glow-2: rgba(255, 80, 40, 0.55);
+}
+body[data-page="work"] {
+  --stripe-hue: 55deg;
+  --stripe-scroll: 28s;
+  --stripe-glow: rgba(68, 88, 41, 0.55);
+  --stripe-glow-2: rgba(246, 196, 90, 0.6);
+}
+body[data-page="art"] {
+  --stripe-hue: 120deg;
+  --stripe-scroll: 18s;
+  --stripe-glow: rgba(120, 200, 120, 0.45);
+  --stripe-glow-2: rgba(246, 196, 90, 0.6);
+}
+body[data-page="shop"] {
+  --stripe-hue: -55deg;
+  --stripe-scroll: 20s;
+  --stripe-glow: rgba(220, 90, 130, 0.5);
+  --stripe-glow-2: rgba(246, 196, 90, 0.55);
+}
+body[data-page="join"] {
+  --stripe-hue: 80deg;
+  --stripe-scroll: 16s;
+  --stripe-glow: rgba(246, 196, 90, 0.65);
+  --stripe-glow-2: rgba(255, 230, 120, 0.7);
+}
+body[data-page="contact"] {
+  --stripe-hue: 200deg;
+  --stripe-scroll: 30s;
+  --stripe-glow: rgba(80, 130, 200, 0.5);
+  --stripe-glow-2: rgba(120, 200, 220, 0.55);
+}
+body[data-page="about"],
+body[data-page="fmly"] {
+  --stripe-hue: 15deg;
+  --stripe-scroll: 26s;
+  --stripe-glow: rgba(207, 93, 39, 0.5);
+  --stripe-glow-2: rgba(246, 196, 90, 0.55);
+}
+
+/* Respect prefers-reduced-motion: pin the panels and stop the pulse */
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after {
+    animation: none;
+  }
 }
 
 /* Push the page header inward so the wordmark and CTAs don't
