@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import React from "react";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
-
-import { IntroHero } from "@/components/IntroHero";
 import { Layout } from "@/components/Layout";
 
 import Home from "@/pages/Home";
@@ -41,33 +39,12 @@ function Router() {
   );
 }
 
-function IntroGate() {
-  const [location] = useLocation();
-  const isHome = location === "/" || location === "";
-  const [showIntro, setShowIntro] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return isHome && !sessionStorage.getItem("introSeen");
-  });
-
-  useEffect(() => {
-    const handleIntroFinished = () => {
-      sessionStorage.setItem("introSeen", "true");
-      setShowIntro(false);
-    };
-    window.addEventListener("introFinished", handleIntroFinished);
-    return () => window.removeEventListener("introFinished", handleIntroFinished);
-  }, []);
-
-  if (showIntro && isHome) return <IntroHero />;
-  return <Router />;
-}
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <IntroGate />
+          <Router />
         </WouterRouter>
         <Toaster />
       </TooltipProvider>
