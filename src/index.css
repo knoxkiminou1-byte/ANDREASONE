@@ -1,0 +1,854 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: 'Deserved';
+  src: url('/fonts/Deserved-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-display: var(--app-font-display);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* FMLY Palette */
+  --warm-canvas: #f3efe6;
+  --soft-cream: #efe7d7;
+  --black: #111111;
+  --burnt-orange: #cf5d27;
+  --olive-green: #445829;
+  --mustard-gold: #f6c45a;
+  --sage-gray: #d9decf;
+  --white: #ffffff;
+  
+  --burnt-orange-glow: rgba(207, 93, 39, 0.22);
+  --olive-glow: rgba(68, 88, 41, 0.22);
+
+  /* HSL equivalents for shadcn */
+  /* Warm canvas: #f3efe6 -> 43 41% 93% */
+  --background: 43 41% 93%;
+  /* Black: #111111 -> 0 0% 7% */
+  --foreground: 0 0% 7%;
+  
+  /* Soft cream: #efe7d7 -> 40 40% 89% */
+  --border: 40 40% 80%; /* slightly darker for actual borders */
+  --input: 40 40% 80%;
+  --ring: 20 68% 48%; /* burnt orange */
+  
+  --card: 40 40% 89%;
+  --card-foreground: 0 0% 7%;
+  --card-border: 40 40% 80%;
+  
+  --popover: 43 41% 93%;
+  --popover-foreground: 0 0% 7%;
+  --popover-border: 40 40% 80%;
+  
+  /* Burnt orange: #cf5d27 -> 20 68% 48% (now primary) */
+  --primary: 20 68% 48%;
+  --primary-foreground: 43 41% 93%;
+  
+  /* Olive green: #445829 -> 85 36% 25% (now secondary accent) */
+  --secondary: 85 36% 25%;
+  --secondary-foreground: 43 41% 93%;
+
+  /* Direct FMLY palette tokens for utility access (Tailwind v4 @theme) */
+  --color-warm-canvas:  #f3efe6;
+  --color-soft-cream:   #efe7d7;
+  --color-burnt-orange: #cf5d27;
+  --color-olive-green:  #445829;
+  --color-mustard-gold: #f6c45a;
+  --color-sage-gray:    #d9decf;
+  --color-fmly-black:   #111111;
+  
+  --muted: 40 40% 85%;
+  --muted-foreground: 0 0% 40%;
+  
+  /* Mustard gold: #f6c45a -> 41 91% 66% */
+  --accent: 41 91% 66%;
+  --accent-foreground: 0 0% 7%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --app-font-sans: 'Space Grotesk', sans-serif;
+  --app-font-display: 'Deserved', 'Anton', sans-serif;
+  --radius: 0rem; /* Sharp edges */
+  
+  --sidebar: 43 41% 93%;
+  --sidebar-foreground: 0 0% 7%;
+  --sidebar-border: 40 40% 80%;
+  --sidebar-primary: 20 68% 48%;
+  --sidebar-primary-foreground: 43 41% 93%;
+  --sidebar-accent: 40 40% 85%;
+  --sidebar-accent-foreground: 0 0% 7%;
+  --sidebar-ring: 20 68% 48%;
+
+  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
+  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
+  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
+  
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+}
+
+.dark {
+  /* Same theme for now as per instructions (warm/earthy), but keeping variables valid */
+  --background: 0 0% 7%;
+  --foreground: 43 41% 93%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 20 68% 48%;
+  --card: 0 0% 10%;
+  --card-foreground: 43 41% 93%;
+  --card-border: 0 0% 20%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 43 41% 93%;
+  --popover-border: 0 0% 20%;
+  --primary: 20 68% 48%;
+  --primary-foreground: 43 41% 93%;
+  --secondary: 85 36% 25%;
+  --secondary-foreground: 43 41% 93%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 41 91% 66%;
+  --accent-foreground: 0 0% 7%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  
+  --sidebar: 0 0% 7%;
+  --sidebar-foreground: 43 41% 93%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-primary: 20 68% 48%;
+  --sidebar-primary-foreground: 43 41% 93%;
+  --sidebar-accent: 0 0% 20%;
+  --sidebar-accent-foreground: 43 41% 93%;
+  --sidebar-ring: 20 68% 48%;
+  
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased text-foreground;
+    /* Per-page gradient. Pages override --page-gradient with
+     * their own bold multi-stop gradient. */
+    background-color: var(--page-bg, #efe7d7);
+    background-image: var(--page-gradient,
+      linear-gradient(135deg,
+        #cf5d27 0%,
+        #f6c45a 28%,
+        #efe7d7 50%,
+        #445829 72%,
+        #6b2a72 100%));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: background-color 0.6s ease;
+  }
+  html {
+    perspective: 1200px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide uppercase;
+  }
+  .font-display {
+    transform-style: preserve-3d;
+    /* Legible stacked shadow: 3 short solid layers in primary for the
+     * extruded edge, plus a single soft ambient shadow underneath.
+     * The text itself stays its own color so it remains readable. */
+    text-shadow:
+      0 1px 0 hsl(var(--primary) / 0.55),
+      0 2px 0 hsl(var(--primary) / 0.40),
+      0 3px 0 hsl(var(--primary) / 0.25),
+      0 8px 18px hsl(0 0% 0% / 0.22);
+    will-change: transform;
+    animation: floatLift 5.5s ease-in-out infinite;
+  }
+  .font-display:hover {
+    animation-duration: 2.4s;
+  }
+}
+
+@keyframes floatLift {
+  0%   { transform: translate3d(0, 0, 0)     rotateX(0deg)  rotateY(0deg)  rotateZ(0deg); }
+  25%  { transform: translate3d(0, -8px, 0)  rotateX(4deg)  rotateY(-2deg) rotateZ(-0.3deg); }
+  50%  { transform: translate3d(0, -12px, 0) rotateX(0deg)  rotateY(0deg)  rotateZ(0deg); }
+  75%  { transform: translate3d(0, -8px, 0)  rotateX(-4deg) rotateY(2deg)  rotateZ(0.3deg); }
+  100% { transform: translate3d(0, 0, 0)     rotateX(0deg)  rotateY(0deg)  rotateZ(0deg); }
+}
+
+/* Different heading color rhythm so the page reads as varied,
+ * Pangea Sound / Fried Rice style — orange / olive / mustard cycle.
+ * Only applies inside content (main), not the footer or header. */
+main h1 { color: hsl(var(--foreground)); }
+main h2 { color: hsl(var(--primary)); }
+main h3 { color: hsl(var(--secondary)); }
+main h4 { color: #cf5d27; }
+main h5 { color: #445829; }
+main h6 { color: #b88412; }
+
+/* Override-friendly: any heading with an explicit text-* utility
+ * still wins because Tailwind classes load after this stylesheet. */
+
+/* Subtle entrance + drift utilities applied to common interactive surfaces */
+@keyframes driftIn {
+  0%   { opacity: 0; transform: translate3d(0, 18px, 0) rotateX(8deg); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0)   rotateX(0deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 6px 20px hsl(var(--primary) / 0.18); }
+  50%      { box-shadow: 0 14px 38px hsl(var(--primary) / 0.38); }
+}
+
+/* Image float — every photo / artwork / poster gently bobs.
+ * Staggered with nth-of-type so the page feels alive rather than in lockstep.
+ * Pauses while the parent card is being tilted by the cursor so the two
+ * effects don't fight each other. */
+@keyframes imgFloat {
+  0%, 100% { transform: translate3d(0, 0, 0)    rotate(0deg); }
+  50%      { transform: translate3d(0, -10px, 0) rotate(0.4deg); }
+}
+
+main img,
+footer img,
+[data-float] {
+  animation: imgFloat 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+main img:nth-of-type(2n)  { animation-delay: -1.2s; animation-duration: 7.5s; }
+main img:nth-of-type(3n)  { animation-delay: -2.4s; animation-duration: 8.5s; }
+main img:nth-of-type(4n)  { animation-delay: -3.6s; animation-duration: 6s; }
+main img:nth-of-type(5n)  { animation-delay: -0.8s; animation-duration: 7s; }
+
+.group.is-tilting img,
+[data-tilt].is-tilting img {
+  animation-play-state: paused;
+}
+
+main, section, article {
+  perspective: 1200px;
+}
+
+main > *, section > *, article > * {
+  animation: driftIn 0.9s cubic-bezier(.2,.7,.2,1) both;
+}
+
+a, button {
+  transition:
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+a:hover, button:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+a.font-display:hover, button.font-display:hover {
+  transform: translate3d(0, -4px, 0) rotateX(6deg);
+}
+
+/* Force every dimmed / gray text utility to render white for legibility
+ * on the warm gradient backgrounds. Targets every opacity step Tailwind
+ * generates for our common dim-text tokens (foreground, muted-foreground,
+ * arbitrary cream, white, gray-XXX). */
+[class*="text-foreground/"],
+[class*="text-[#efe7d7]/"],
+[class*="text-white/"],
+.text-muted-foreground,
+.text-gray-300, .text-gray-400, .text-gray-500,
+.text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 {
+  color: #ffffff !important;
+}
+
+/* Animated nav menu items — sliding underline + lift + mustard pop */
+.nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 0.35rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  transition:
+    color 0.25s ease,
+    transform 0.35s cubic-bezier(.2,.7,.2,1),
+    letter-spacing 0.35s ease;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    hsl(var(--primary)) 0%,
+    #f6c45a 50%,
+    hsl(var(--secondary)) 100%);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(.2,.7,.2,1);
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+  border-radius: 4px;
+  background: radial-gradient(120% 120% at 50% 100%, hsl(var(--primary) / 0.10), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.nav-item:hover,
+.nav-item.is-active {
+  color: hsl(var(--foreground));
+  transform: translate3d(0, -2px, 0);
+  letter-spacing: 0.22em;
+}
+
+.nav-item:hover::before,
+.nav-item.is-active::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.nav-item:hover::after { opacity: 1; }
+
+.nav-item.is-active { color: hsl(var(--primary)); }
+
+/* Pointer-following 3D tilt for cards and images.
+ * Containers get a perspective + transform driven by --tilt-x/--tilt-y
+ * set by the JS handler in main.tsx. Inner images get a sheen.
+ */
+.group, [data-tilt] {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.group, [data-tilt] {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --tilt-mx: 50%;
+  --tilt-my: 50%;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
+}
+
+.group.is-tilting,
+[data-tilt].is-tilting {
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transition: transform 0.12s linear, box-shadow 0.5s ease;
+  box-shadow:
+    0 18px 40px hsl(var(--foreground) / 0.18),
+    0 6px 12px hsl(var(--primary) / 0.18);
+}
+
+.group img,
+[data-tilt] img {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s ease;
+}
+
+.group.is-tilting img,
+[data-tilt].is-tilting img {
+  transform: translateZ(30px) scale(1.04);
+  filter: saturate(1.1) contrast(1.04);
+}
+
+/* Sheen layer driven by pointer position */
+.group::after,
+[data-tilt]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    260px circle at var(--tilt-mx) var(--tilt-my),
+    rgba(255,255,255, 0.18),
+    rgba(255,255,255, 0.04) 35%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
+
+.group.is-tilting::after,
+[data-tilt].is-tilting::after { opacity: 1; }
+
+/* Brand surface utilities — bolder use of the FMLY palette */
+.surface-olive   { background: #445829; color: #f3efe6; }
+.surface-orange  { background: #cf5d27; color: #f3efe6; }
+.surface-mustard { background: #f6c45a; color: #111111; }
+.surface-cream   { background: #efe7d7; color: #111111; }
+.surface-sage    { background: #d9decf; color: #111111; }
+
+.glow-olive  { box-shadow: 0 18px 60px rgba(68, 88, 41, 0.32); }
+.glow-orange { box-shadow: 0 18px 60px rgba(207, 93, 39, 0.32); }
+.glow-gold   { box-shadow: 0 18px 60px rgba(246, 196, 90, 0.32); }
+
+.text-mustard { color: #f6c45a; }
+.text-orange  { color: #cf5d27; }
+.text-olive   { color: #445829; }
+
+/* Animations */
+@keyframes swirlOne {
+  0% { transform: translate3d(-2%, -1%, 0) rotate(0deg) scale(1.04); }
+  50% { transform: translate3d(4%, 4%, 0) rotate(180deg) scale(1.14); }
+  100% { transform: translate3d(-3%, 2%, 0) rotate(360deg) scale(1.07); }
+}
+
+@keyframes swirlTwo {
+  0% { transform: translate3d(2%, -2%, 0) rotate(0deg) scale(1.07); }
+  50% { transform: translate3d(-3%, 4%, 0) rotate(-180deg) scale(1.15); }
+  100% { transform: translate3d(2%, -3%, 0) rotate(-360deg) scale(1.08); }
+}
+
+@keyframes swirlPulse {
+  0%, 100% { transform: scale(0.98) rotate(0deg); opacity: 0.2; }
+  50% { transform: scale(1.13) rotate(36deg); opacity: 0.44; }
+}
+
+@keyframes colorCycle {
+  0% { filter: hue-rotate(0deg) saturate(1.02); }
+  33% { filter: hue-rotate(42deg) saturate(1.15); }
+  66% { filter: hue-rotate(-38deg) saturate(1.12); }
+  100% { filter: hue-rotate(0deg) saturate(1.02); }
+}
+
+@keyframes orbitOrange {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10vmax, -8vmax) scale(1.16); }
+}
+
+@keyframes orbitOlive {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-9vmax, 9vmax) scale(1.12); }
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-22px); }
+}
+
+@keyframes sceneVibrate {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(1.4px, -1.6px) rotate(0.12deg); }
+  50% { transform: translate(-1.8px, 1.2px) rotate(-0.14deg); }
+  80% { transform: translate(1.1px, 0.9px) rotate(0.08deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes pendulumHit {
+  0% { transform: translateX(-50%) rotate(-60deg); opacity: 0; }
+  12% { opacity: 1; }
+  45% { transform: translateX(-50%) rotate(20deg); opacity: 1; }
+  72% { transform: translateX(-50%) rotate(-12deg); opacity: 1; }
+  100% { transform: translateX(-50%) rotate(-24deg); opacity: 0.25; }
+}
+
+@keyframes logoImpact {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-8px) scale(1.04); }
+  70% { transform: translateY(10px) scale(0.97); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes logoKnockOut {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(-84vw, -28vh) rotate(-42deg) scale(0.74); opacity: 0; }
+}
+
+@keyframes sceneWarp {
+  0% { transform: scale(1) rotate(0deg); filter: saturate(1) blur(0px); opacity: 1; }
+  55% { transform: scale(1.28) rotate(-46deg); filter: saturate(1.4) blur(2px); opacity: 1; }
+  100% { transform: scale(1.8) rotate(-130deg); filter: saturate(0.9) blur(12px); opacity: 0; }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+  }
+}
+
+/* ============================================================
+ * Tribal kente-style stripe panels on the left and right edges.
+ * Inspired by Afronation / West African strip cloth: alternating
+ * solid color bands punctuated by a triangular zigzag overlay
+ * and a thin black trim where the panel meets the page content.
+ *
+ * Each page gets its own variant via body[data-page="..."] which
+ * sets:
+ *   --stripe-hue       hue-rotate angle on the panel pattern
+ *   --stripe-scroll    duration of the vertical scroll loop
+ *   --stripe-glow      glow tint color
+ *   --stripe-glow-2    second glow tint for the pulse
+ *
+ * The pattern itself scrolls vertically and the brightness pulses
+ * in time with a colored box-shadow halo, so each panel reads as
+ * a lit-up festival band that's slightly different on every page.
+ * ============================================================ */
+:root {
+  --stripe-hue: 0deg;
+  --stripe-scroll: 22s;
+  --stripe-glow: rgba(207, 93, 39, 0.45);
+  --stripe-glow-2: rgba(246, 196, 90, 0.55);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  z-index: 30;
+  pointer-events: none;
+  background-color: #cf5d27;
+  background-image:
+    /* Diamond zigzag overlay (two crossed triangles) */
+    linear-gradient(135deg,
+      transparent 46%,
+      rgba(17, 17, 17, 0.55) 46% 54%,
+      transparent 54%),
+    linear-gradient(45deg,
+      transparent 46%,
+      rgba(17, 17, 17, 0.35) 46% 54%,
+      transparent 54%),
+    /* Horizontal kente bands cycling through the FMLY palette */
+    repeating-linear-gradient(
+      to bottom,
+      #cf5d27 0px,         /* burnt orange */
+      #cf5d27 28px,
+      #111111 28px,
+      #111111 32px,
+      #f6c45a 32px,        /* mustard gold */
+      #f6c45a 60px,
+      #111111 60px,
+      #111111 64px,
+      #445829 64px,        /* olive green */
+      #445829 92px,
+      #111111 92px,
+      #111111 96px,
+      #efe7d7 96px,        /* soft cream */
+      #efe7d7 112px,
+      #111111 112px,
+      #111111 116px,
+      #cf5d27 116px,
+      #cf5d27 144px
+    );
+  background-size: 44px 44px, 44px 44px, 100% 144px;
+  background-repeat: repeat-y;
+  background-position: 0 0, 0 0, 0 0;
+  border-top: 4px solid #111;
+  border-bottom: 4px solid #111;
+  filter: hue-rotate(var(--stripe-hue)) saturate(1.05);
+  animation:
+    kenteScroll var(--stripe-scroll) linear infinite,
+    kenteGlow 4.5s ease-in-out infinite;
+}
+
+body::before { left: 0; }
+body::after  { right: 0; animation-direction: reverse, alternate; }
+
+@keyframes kenteScroll {
+  0%   { background-position: 0 0,     0 0,     0 0; }
+  100% { background-position: 0 -44px, 0 -44px, 0 -144px; }
+}
+
+@keyframes kenteGlow {
+  0%, 100% {
+    filter: hue-rotate(var(--stripe-hue)) brightness(1) saturate(1.1);
+    box-shadow:
+      0 0 0 1px rgba(17, 17, 17, 0.25) inset,
+      0 0 18px var(--stripe-glow);
+  }
+  50% {
+    filter: hue-rotate(var(--stripe-hue)) brightness(1.18) saturate(1.35);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+      0 0 42px var(--stripe-glow-2);
+  }
+}
+
+/* Inner trim line so the stripe reads as a separate panel from
+ * the page content, not bleeding into the layout */
+@media (min-width: 768px) {
+  body::before {
+    box-shadow:
+      4px 0 0 #111111,
+      8px 0 22px var(--stripe-glow),
+      0 0 0 1px rgba(17, 17, 17, 0.25) inset;
+  }
+  body::after {
+    box-shadow:
+      -4px 0 0 #111111,
+      -8px 0 22px var(--stripe-glow),
+      0 0 0 1px rgba(17, 17, 17, 0.25) inset;
+  }
+}
+
+/* On small screens collapse the panels to a slim accent strip
+ * so they don't crowd narrow content. */
+@media (max-width: 767px) {
+  body::before, body::after { width: 14px; }
+}
+
+/* ============================================================
+ * Make page content slabs translucent so the body gradient
+ * shows through. The page-level wrappers and section panels in
+ * the original v0 design are painted with `bg-background`
+ * (cream) or `bg-[#efe7d7]` — those would otherwise hide the
+ * per-page gradient. Within <main> we turn them into subtle
+ * glass slabs so the gradient is the dominant surface and the
+ * cards still read as their own panels.
+ *
+ * Dark sections like the Quote (`bg-[#111111]`) and the burnt
+ * orange / olive CTA panels are untouched.
+ * ============================================================ */
+main .bg-background {
+  background-color: transparent !important;
+}
+main section.bg-background {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(2px);
+}
+main .bg-\[\#efe7d7\] {
+  background-color: rgba(239, 231, 215, 0.55) !important;
+  backdrop-filter: blur(3px);
+}
+
+/* ---------- Per-page variants ----------
+ * Each page sets its own bold full-bleed gradient (--page-gradient)
+ * plus its kente stripe panel hue/speed/glow.
+ * Home mixes the whole palette; every other page leans hard into
+ * one or two colors so navigating feels like changing rooms. */
+body[data-page="home"] {
+  --stripe-hue: 0deg;
+  --stripe-scroll: 24s;
+  --stripe-glow: rgba(207, 93, 39, 0.45);
+  --stripe-glow-2: rgba(246, 196, 90, 0.6);
+  --page-bg: #cf5d27;
+  --page-gradient:
+    linear-gradient(135deg,
+      #cf5d27 0%,
+      #e88a3a 18%,
+      #f6c45a 36%,
+      #efe7d7 52%,
+      #6f8c3a 70%,
+      #445829 84%,
+      #6b2a72 100%);
+}
+body[data-page="music"] {
+  --stripe-hue: 28deg;
+  --stripe-scroll: 14s;
+  --stripe-glow: rgba(246, 196, 90, 0.55);
+  --stripe-glow-2: rgba(207, 93, 39, 0.55);
+  --page-bg: #cf5d27;
+  --page-gradient:
+    linear-gradient(160deg,
+      #cf5d27 0%,
+      #e07a2c 35%,
+      #f6c45a 75%,
+      #fbe79c 100%);
+}
+body[data-page="events"] {
+  --stripe-hue: -25deg;
+  --stripe-scroll: 10s;
+  --stripe-glow: rgba(207, 93, 39, 0.6);
+  --stripe-glow-2: rgba(255, 80, 40, 0.55);
+  --page-bg: #b32d22;
+  --page-gradient:
+    linear-gradient(150deg,
+      #6b1410 0%,
+      #b32d22 30%,
+      #e44a26 60%,
+      #f6c45a 100%);
+}
+body[data-page="work"] {
+  --stripe-hue: 55deg;
+  --stripe-scroll: 28s;
+  --stripe-glow: rgba(68, 88, 41, 0.55);
+  --stripe-glow-2: rgba(246, 196, 90, 0.6);
+  --page-bg: #445829;
+  --page-gradient:
+    linear-gradient(140deg,
+      #2c3a1a 0%,
+      #445829 30%,
+      #7a9a3e 65%,
+      #f6c45a 100%);
+}
+body[data-page="art"] {
+  --stripe-hue: 120deg;
+  --stripe-scroll: 18s;
+  --stripe-glow: rgba(150, 100, 220, 0.55);
+  --stripe-glow-2: rgba(120, 200, 120, 0.55);
+  --page-bg: #4b2370;
+  --page-gradient:
+    linear-gradient(135deg,
+      #2a103e 0%,
+      #6b2a72 30%,
+      #b25aa8 55%,
+      #6f8c3a 80%,
+      #efe7d7 100%);
+}
+body[data-page="shop"] {
+  --stripe-hue: -55deg;
+  --stripe-scroll: 20s;
+  --stripe-glow: rgba(220, 90, 130, 0.55);
+  --stripe-glow-2: rgba(246, 196, 90, 0.55);
+  --page-bg: #b32d22;
+  --page-gradient:
+    linear-gradient(160deg,
+      #6b1410 0%,
+      #b32d22 35%,
+      #d65b6e 65%,
+      #f6c45a 100%);
+}
+body[data-page="join"] {
+  --stripe-hue: 80deg;
+  --stripe-scroll: 16s;
+  --stripe-glow: rgba(246, 196, 90, 0.65);
+  --stripe-glow-2: rgba(255, 230, 120, 0.7);
+  --page-bg: #f6c45a;
+  --page-gradient:
+    linear-gradient(155deg,
+      #b8860c 0%,
+      #f6c45a 30%,
+      #fbe79c 60%,
+      #efe7d7 100%);
+}
+body[data-page="contact"] {
+  --stripe-hue: 200deg;
+  --stripe-scroll: 30s;
+  --stripe-glow: rgba(80, 130, 200, 0.55);
+  --stripe-glow-2: rgba(120, 200, 220, 0.55);
+  --page-bg: #2c4f6e;
+  --page-gradient:
+    linear-gradient(150deg,
+      #16283a 0%,
+      #2c4f6e 30%,
+      #5a8db8 60%,
+      #efe7d7 100%);
+}
+body[data-page="about"],
+body[data-page="fmly"] {
+  --stripe-hue: 15deg;
+  --stripe-scroll: 26s;
+  --stripe-glow: rgba(207, 93, 39, 0.55);
+  --stripe-glow-2: rgba(246, 196, 90, 0.55);
+  --page-bg: #cf5d27;
+  --page-gradient:
+    linear-gradient(155deg,
+      #6b2a72 0%,
+      #b32d22 25%,
+      #cf5d27 55%,
+      #f6c45a 85%,
+      #efe7d7 100%);
+}
+
+/* Respect prefers-reduced-motion: pin the panels and stop the pulse */
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after {
+    animation: none;
+  }
+}
+
+/* Push the page header inward so the wordmark and CTAs don't
+ * sit underneath the stripes. The header is `fixed`, so we
+ * style it directly. */
+@media (min-width: 768px) {
+  header.fixed {
+    left: 44px !important;
+    right: 44px !important;
+  }
+}
+@media (max-width: 767px) {
+  header.fixed {
+    left: 14px !important;
+    right: 14px !important;
+  }
+}
