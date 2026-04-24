@@ -29,7 +29,7 @@ export default function Home() {
             alt="AndreasOne Crowd" 
             className="w-full h-full object-cover opacity-40 mix-blend-luminosity grayscale"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent" />
         </div>
         
         <motion.div 

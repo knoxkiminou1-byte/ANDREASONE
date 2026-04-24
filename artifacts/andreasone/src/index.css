@@ -202,16 +202,19 @@
   }
   body {
     @apply font-sans antialiased text-foreground;
+    /* Per-page gradient. Pages override --page-gradient with
+     * their own bold multi-stop gradient. */
     background-color: var(--page-bg, #efe7d7);
-    background-image:
-      /* Soft warm color washes drifting across the page,
-       * tinted by the per-page glow accents */
-      radial-gradient(60vw 60vh at 12% 8%,  var(--page-wash-1, rgba(207, 93, 39, 0.18)), transparent 60%),
-      radial-gradient(55vw 55vh at 88% 28%, var(--page-wash-2, rgba(246, 196, 90, 0.22)), transparent 60%),
-      radial-gradient(70vw 70vh at 50% 95%, var(--page-wash-3, rgba(68, 88, 41, 0.18)),  transparent 60%),
-      radial-gradient(45vw 45vh at 8% 80%,  var(--page-wash-4, rgba(207, 93, 39, 0.10)), transparent 60%);
+    background-image: var(--page-gradient,
+      linear-gradient(135deg,
+        #cf5d27 0%,
+        #f6c45a 28%,
+        #efe7d7 50%,
+        #445829 72%,
+        #6b2a72 100%));
     background-attachment: fixed;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     transition: background-color 0.6s ease;
   }
   html {
@@ -661,110 +664,157 @@ body::after  { right: 0; animation-direction: reverse, alternate; }
   body::before, body::after { width: 14px; }
 }
 
+/* ============================================================
+ * Make page content slabs translucent so the body gradient
+ * shows through. The page-level wrappers and section panels in
+ * the original v0 design are painted with `bg-background`
+ * (cream) or `bg-[#efe7d7]` — those would otherwise hide the
+ * per-page gradient. Within <main> we turn them into subtle
+ * glass slabs so the gradient is the dominant surface and the
+ * cards still read as their own panels.
+ *
+ * Dark sections like the Quote (`bg-[#111111]`) and the burnt
+ * orange / olive CTA panels are untouched.
+ * ============================================================ */
+main .bg-background {
+  background-color: transparent !important;
+}
+main section.bg-background {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(2px);
+}
+main .bg-\[\#efe7d7\] {
+  background-color: rgba(239, 231, 215, 0.55) !important;
+  backdrop-filter: blur(3px);
+}
+
 /* ---------- Per-page variants ----------
- * Each page gets:
- *   stripe panel: hue / speed / glow halo
- *   page background: a base tint + four radial color washes
- * Tints are kept light enough that body copy stays legible. */
+ * Each page sets its own bold full-bleed gradient (--page-gradient)
+ * plus its kente stripe panel hue/speed/glow.
+ * Home mixes the whole palette; every other page leans hard into
+ * one or two colors so navigating feels like changing rooms. */
 body[data-page="home"] {
   --stripe-hue: 0deg;
   --stripe-scroll: 24s;
   --stripe-glow: rgba(207, 93, 39, 0.45);
   --stripe-glow-2: rgba(246, 196, 90, 0.6);
-  --page-bg: #efe7d7; /* soft cream */
-  --page-wash-1: rgba(207, 93, 39, 0.18);
-  --page-wash-2: rgba(246, 196, 90, 0.22);
-  --page-wash-3: rgba(68, 88, 41, 0.18);
-  --page-wash-4: rgba(207, 93, 39, 0.10);
+  --page-bg: #cf5d27;
+  --page-gradient:
+    linear-gradient(135deg,
+      #cf5d27 0%,
+      #e88a3a 18%,
+      #f6c45a 36%,
+      #efe7d7 52%,
+      #6f8c3a 70%,
+      #445829 84%,
+      #6b2a72 100%);
 }
 body[data-page="music"] {
   --stripe-hue: 28deg;
   --stripe-scroll: 14s;
   --stripe-glow: rgba(246, 196, 90, 0.55);
   --stripe-glow-2: rgba(207, 93, 39, 0.55);
-  --page-bg: #f5e6c0; /* warm mustard cream */
-  --page-wash-1: rgba(246, 196, 90, 0.32);
-  --page-wash-2: rgba(207, 93, 39, 0.20);
-  --page-wash-3: rgba(184, 132, 18, 0.20);
-  --page-wash-4: rgba(255, 215, 110, 0.18);
+  --page-bg: #cf5d27;
+  --page-gradient:
+    linear-gradient(160deg,
+      #cf5d27 0%,
+      #e07a2c 35%,
+      #f6c45a 75%,
+      #fbe79c 100%);
 }
 body[data-page="events"] {
   --stripe-hue: -25deg;
   --stripe-scroll: 10s;
   --stripe-glow: rgba(207, 93, 39, 0.6);
   --stripe-glow-2: rgba(255, 80, 40, 0.55);
-  --page-bg: #f4d8c4; /* warm sunset peach */
-  --page-wash-1: rgba(207, 93, 39, 0.32);
-  --page-wash-2: rgba(255, 110, 60, 0.22);
-  --page-wash-3: rgba(178, 50, 40, 0.18);
-  --page-wash-4: rgba(246, 196, 90, 0.18);
+  --page-bg: #b32d22;
+  --page-gradient:
+    linear-gradient(150deg,
+      #6b1410 0%,
+      #b32d22 30%,
+      #e44a26 60%,
+      #f6c45a 100%);
 }
 body[data-page="work"] {
   --stripe-hue: 55deg;
   --stripe-scroll: 28s;
   --stripe-glow: rgba(68, 88, 41, 0.55);
   --stripe-glow-2: rgba(246, 196, 90, 0.6);
-  --page-bg: #e3e3c8; /* pale olive cream */
-  --page-wash-1: rgba(68, 88, 41, 0.22);
-  --page-wash-2: rgba(246, 196, 90, 0.22);
-  --page-wash-3: rgba(120, 140, 80, 0.20);
-  --page-wash-4: rgba(207, 93, 39, 0.10);
+  --page-bg: #445829;
+  --page-gradient:
+    linear-gradient(140deg,
+      #2c3a1a 0%,
+      #445829 30%,
+      #7a9a3e 65%,
+      #f6c45a 100%);
 }
 body[data-page="art"] {
   --stripe-hue: 120deg;
   --stripe-scroll: 18s;
-  --stripe-glow: rgba(120, 200, 120, 0.45);
-  --stripe-glow-2: rgba(246, 196, 90, 0.6);
-  --page-bg: #d9decf; /* sage gray */
-  --page-wash-1: rgba(68, 88, 41, 0.20);
-  --page-wash-2: rgba(120, 200, 120, 0.18);
-  --page-wash-3: rgba(246, 196, 90, 0.18);
-  --page-wash-4: rgba(207, 93, 39, 0.10);
+  --stripe-glow: rgba(150, 100, 220, 0.55);
+  --stripe-glow-2: rgba(120, 200, 120, 0.55);
+  --page-bg: #4b2370;
+  --page-gradient:
+    linear-gradient(135deg,
+      #2a103e 0%,
+      #6b2a72 30%,
+      #b25aa8 55%,
+      #6f8c3a 80%,
+      #efe7d7 100%);
 }
 body[data-page="shop"] {
   --stripe-hue: -55deg;
   --stripe-scroll: 20s;
-  --stripe-glow: rgba(220, 90, 130, 0.5);
+  --stripe-glow: rgba(220, 90, 130, 0.55);
   --stripe-glow-2: rgba(246, 196, 90, 0.55);
-  --page-bg: #f3dcdc; /* dusty rose cream */
-  --page-wash-1: rgba(220, 90, 130, 0.26);
-  --page-wash-2: rgba(246, 196, 90, 0.22);
-  --page-wash-3: rgba(207, 93, 39, 0.18);
-  --page-wash-4: rgba(255, 170, 200, 0.16);
+  --page-bg: #b32d22;
+  --page-gradient:
+    linear-gradient(160deg,
+      #6b1410 0%,
+      #b32d22 35%,
+      #d65b6e 65%,
+      #f6c45a 100%);
 }
 body[data-page="join"] {
   --stripe-hue: 80deg;
   --stripe-scroll: 16s;
   --stripe-glow: rgba(246, 196, 90, 0.65);
   --stripe-glow-2: rgba(255, 230, 120, 0.7);
-  --page-bg: #fbe79c; /* bright mustard */
-  --page-wash-1: rgba(246, 196, 90, 0.40);
-  --page-wash-2: rgba(255, 230, 120, 0.30);
-  --page-wash-3: rgba(207, 93, 39, 0.16);
-  --page-wash-4: rgba(184, 132, 18, 0.20);
+  --page-bg: #f6c45a;
+  --page-gradient:
+    linear-gradient(155deg,
+      #b8860c 0%,
+      #f6c45a 30%,
+      #fbe79c 60%,
+      #efe7d7 100%);
 }
 body[data-page="contact"] {
   --stripe-hue: 200deg;
   --stripe-scroll: 30s;
-  --stripe-glow: rgba(80, 130, 200, 0.5);
+  --stripe-glow: rgba(80, 130, 200, 0.55);
   --stripe-glow-2: rgba(120, 200, 220, 0.55);
-  --page-bg: #d6e2eb; /* cool sky cream */
-  --page-wash-1: rgba(80, 130, 200, 0.22);
-  --page-wash-2: rgba(120, 200, 220, 0.22);
-  --page-wash-3: rgba(68, 88, 41, 0.14);
-  --page-wash-4: rgba(207, 93, 39, 0.10);
+  --page-bg: #2c4f6e;
+  --page-gradient:
+    linear-gradient(150deg,
+      #16283a 0%,
+      #2c4f6e 30%,
+      #5a8db8 60%,
+      #efe7d7 100%);
 }
 body[data-page="about"],
 body[data-page="fmly"] {
   --stripe-hue: 15deg;
   --stripe-scroll: 26s;
-  --stripe-glow: rgba(207, 93, 39, 0.5);
+  --stripe-glow: rgba(207, 93, 39, 0.55);
   --stripe-glow-2: rgba(246, 196, 90, 0.55);
-  --page-bg: #f1d9bf; /* warm terracotta cream */
-  --page-wash-1: rgba(207, 93, 39, 0.28);
-  --page-wash-2: rgba(246, 196, 90, 0.22);
-  --page-wash-3: rgba(178, 80, 40, 0.18);
-  --page-wash-4: rgba(68, 88, 41, 0.12);
+  --page-bg: #cf5d27;
+  --page-gradient:
+    linear-gradient(155deg,
+      #6b2a72 0%,
+      #b32d22 25%,
+      #cf5d27 55%,
+      #f6c45a 85%,
+      #efe7d7 100%);
 }
 
 /* Respect prefers-reduced-motion: pin the panels and stop the pulse */
