@@ -14,13 +14,13 @@ import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_17769
 import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
 
 type Product = {
-  id: string; name: string; price: number; status: string; image: string; bg: string;
+  id: string; name: string; price: number; status: string; image: string; bg: string; wobbleLogo?: boolean;
 };
 
 const products: Product[] = [
   { id: "ap1", name: "FMLY SIGIL TEE",        price: 45,  status: "AVAILABLE", image: sigilMark,      bg: "#efe7d7" },
-  { id: "ap2", name: "PYRAMID LOGO TEE",       price: 45,  status: "LOW STOCK", image: logoOrange,     bg: "#cf5d27" },
-  { id: "ap3", name: "AO MONOGRAM CAP",        price: 38,  status: "AVAILABLE", image: monogram,       bg: "#f6c45a" },
+  { id: "ap2", name: "PYRAMID LOGO TEE",       price: 45,  status: "LOW STOCK", image: logoOrange,     bg: "#cf5d27", wobbleLogo: true },
+  { id: "ap3", name: "AO MONOGRAM CAP",        price: 38,  status: "AVAILABLE", image: monogram,       bg: "#f6c45a", wobbleLogo: true },
   { id: "pr1", name: "EYE OF THE SUN PRINT",   price: 120, status: "AVAILABLE", image: print01,        bg: "#111111" },
   { id: "pr2", name: "GOLDEN HOUR PRINT",      price: 120, status: "AVAILABLE", image: print02,        bg: "#111111" },
   { id: "po1", name: "THE GATHERING POSTER",   price: 35,  status: "AVAILABLE", image: gatheringPoster,bg: "#111111" },
@@ -74,7 +74,7 @@ export default function Shop() {
                   if (!p) return null;
                   return (
                     <div key={c.id} className="flex gap-6 border-8 border-[#111111] bg-white p-4 shadow-[8px_8px_0_#cf5d27]">
-                      <div className="w-24 h-24 bg-[#111111] border-4 border-[#111111]"><img src={p.image} className="w-full h-full object-cover opacity-80" /></div>
+                      <div className="w-24 h-24 bg-[#111111] border-4 border-[#111111]"><img src={p.image} className={`w-full h-full object-cover opacity-80 ${p.wobbleLogo ? "pyramid-logo-wobble-subtle" : ""}`} /></div>
                       <div className="flex-1">
                         <h4 className="font-display text-2xl mb-2">{p.name}</h4>
                         <p className="font-sans text-xl font-bold mb-4">${p.price}</p>
@@ -111,7 +111,7 @@ export default function Shop() {
             <ScrollReveal key={p.id} delay={(i % 3) * 0.08}>
               <div className="border-8 border-[#111111] bg-white shadow-[16px_16px_0_#cf5d27] hover-lift text-center flex flex-col">
                 <div className="hover-img w-full aspect-square p-8 border-b-8 border-[#111111] relative" style={{ backgroundColor: p.bg }}>
-                  <img src={p.image} className="w-full h-full object-contain drop-shadow-xl" />
+                  <img src={p.image} className={`w-full h-full object-contain drop-shadow-xl ${p.wobbleLogo ? "pyramid-logo-wobble-subtle" : ""}`} />
                   <div className="absolute top-4 left-4 bg-[#111111] text-[#f6c45a] font-sans font-bold px-4 py-2 border-4 border-[#111111]">
                     {p.status}
                   </div>

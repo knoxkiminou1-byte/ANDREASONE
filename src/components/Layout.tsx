@@ -66,7 +66,7 @@ export function Layout({ children }: LayoutProps) {
           <Link href="/" className="hover:opacity-80 transition-opacity flex-shrink-0 flex items-center gap-3">
             <span
               aria-hidden="true"
-              className="h-10 md:h-12 aspect-[769/855] flex-shrink-0"
+              className="pyramid-logo-wobble-subtle h-10 md:h-12 aspect-[769/855] flex-shrink-0"
               style={{
                 backgroundColor: BRAND_GOLD,
                 maskImage: BRAND_SYMBOL_MASK,
@@ -204,7 +204,7 @@ export function Layout({ children }: LayoutProps) {
             <div className="flex items-center gap-3 mb-4">
               <span
                 aria-hidden="true"
-                className="h-10 aspect-[769/855] opacity-60 flex-shrink-0"
+                className="pyramid-logo-wobble-subtle h-10 aspect-[769/855] opacity-60 flex-shrink-0"
                 style={{
                   backgroundColor: BRAND_GOLD,
                   maskImage: BRAND_SYMBOL_MASK,
