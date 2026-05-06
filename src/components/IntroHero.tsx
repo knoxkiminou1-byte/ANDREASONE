@@ -338,7 +338,6 @@ export function IntroHero() {
           ref={aoLogoRef}
           type="button"
           aria-label="Enter AndreasOne site"
-          className="pyramid-logo-wobble"
           onClick={handleClick}
           style={{
             width: "min(42vw,240px)",
