@@ -24,7 +24,7 @@ function TikTokIcon({ className }: { className?: string }) {
   );
 }
 
-const BRAND_GOLD = "#f6c45a";
+const BRAND_GOLD = "#EEC76C";
 const BRAND_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
 
 const NAV_COLORS = ["#cf5d27", BRAND_GOLD, "#445829", "#d9decf", "#efe7d7", "#cf5d27", BRAND_GOLD, "#445829", "#cf5d27", BRAND_GOLD];
@@ -79,9 +79,6 @@ export function Layout({ children }: LayoutProps) {
                 WebkitMaskSize: "contain",
               }}
             />
-            <span className="wordmark font-display text-xl md:text-2xl tracking-widest leading-none select-none" style={{ color: BRAND_GOLD }}>
-              <span className="wordmark-emphasis" style={{ fontSize: "1.18em" }}>A</span>ndreas<span className="wordmark-emphasis" style={{ fontSize: "1.18em" }}>O</span>ne
-            </span>
           </Link>
 
           <nav className="hidden xl:flex items-center gap-4 flex-1 justify-center">

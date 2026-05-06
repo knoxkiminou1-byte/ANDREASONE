@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "npm run build && vite preview --host 0.0.0.0"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.7",
