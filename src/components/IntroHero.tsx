@@ -9,6 +9,9 @@ import React, {
 /* ─── Constants ─────────────────────────────────────── */
 const SIM_SCALE = 4;
 const DAMPING = 0.983;
+const SLOW_MOTION = 2.8;
+const SIM_STEP_MS = 1000 / 60;
+const ms = (value: number) => Math.round(value * SLOW_MOTION);
 
 type Phase = "idle" | "ringing" | "flashing" | "exit";
 
@@ -95,7 +98,7 @@ export function IntroHero() {
       for (let d = 0; d <= 180; d += 9) {
         setTimeout(() => {
           addDrop(g.impactX + Math.cos(a) * d, g.impactY + Math.sin(a) * d, 4, 210 - d);
-        }, d * 1.7);
+        }, ms(d * 1.7));
       }
     }
   }, [addDrop]);
@@ -172,13 +175,18 @@ export function IntroHero() {
 
     let rain = 0;
     let last = 0;
+    let simLag = 0;
     function loop(ts: number) {
       const dt = Math.min(ts - last, 50);
       last = ts;
-      update();
+      simLag += dt;
+      if (simLag >= SIM_STEP_MS * SLOW_MOTION) {
+        update();
+        simLag = 0;
+      }
       rain += dt;
 
-      if (rain > 190 + Math.random() * 170) {
+      if (rain > ms(190 + Math.random() * 170)) {
         rain = 0;
         const s = simRef.current;
         if (s) addDrop(Math.random() * s.w, Math.random() * s.h, 2, 85 + Math.random() * 55);
@@ -216,18 +224,18 @@ export function IntroHero() {
     go("ringing");
     triggerBurst();
 
-    setTimeout(() => go("flashing"), 520);
-    setTimeout(() => go("exit"), 920);
+    setTimeout(() => go("flashing"), ms(520));
+    setTimeout(() => go("exit"), ms(920));
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent("introFinished"));
-    }, 1500);
+    }, ms(1500));
   }, [triggerBurst]);
 
   const isGone = phase === "exit";
 
   return (
     <div
-      className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-700 ease-in-out
+      className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-[1960ms] ease-in-out
         ${isGone ? "opacity-0 scale-110 pointer-events-none" : "opacity-100 scale-100"}`}
       style={{ background: "#f3efe6" }}
     >
@@ -239,7 +247,7 @@ export function IntroHero() {
           radial-gradient(circle at 82% 24%,rgba(68,88,41,0.36) 0%,transparent 38%),
           radial-gradient(circle at 50% 50%,rgba(246,196,90,0.26) 0%,transparent 62%),
           conic-gradient(from 220deg at 50% 50%,#cf5d27,#f6c45a,#445829,#d9decf,#efe7d7,#cf5d27)`,
-          animation: "swirlOne 12s linear infinite",
+          animation: "swirlOne 38s linear infinite",
         }}
       />
       <div
@@ -249,7 +257,7 @@ export function IntroHero() {
           radial-gradient(circle at 38% 36%,rgba(68,88,41,0.3) 0%,transparent 42%),
           repeating-conic-gradient(from 0deg at 50% 50%,rgba(239,231,215,.65) 0deg,rgba(239,231,215,.65) 8deg,rgba(246,196,90,.4) 12deg,rgba(207,93,39,.45) 22deg,rgba(68,88,41,.44) 30deg,rgba(217,222,207,.5) 38deg)`,
           mixBlendMode: "soft-light",
-          animation: "swirlTwo 9s linear infinite reverse",
+          animation: "swirlTwo 32s linear infinite reverse",
         }}
       />
       <div
@@ -258,7 +266,7 @@ export function IntroHero() {
           mixBlendMode: "multiply",
           filter: "blur(72px)",
           background: "rgba(207,93,39,0.32)",
-          animation: "orbitOrange 9s ease-in-out infinite alternate",
+          animation: "orbitOrange 30s ease-in-out infinite alternate",
         }}
       />
       <div
@@ -267,7 +275,7 @@ export function IntroHero() {
           mixBlendMode: "multiply",
           filter: "blur(72px)",
           background: "rgba(68,88,41,0.3)",
-          animation: "orbitOlive 10s ease-in-out infinite alternate",
+          animation: "orbitOlive 34s ease-in-out infinite alternate",
         }}
       />
 
@@ -289,7 +297,7 @@ export function IntroHero() {
               transform: "translate(-50%,-50%)",
               borderRadius: "50%",
               background: "radial-gradient(circle,rgba(255,255,255,0.85) 0%,rgba(246,196,90,0.62) 45%,transparent 100%)",
-              animation: "impactSpark 0.55s ease-out forwards",
+              animation: "impactSpark 1.54s ease-out forwards",
             }}
           />
           {[0, 150].map((delay, i) => (
@@ -302,7 +310,7 @@ export function IntroHero() {
                 transform: "translate(-50%,-50%)",
                 borderRadius: "50%",
                 border: `${3 - i}px solid rgba(${i === 0 ? "246,196,90" : "239,231,215"},${0.75 - i * 0.18})`,
-                animation: `shockRing 1s cubic-bezier(0.2,0.6,0.4,1) ${delay}ms forwards`,
+                animation: `shockRing 2.8s cubic-bezier(0.2,0.6,0.4,1) ${ms(delay)}ms forwards`,
               }}
             />
           ))}
@@ -315,7 +323,7 @@ export function IntroHero() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background: "radial-gradient(ellipse 85% 75% at 50% 45%,rgba(255,255,255,0.78) 0%,rgba(246,196,90,0.4) 38%,transparent 72%)",
-            animation: "bigFlash 0.9s ease-out forwards",
+            animation: "bigFlash 2.52s ease-out forwards",
           }}
         />
       )}
@@ -334,9 +342,9 @@ export function IntroHero() {
             filter: "drop-shadow(0 8px 28px rgba(0,0,0,0.22))",
             animation:
               phase === "idle"
-                ? "logoFloat 4.8s ease-in-out infinite"
+                ? "logoFloat 10s ease-in-out infinite"
                 : phase === "ringing" || phase === "flashing"
-                  ? "pyramidRing 0.9s cubic-bezier(0.22,1,0.36,1) forwards"
+                  ? "pyramidRing 2.52s cubic-bezier(0.22,1,0.36,1) forwards"
                   : undefined,
           }}
         />
