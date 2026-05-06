@@ -11,6 +11,9 @@ const SIM_SCALE = 4;
 const DAMPING = 0.983;
 const SLOW_MOTION = 2.8;
 const SIM_STEP_MS = 1000 / 60;
+const INTRO_GOLD = "#EEC76C";
+const INTRO_GOLD_RGB = "238,199,108";
+const INTRO_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
 const ms = (value: number) => Math.round(value * SLOW_MOTION);
 
 type Phase = "idle" | "ringing" | "flashing" | "exit";
@@ -32,7 +35,7 @@ export function IntroHero() {
     sh: number;
   } | null>(null);
   const animRef = useRef<number>(0);
-  const aoLogoRef = useRef<HTMLImageElement>(null);
+  const aoLogoRef = useRef<HTMLButtonElement>(null);
   const geoRef = useRef<Geo | null>(null);
 
   const [phase, setPhase] = useState<Phase>("idle");
@@ -47,10 +50,10 @@ export function IntroHero() {
   /* ── Geometry ── */
   useLayoutEffect(() => {
     function measure() {
-      const img = aoLogoRef.current;
-      if (!img) return;
+      const logo = aoLogoRef.current;
+      if (!logo) return;
 
-      const r = img.getBoundingClientRect();
+      const r = logo.getBoundingClientRect();
       const g = {
         impactX: r.left + r.width * 0.5,
         impactY: r.top + r.height * 0.5,
@@ -60,12 +63,13 @@ export function IntroHero() {
       geoRef.current = g;
     }
 
-    const img = aoLogoRef.current;
-    if (img?.complete) setTimeout(measure, 60);
-    else img?.addEventListener("load", () => setTimeout(measure, 60));
+    const measureTimer = window.setTimeout(measure, 60);
 
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      window.clearTimeout(measureTimer);
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   /* ── Ripple canvas ── */
@@ -159,9 +163,9 @@ export function IntroHero() {
         const t = Math.max(-1, Math.min(1, s.buf1[i] / 80));
         const idx = i * 4;
         if (t > 0.04) {
-          d[idx] = 246;
-          d[idx + 1] = 196;
-          d[idx + 2] = 90;
+          d[idx] = 238;
+          d[idx + 1] = 199;
+          d[idx + 2] = 108;
           d[idx + 3] = Math.floor(t * 160);
         } else if (t < -0.04) {
           d[idx + 3] = Math.floor(-t * 110);
@@ -296,7 +300,7 @@ export function IntroHero() {
               height: "90px",
               transform: "translate(-50%,-50%)",
               borderRadius: "50%",
-              background: "radial-gradient(circle,rgba(255,255,255,0.85) 0%,rgba(246,196,90,0.62) 45%,transparent 100%)",
+              background: "radial-gradient(circle,rgba(255,255,255,0.85) 0%,rgba(238,199,108,0.62) 45%,transparent 100%)",
               animation: "impactSpark 1.54s ease-out forwards",
             }}
           />
@@ -309,7 +313,7 @@ export function IntroHero() {
                 height: "100px",
                 transform: "translate(-50%,-50%)",
                 borderRadius: "50%",
-                border: `${3 - i}px solid rgba(${i === 0 ? "246,196,90" : "239,231,215"},${0.75 - i * 0.18})`,
+                border: `${3 - i}px solid rgba(${i === 0 ? INTRO_GOLD_RGB : "239,231,215"},${0.75 - i * 0.18})`,
                 animation: `shockRing 2.8s cubic-bezier(0.2,0.6,0.4,1) ${ms(delay)}ms forwards`,
               }}
             />
@@ -322,27 +326,38 @@ export function IntroHero() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse 85% 75% at 50% 45%,rgba(255,255,255,0.78) 0%,rgba(246,196,90,0.4) 38%,transparent 72%)",
+            background: "radial-gradient(ellipse 85% 75% at 50% 45%,rgba(255,255,255,0.78) 0%,rgba(238,199,108,0.4) 38%,transparent 72%)",
             animation: "bigFlash 2.52s ease-out forwards",
           }}
         />
       )}
 
-      {/* ── CENTER: AO logo target ── */}
+      {/* ── CENTER: transparent AO logo target ── */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <img
+        <button
           ref={aoLogoRef}
-          src="/brand/ao-logo.png"
-          alt="AndreasOne"
+          type="button"
+          aria-label="Enter AndreasOne site"
           onClick={handleClick}
           style={{
             width: "min(42vw,240px)",
-            objectFit: "contain",
+            aspectRatio: "769 / 855",
+            backgroundColor: INTRO_GOLD,
+            border: 0,
+            padding: 0,
+            maskImage: INTRO_SYMBOL_MASK,
+            WebkitMaskImage: INTRO_SYMBOL_MASK,
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
             cursor: phase === "idle" ? "pointer" : "default",
             filter: "drop-shadow(0 8px 28px rgba(0,0,0,0.22))",
             animation:
               phase === "idle"
-                ? "logoFloat 10s ease-in-out infinite"
+                ? undefined
                 : phase === "ringing" || phase === "flashing"
                   ? "pyramidRing 2.52s cubic-bezier(0.22,1,0.36,1) forwards"
                   : undefined,

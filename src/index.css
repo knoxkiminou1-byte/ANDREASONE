@@ -188,11 +188,6 @@ a, button {
 }
 
 /* ─── Intro Hero Animations ─────────────────────────── */
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
-  50%       { transform: translateY(-14px) rotate(1.5deg); }
-}
-
 /* Pendulum falls under gravity — ease-in so it accelerates into impact */
 @keyframes pendulumSwing {
   0%   { transform: rotate(-72deg); }
