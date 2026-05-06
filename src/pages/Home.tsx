@@ -32,12 +32,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#cf5d27] opacity-10 mix-blend-color pointer-events-none" />
 
         {/* Logo pinned to bottom — nudged down slightly for better chin crop */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-10 sm:pb-16 px-2 sm:px-4 translate-y-[12px] sm:translate-y-[20px]">
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-10 sm:pb-16 px-2 sm:px-4 translate-y-[34px] sm:translate-y-[48px]">
           <motion.img
             src={logoOutline}
             alt="ANDREASONE"
             className="w-full max-w-[98vw] sm:max-w-5xl md:max-w-6xl"
-            style={{ filter: "brightness(0) saturate(100%) invert(79%) sepia(51%) saturate(786%) hue-rotate(4deg) brightness(107%) drop-shadow(0 6px 24px rgba(0,0,0,0.95))" }}
+            style={{ filter: "brightness(0) saturate(100%) invert(75%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(105%) drop-shadow(0 6px 24px rgba(0,0,0,0.95))" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
