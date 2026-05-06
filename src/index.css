@@ -193,22 +193,7 @@ a, button {
   50%       { transform: translateY(-14px) rotate(1.5deg); }
 }
 
-/* Pendulum falls under gravity — ease-in so it accelerates into impact */
-@keyframes pendulumSwing {
-  0%   { transform: rotate(-72deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* After impact the pendulum bounces back and fades */
-@keyframes pendulumRebound {
-  0%   { transform: rotate(0deg);  opacity: 1; }
-  28%  { transform: rotate(22deg); opacity: 1; }
-  55%  { transform: rotate(13deg); opacity: 0.7; }
-  80%  { transform: rotate(17deg); opacity: 0.3; }
-  100% { transform: rotate(17deg); opacity: 0; }
-}
-
-/* Pyramid rings like a struck bell — damped oscillation */
+/* Pyramid settles after tap — damped visual motion */
 @keyframes pyramidRing {
   0%    { transform: rotate(0deg) scale(1); }
   5%    { transform: rotate(-4.5deg) scale(1.07); }
