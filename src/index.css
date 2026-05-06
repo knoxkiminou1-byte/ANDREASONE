@@ -199,6 +199,19 @@ a, button {
   90%      { transform: translateY(-5px) rotate(-1deg) scale(1.006); }
 }
 
+
+.pyramid-logo-wobble {
+  animation: introPyramidWobble 3.8s ease-in-out infinite;
+  transform-origin: 50% 55%;
+  will-change: transform;
+}
+
+.pyramid-logo-wobble-subtle {
+  animation: introPyramidWobble 5.2s ease-in-out infinite;
+  transform-origin: 50% 55%;
+  will-change: transform;
+}
+
 /* Pendulum falls under gravity — ease-in so it accelerates into impact */
 @keyframes pendulumSwing {
   0%   { transform: rotate(-72deg); }

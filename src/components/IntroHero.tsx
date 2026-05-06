@@ -338,6 +338,7 @@ export function IntroHero() {
           ref={aoLogoRef}
           type="button"
           aria-label="Enter AndreasOne site"
+          className="pyramid-logo-wobble"
           onClick={handleClick}
           style={{
             width: "min(42vw,240px)",
@@ -357,7 +358,7 @@ export function IntroHero() {
             filter: "drop-shadow(0 8px 28px rgba(0,0,0,0.22))",
             animation:
               phase === "idle"
-                ? "introPyramidWobble 3.8s ease-in-out infinite"
+                ? undefined
                 : phase === "ringing" || phase === "flashing"
                   ? "pyramidRing 2.52s cubic-bezier(0.22,1,0.36,1) forwards"
                   : undefined,
