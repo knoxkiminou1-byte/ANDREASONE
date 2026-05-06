@@ -24,7 +24,10 @@ function TikTokIcon({ className }: { className?: string }) {
   );
 }
 
-const NAV_COLORS = ["#cf5d27", "#f6c45a", "#445829", "#d9decf", "#efe7d7", "#cf5d27", "#f6c45a", "#445829", "#cf5d27", "#f6c45a"];
+const BRAND_GOLD = "#f6c45a";
+const BRAND_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
+
+const NAV_COLORS = ["#cf5d27", BRAND_GOLD, "#445829", "#d9decf", "#efe7d7", "#cf5d27", BRAND_GOLD, "#445829", "#cf5d27", BRAND_GOLD];
 
 export function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
@@ -61,14 +64,22 @@ export function Layout({ children }: LayoutProps) {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#111111] border-b-4 border-[#cf5d27]">
         <div className="w-full px-4 md:px-8 h-24 flex items-center justify-between gap-4">
           <Link href="/" className="hover:opacity-80 transition-opacity flex-shrink-0 flex items-center gap-3">
-            <img
-              src="/brand/andreasone-symbol.svg"
-              alt=""
+            <span
               aria-hidden="true"
-              className="h-10 md:h-12 w-auto"
-              style={{ color: "#f6c45a", filter: "brightness(0) saturate(100%) invert(75%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(105%)" }}
+              className="h-10 md:h-12 aspect-[769/855] flex-shrink-0"
+              style={{
+                backgroundColor: BRAND_GOLD,
+                maskImage: BRAND_SYMBOL_MASK,
+                WebkitMaskImage: BRAND_SYMBOL_MASK,
+                maskRepeat: "no-repeat",
+                WebkitMaskRepeat: "no-repeat",
+                maskPosition: "center",
+                WebkitMaskPosition: "center",
+                maskSize: "contain",
+                WebkitMaskSize: "contain",
+              }}
             />
-            <span className="wordmark font-display text-xl md:text-2xl tracking-widest text-[#f6c45a] leading-none select-none">
+            <span className="wordmark font-display text-xl md:text-2xl tracking-widest leading-none select-none" style={{ color: BRAND_GOLD }}>
               <span className="wordmark-emphasis" style={{ fontSize: "1.18em" }}>A</span>ndreas<span className="wordmark-emphasis" style={{ fontSize: "1.18em" }}>O</span>ne
             </span>
           </Link>
@@ -194,14 +205,22 @@ export function Layout({ children }: LayoutProps) {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/brand/andreasone-symbol.svg"
-                alt=""
+              <span
                 aria-hidden="true"
-                className="h-10 w-auto opacity-60"
-                style={{ filter: "brightness(0) saturate(100%) invert(75%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(105%)" }}
+                className="h-10 aspect-[769/855] opacity-60 flex-shrink-0"
+                style={{
+                  backgroundColor: BRAND_GOLD,
+                  maskImage: BRAND_SYMBOL_MASK,
+                  WebkitMaskImage: BRAND_SYMBOL_MASK,
+                  maskRepeat: "no-repeat",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskPosition: "center",
+                  WebkitMaskPosition: "center",
+                  maskSize: "contain",
+                  WebkitMaskSize: "contain",
+                }}
               />
-              <span className="font-display text-3xl text-[#f6c45a] tracking-widest">
+              <span className="font-display text-3xl tracking-widest" style={{ color: BRAND_GOLD }}>
                 <span style={{ fontSize: "1.15em" }}>A</span>ndreas<span style={{ fontSize: "1.15em" }}>O</span>ne
               </span>
             </div>
