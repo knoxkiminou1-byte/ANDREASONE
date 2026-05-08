@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from "react";
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,6 +26,7 @@ function Router() {
     <Layout>
       <Suspense fallback={null}>
         <Switch>
+          {/* Primary routes */}
           <Route path="/"               component={Home} />
           <Route path="/sounds"         component={Sounds} />
           <Route path="/experiences"    component={Experiences} />
@@ -37,6 +38,16 @@ function Router() {
           <Route path="/signals"        component={Signals} />
           <Route path="/connect"        component={Connect} />
           <Route path="/join"           component={Join} />
+
+          {/* Legacy route redirects — old URLs forward to renamed sections */}
+          <Route path="/music">    <Redirect to="/sounds" /></Route>
+          <Route path="/events">   <Redirect to="/experiences" /></Route>
+          <Route path="/work">     <Redirect to="/world-building" /></Route>
+          <Route path="/art">      <Redirect to="/archive" /></Route>
+          <Route path="/about">    <Redirect to="/roots" /></Route>
+          <Route path="/press">    <Redirect to="/signals" /></Route>
+          <Route path="/contact">  <Redirect to="/connect" /></Route>
+
           <Route component={NotFound} />
         </Switch>
       </Suspense>
