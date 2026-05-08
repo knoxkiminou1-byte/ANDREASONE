@@ -15,6 +15,12 @@ export default function Archive() {
     return () => { document.body.style.overflow = ""; };
   }, [active]);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setActive(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <div className="w-full flex flex-col">
       <section className="bg-sage poster-panel border-b-8 border-[#111111] text-center">
