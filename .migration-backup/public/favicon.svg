@@ -1,9 +1,0 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="180" height="180" rx="36" fill="#111111"/>
-  <!-- circle (head) -->
-  <circle cx="90" cy="58" r="28" stroke="#cf5d27" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-  <!-- triangle (body) -->
-  <polygon points="90,66 46,138 134,138" stroke="#f6c45a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
-  <!-- base line -->
-  <line x1="38" y1="156" x2="142" y2="156" stroke="#f6c45a" stroke-width="8" stroke-linecap="round"/>
-</svg>
