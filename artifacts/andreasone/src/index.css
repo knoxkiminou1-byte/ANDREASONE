@@ -102,6 +102,18 @@
     line-height: 0.85;
     letter-spacing: -0.02em;
   }
+
+  .stacked-title-word {
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+  }
+
+  @media (min-width: 768px) {
+    .stacked-title-word {
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+    }
+  }
 }
 
 /* Poster sections */
@@ -118,18 +130,16 @@
 .bg-sage { background-color: #d9decf; color: #111111; }
 
 .duotone-green {
-  mix-blend-mode: multiply;
-  filter: contrast(1.2) sepia(1) hue-rotate(60deg) saturate(3);
+  filter: none;
 }
 
 .duotone-orange {
-  mix-blend-mode: multiply;
-  filter: contrast(1.2) sepia(1) hue-rotate(-30deg) saturate(3);
+  filter: none;
 }
 
 /* Make images pop */
 .poster-img {
-  @apply w-full object-cover mix-blend-multiply opacity-90;
+  @apply w-full object-cover;
 }
 
 /* ─── Hover utilities ─────────────────────────────── */

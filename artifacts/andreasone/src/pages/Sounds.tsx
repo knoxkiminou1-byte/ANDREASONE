@@ -11,10 +11,10 @@ export default function Sounds() {
     <div className="w-full flex flex-col">
       <section className="bg-mustard poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-massive text-[#111111]">SOUND</h1>
+          <h1 className="text-massive stacked-title-word text-[#111111]">SOUND</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-massive text-[#cf5d27] -mt-10">ARCHIVE</h1>
+          <h1 className="text-massive stacked-title-word text-[#cf5d27] -mt-4 md:-mt-10">ARCHIVE</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#111111]/60 mt-8 max-w-3xl mx-auto">
@@ -27,7 +27,7 @@ export default function Sounds() {
       <section className="bg-black poster-panel">
         <div className="flex flex-col lg:flex-row items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a]" direction="left">
-            <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto mix-blend-multiply" />
+            <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-left text-[#efe7d7]" direction="right">
             <h2 className="text-[8vw] leading-none mb-4 text-[#f6c45a]">VOL. 12</h2>
@@ -111,7 +111,7 @@ export default function Sounds() {
             <ScrollReveal key={i} delay={i * 0.1}>
               <div className="border-8 border-[#111111] bg-[#f6c45a] p-4 shadow-[12px_12px_0_#111111] hover-lift cursor-pointer text-center">
                 <div className="hover-img w-full mb-6 border-b-8 border-[#111111]">
-                  <img src={m.img} alt={m.title} className="w-full aspect-square object-cover mix-blend-multiply" />
+                  <img src={m.img} alt={m.title} className="w-full aspect-square object-cover" />
                 </div>
                 <h3 className="font-display text-5xl text-[#cf5d27] mb-2">{m.title}</h3>
                 <p className="font-sans text-2xl font-bold uppercase tracking-wider text-[#111111] mb-6">{m.sub}</p>

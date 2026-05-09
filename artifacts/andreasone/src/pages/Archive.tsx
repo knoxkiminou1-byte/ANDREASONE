@@ -25,10 +25,10 @@ export default function Archive() {
     <div className="w-full flex flex-col">
       <section className="bg-sage poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-[15vw] leading-none text-[#cf5d27]">VISUAL</h1>
+          <h1 className="text-[15vw] stacked-title-word text-[#cf5d27]">VISUAL</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[18vw] leading-none text-[#111111] -mt-8">ARCHIVE</h1>
+          <h1 className="text-[18vw] stacked-title-word text-[#111111] -mt-3 md:-mt-8">ARCHIVE</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#111111]/50 mt-8 max-w-3xl mx-auto">
@@ -51,7 +51,7 @@ export default function Archive() {
               whileHover={{ y: -4 }}
             >
               <img src={p.image} alt={p.alt} className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.03]" />
-              <div className="absolute inset-0 bg-[#cf5d27]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center">
+              <div className="absolute inset-x-0 bottom-0 bg-[#efe7d7] border-t-4 border-[#111111] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center">
                 {p.series && <p className="font-display text-xl text-[#f6c45a] mb-2">{p.series.toUpperCase()}</p>}
                 <p className="font-display text-4xl text-[#111111]">{p.title}</p>
                 {p.year && <p className="font-sans text-lg text-[#111111]/70 mt-2 uppercase tracking-widest">{p.year}</p>}

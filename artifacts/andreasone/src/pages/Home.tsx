@@ -118,7 +118,7 @@ export default function Home() {
             </Link>
           </ScrollReveal>
           <ScrollReveal className="w-full lg:w-[45%] hover-img" direction="right">
-            <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto object-cover mix-blend-multiply" />
+            <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto object-cover" />
           </ScrollReveal>
         </div>
       </section>
@@ -153,8 +153,8 @@ export default function Home() {
       {/* WORLD BUILDING */}
       <section className="bg-[#cf5d27] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center">
         <ScrollReveal className="w-full text-center mb-16">
-          <h2 className="text-[15vw] leading-none text-[#111111]">WORLD</h2>
-          <h2 className="text-[15vw] leading-none text-[#f6c45a] -mt-12">BUILDING</h2>
+          <h2 className="text-[15vw] stacked-title-word text-[#111111]">WORLD</h2>
+          <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] -mt-5 md:-mt-12">BUILDING</h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 w-full">
           {[

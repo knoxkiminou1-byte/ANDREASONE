@@ -14,10 +14,10 @@ export default function About() {
       {/* TITLE BLOCK */}
       <section className="bg-orange poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-massive text-[#111111]">GLOBAL</h1>
+          <h1 className="text-massive stacked-title-word text-[#111111]">GLOBAL</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-massive text-[#efe7d7] -mt-10">OPERATOR</h1>
+          <h1 className="text-massive stacked-title-word text-[#efe7d7] -mt-4 md:-mt-10">OPERATOR</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <p className="font-sans text-2xl uppercase tracking-[0.3em] text-[#111111]/60 mt-8">DJ · Creative Director · Vibe Curator</p>
@@ -30,7 +30,6 @@ export default function About() {
           src={heroPhoto}
           alt="Andreas One"
           className="w-full h-full object-cover object-center absolute inset-0"
-          style={{ filter: "brightness(0.7) contrast(1.1)" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 poster-panel pb-16">
@@ -45,7 +44,7 @@ export default function About() {
       <section className="bg-black poster-panel">
         <div className="flex flex-col lg:flex-row items-start gap-16 w-full">
           <ScrollReveal className="w-full lg:w-[45%] hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a] flex-shrink-0" direction="left">
-            <img src={portraitPhoto} alt="Andreas" className="w-full h-auto object-cover" style={{ filter: "contrast(1.1) brightness(0.9)" }} />
+            <img src={portraitPhoto} alt="Andreas" className="w-full h-auto object-cover" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-[#efe7d7]" direction="right">
             <p className="font-sans text-3xl uppercase tracking-wide leading-relaxed font-bold mb-8 text-[#efe7d7]">
@@ -90,9 +89,7 @@ export default function About() {
           src={layerPhoto}
           alt="Andreas One"
           className="w-full h-full object-cover object-center absolute inset-0"
-          style={{ filter: "brightness(0.65) contrast(1.2) saturate(0.9)" }}
         />
-        <div className="absolute inset-0 bg-[#445829]/30 mix-blend-multiply" />
         <div className="absolute inset-0 flex items-center justify-center">
           <ScrollReveal>
             <p className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-[0.3em] text-[#f6c45a] text-center px-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">

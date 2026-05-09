@@ -51,10 +51,10 @@ export default function Shop() {
     <div className="w-full flex flex-col">
       <section className="bg-mustard poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-massive text-[#cf5d27]">FMLY</h1>
+          <h1 className="text-massive stacked-title-word text-[#cf5d27]">FMLY</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-massive text-[#111111] -mt-10">GOODS</h1>
+          <h1 className="text-massive stacked-title-word text-[#111111] -mt-4 md:-mt-10">GOODS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.15} className="mt-16 flex justify-center">
           <Sheet open={open} onOpenChange={setOpen}>
@@ -74,7 +74,7 @@ export default function Shop() {
                   if (!p) return null;
                   return (
                     <div key={c.id} className="flex gap-6 border-8 border-[#111111] bg-white p-4 shadow-[8px_8px_0_#cf5d27]">
-                      <div className="w-24 h-24 bg-[#111111] border-4 border-[#111111]"><img src={p.image} className={`w-full h-full object-cover opacity-80 ${p.wobbleLogo ? "pyramid-logo-wobble-subtle" : ""}`} /></div>
+                      <div className="w-24 h-24 bg-[#111111] border-4 border-[#111111]"><img src={p.image} alt={p.name} className={`w-full h-full object-cover ${p.wobbleLogo ? "pyramid-logo-wobble-subtle" : ""}`} /></div>
                       <div className="flex-1">
                         <h4 className="font-display text-2xl mb-2">{p.name}</h4>
                         <p className="font-sans text-xl font-bold mb-4">${p.price}</p>
@@ -111,7 +111,7 @@ export default function Shop() {
             <ScrollReveal key={p.id} delay={(i % 3) * 0.08}>
               <div className="border-8 border-[#111111] bg-white shadow-[16px_16px_0_#cf5d27] hover-lift text-center flex flex-col">
                 <div className="hover-img w-full aspect-square p-8 border-b-8 border-[#111111] relative" style={{ backgroundColor: p.bg }}>
-                  <img src={p.image} className={`w-full h-full object-contain drop-shadow-xl ${p.wobbleLogo ? "pyramid-logo-wobble-subtle" : ""}`} />
+                  <img src={p.image} alt={p.name} className={`w-full h-full object-contain drop-shadow-xl ${p.wobbleLogo ? "pyramid-logo-wobble-subtle" : ""}`} />
                   <div className="absolute top-4 left-4 bg-[#111111] text-[#f6c45a] font-sans font-bold px-4 py-2 border-4 border-[#111111]">
                     {p.status}
                   </div>

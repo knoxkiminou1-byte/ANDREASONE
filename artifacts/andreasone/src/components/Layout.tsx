@@ -27,7 +27,7 @@ function TikTokIcon({ className }: { className?: string }) {
 const BRAND_GOLD = "#EEC76C";
 const BRAND_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
 
-const NAV_COLORS = ["#cf5d27", BRAND_GOLD, "#445829", "#d9decf", "#efe7d7", "#cf5d27", BRAND_GOLD, "#445829", "#cf5d27", BRAND_GOLD];
+const NAV_COLORS = ["#CF5D27", BRAND_GOLD, "#445829", "#F3EFE6"];
 
 export function Layout({ children }: LayoutProps) {
   const [location] = useLocation();
@@ -89,7 +89,7 @@ export function Layout({ children }: LayoutProps) {
                   className="nav-link font-display text-lg uppercase transition-opacity whitespace-nowrap"
                   style={{
                     color: NAV_COLORS[i % NAV_COLORS.length],
-                    opacity: active ? 1 : 0.55,
+                    opacity: active ? 1 : 0.86,
                     borderBottom: active ? `3px solid ${NAV_COLORS[i % NAV_COLORS.length]}` : "3px solid transparent",
                     paddingBottom: "2px",
                   }}
@@ -166,7 +166,7 @@ export function Layout({ children }: LayoutProps) {
                     className="nav-link font-display text-5xl uppercase block"
                     style={{
                       color: NAV_COLORS[i % NAV_COLORS.length],
-                      opacity: active ? 1 : 0.5,
+                      opacity: active ? 1 : 0.9,
                     }}
                   >
                     {active ? "→ " : ""}{link.label}
@@ -254,16 +254,20 @@ export function Layout({ children }: LayoutProps) {
                 </a>
               ))}
             </div>
-            <div className="flex gap-6 flex-wrap">
-              {[
-                { label: "Signals", href: "/signals" },
-                { label: "Join",    href: "/join" },
-                { label: "Connect", href: "/connect" },
-              ].map(l => (
-                <Link key={l.href} href={l.href} className="nav-link font-sans text-sm uppercase tracking-widest text-[#efe7d7]/50 hover:text-[#f6c45a]">
-                  {l.label}
-                </Link>
-              ))}
+            <div className="flex gap-6 flex-wrap justify-start md:justify-end">
+              {links.map((link, i) => {
+                const style = { color: NAV_COLORS[i % NAV_COLORS.length] };
+                const className = "nav-link font-sans text-sm uppercase tracking-widest opacity-85 hover:opacity-100";
+                return link.external ? (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={className} style={style}>
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link key={link.href} href={link.href} className={className} style={style}>
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
             <p className="font-sans text-sm uppercase tracking-widest text-[#d9decf] opacity-40">
               © {new Date().getFullYear()} ALL RIGHTS RESERVED

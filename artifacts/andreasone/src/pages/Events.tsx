@@ -25,7 +25,7 @@ export default function Events() {
 
         <div className="flex flex-col lg:flex-row items-center gap-12 w-full mb-24">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#111111] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#445829]" direction="left">
-            <img src={gatheringPoster} alt="The Gathering 2026" className="w-full h-auto mix-blend-multiply" />
+            <img src={gatheringPoster} alt="The Gathering 2026" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-left" direction="right">
             <span className="inline-block bg-[#cf5d27] text-[#111111] font-sans font-bold text-2xl px-6 py-2 border-4 border-[#111111] mb-6 uppercase tracking-widest">
@@ -42,7 +42,7 @@ export default function Events() {
 
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#111111] bg-[#f6c45a] p-4 shadow-[-16px_16px_0_#cf5d27]" direction="right">
-            <img src={baliPoster} alt="Mari Beach Club" className="w-full h-auto mix-blend-multiply" />
+            <img src={baliPoster} alt="Mari Beach Club" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-right" direction="left">
             <span className="inline-block bg-[#f6c45a] text-[#111111] font-sans font-bold text-2xl px-6 py-2 border-4 border-[#111111] mb-6 uppercase tracking-widest">

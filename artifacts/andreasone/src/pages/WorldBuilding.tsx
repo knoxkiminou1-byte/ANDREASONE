@@ -13,10 +13,10 @@ export default function WorldBuilding() {
     <div className="w-full flex flex-col">
       <section className="bg-black poster-panel border-b-8 border-[#cf5d27] text-center">
         <ScrollReveal>
-          <h1 className="text-massive text-[#cf5d27]">WORLD</h1>
+          <h1 className="text-massive stacked-title-word text-[#cf5d27]">WORLD</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[12vw] leading-none text-[#f6c45a]">BUILDING</h1>
+          <h1 className="text-[12vw] stacked-title-word text-[#f6c45a] -mt-2 md:mt-0">BUILDING</h1>
         </ScrollReveal>
       </section>
 
@@ -88,7 +88,7 @@ export default function WorldBuilding() {
             <ScrollReveal key={i} delay={i * 0.1}>
               <div className="border-8 border-[#111111] bg-[#efe7d7] p-6 shadow-[12px_12px_0_#111111] hover-lift cursor-pointer text-center">
                 <div className="hover-img w-full aspect-[4/5] border-b-8 border-[#111111] mb-6 relative bg-[#111111]">
-                  <img src={c.img} alt={c.title} className="w-full h-full object-cover opacity-80 mix-blend-screen" />
+                  <img src={c.img} alt={c.title} className="w-full h-full object-cover" />
                   <span className="absolute top-4 left-4 bg-[#111111] text-[#f6c45a] font-sans font-bold text-xl px-4 py-1 border-4 border-[#cf5d27]">
                     {c.tag}
                   </span>

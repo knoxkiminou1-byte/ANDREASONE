@@ -26,10 +26,10 @@ export default function Join() {
     <div className="w-full flex flex-col">
       <section className="bg-mustard poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-massive text-[#cf5d27]">JOIN</h1>
+          <h1 className="text-massive stacked-title-word text-[#cf5d27]">JOIN</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-massive text-[#111111] -mt-10">THE LIST</h1>
+          <h1 className="text-massive stacked-title-word text-[#111111] -mt-4 md:-mt-10">THE LIST</h1>
         </ScrollReveal>
       </section>
 

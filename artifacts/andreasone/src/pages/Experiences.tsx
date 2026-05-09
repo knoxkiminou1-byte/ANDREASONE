@@ -11,10 +11,10 @@ export default function Experiences() {
     <div className="w-full flex flex-col">
       <section className="bg-olive poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-[18vw] leading-none text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
+          <h1 className="text-[18vw] stacked-title-word text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[12vw] leading-none text-[#cf5d27]">& GATHERINGS</h1>
+          <h1 className="text-[12vw] stacked-title-word text-[#cf5d27] -mt-2 md:mt-0">& GATHERINGS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#efe7d7]/60 mt-8 max-w-3xl mx-auto">
@@ -30,7 +30,7 @@ export default function Experiences() {
 
         <div className="flex flex-col lg:flex-row items-center gap-12 w-full mb-24">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#111111] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#445829]" direction="left">
-            <img src={gatheringPoster} alt="The Gathering 2026" className="w-full h-auto mix-blend-multiply" />
+            <img src={gatheringPoster} alt="The Gathering 2026" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-left" direction="right">
             <span className="inline-block bg-[#cf5d27] text-[#111111] font-sans font-bold text-2xl px-6 py-2 border-4 border-[#111111] mb-6 uppercase tracking-widest">
@@ -47,7 +47,7 @@ export default function Experiences() {
 
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#111111] bg-[#f6c45a] p-4 shadow-[-16px_16px_0_#cf5d27]" direction="right">
-            <img src={baliPoster} alt="Mari Beach Club" className="w-full h-auto mix-blend-multiply" />
+            <img src={baliPoster} alt="Mari Beach Club" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-right" direction="left">
             <span className="inline-block bg-[#f6c45a] text-[#111111] font-sans font-bold text-2xl px-6 py-2 border-4 border-[#111111] mb-6 uppercase tracking-widest">

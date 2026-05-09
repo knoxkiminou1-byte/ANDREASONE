@@ -13,10 +13,10 @@ export default function Fmly() {
     <div className="w-full flex flex-col">
       <section className="bg-sage poster-panel border-b-8 border-[#111111] text-center">
         <ScrollReveal>
-          <h1 className="text-massive text-[#cf5d27]">FMLY</h1>
+          <h1 className="text-massive stacked-title-word text-[#cf5d27]">FMLY</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-massive text-[#445829] -mt-10">BZNS</h1>
+          <h1 className="text-massive stacked-title-word text-[#445829] -mt-4 md:-mt-10">BZNS</h1>
         </ScrollReveal>
       </section>
 
@@ -34,7 +34,7 @@ export default function Fmly() {
             <ScrollReveal key={i} delay={i * 0.09}>
               <div className="border-8 border-[#111111] bg-[#efe7d7] p-4 shadow-[12px_12px_0_#cf5d27] hover-lift text-center">
                 <div className="hover-img w-full aspect-[4/5] border-4 border-[#111111] mb-6 overflow-hidden">
-                  <img src={c.img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                  <img src={c.img} alt={c.name} className="w-full h-full object-cover transition-transform duration-500" />
                 </div>
                 <h3 className="font-display text-5xl text-[#cf5d27] mb-2">{c.name}</h3>
                 <p className="font-sans text-2xl font-bold uppercase tracking-wider text-[#111111] mb-2">{c.role}</p>
