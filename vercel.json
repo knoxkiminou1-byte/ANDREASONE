@@ -1,0 +1,12 @@
+{
+  "framework": "vite",
+  "installCommand": "cd artifacts/andreasone && npm install",
+  "buildCommand": "cd artifacts/andreasone && npm run build",
+  "outputDirectory": "artifacts/andreasone/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

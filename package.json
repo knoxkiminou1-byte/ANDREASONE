@@ -1,0 +1,12 @@
+{
+  "name": "andreasone-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd artifacts/andreasone && npm run dev",
+    "build": "cd artifacts/andreasone && npm run build",
+    "preview": "cd artifacts/andreasone && npm run preview",
+    "typecheck": "cd artifacts/andreasone && npm run typecheck"
+  }
+}
