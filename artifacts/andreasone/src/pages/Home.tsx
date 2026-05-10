@@ -32,11 +32,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#cf5d27] opacity-10 mix-blend-color pointer-events-none" />
 
         {/* Logo pinned to bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-16 sm:pb-16 px-2 sm:px-4 translate-y-0 sm:translate-y-[48px]">
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-10 sm:pb-16 px-2 sm:px-4 translate-y-[34px] sm:translate-y-[48px]">
           <motion.div
             role="img"
             aria-label="ANDREASONE"
-            className="w-full max-w-[98vw] sm:max-w-5xl md:max-w-6xl aspect-[2700/932] drop-shadow-[0_6px_24px_rgba(0,0,0,0.95)]"
+            className="w-full max-w-[80vw] sm:max-w-5xl md:max-w-6xl aspect-[2700/932] drop-shadow-[0_6px_24px_rgba(0,0,0,0.95)]"
             style={{
               backgroundColor: "#EEC76C",
               maskImage: `url(${logoOutline})`,
