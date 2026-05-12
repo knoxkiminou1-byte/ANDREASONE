@@ -60,7 +60,34 @@ export function Layout({ children }: LayoutProps) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#111111] text-[#efe7d7] selection:bg-[#f6c45a] selection:text-[#111111]">
+    <div className="min-h-screen flex flex-col text-[#efe7d7] selection:bg-[#f6c45a] selection:text-[#111111]" style={{ background: "rgb(82,90,41)" }}>
+      {/* Site-wide olive liquid background */}
+      <iframe
+        src="/intro-bg.html"
+        aria-hidden="true"
+        tabIndex={-1}
+        style={{
+          position: "fixed",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          border: "none",
+          pointerEvents: "none",
+          zIndex: 0,
+          opacity: 0.55,
+        }}
+      />
+      {/* Dark overlay so content stays legible */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          inset: 0,
+          background: "rgba(17,17,17,0.72)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#111111] border-b-4 border-[#cf5d27]">
         <div className="w-full px-4 md:px-8 h-24 flex items-center justify-between gap-4">
           <Link href="/" className="hover:opacity-80 transition-opacity flex-shrink-0 flex items-center gap-3">
@@ -210,11 +237,11 @@ export function Layout({ children }: LayoutProps) {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 w-full pt-24">
+      <main className="flex-1 w-full pt-24" style={{ position: "relative", zIndex: 2 }}>
         {children}
       </main>
 
-      <footer className="bg-[#111111] text-[#efe7d7] w-full px-4 md:px-8 py-20 border-t-8 border-[#cf5d27]">
+      <footer className="text-[#efe7d7] w-full px-4 md:px-8 py-20 border-t-8 border-[#cf5d27]" style={{ position: "relative", zIndex: 2, background: "rgba(17,17,17,0.82)" }}>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
