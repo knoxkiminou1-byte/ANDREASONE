@@ -3,9 +3,9 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
-import heroPhoto from "@assets/Andreas_0217_1778035391882.jpeg";
 import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
 import rootsPoster from "@assets/roots-poster.jpeg";
+import rootsOriginStage from "@assets/roots-origin-stage.jpg";
 
 export default function Roots() {
   return (
@@ -27,8 +27,8 @@ export default function Roots() {
       {/* FULL-BLEED PORTRAIT */}
       <section className="w-full relative min-h-[85vh] overflow-hidden bg-[#111111]">
         <img
-          src={heroPhoto}
-          alt="Andreas One"
+          src={rootsOriginStage}
+          alt="Origin stage scene"
           className="w-full h-full object-cover object-center absolute inset-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
