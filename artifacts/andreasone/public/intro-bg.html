@@ -19,7 +19,7 @@
     background-size: cover;
     background-position: center;
     filter: url(#liquid);
-    animation: slowDrift 32s linear infinite;
+    animation: slowDrift 90s linear infinite;
     transform-origin: center;
   }
   @keyframes slowDrift {
@@ -41,7 +41,7 @@
       seed="7"
       result="noise">
       <animate attributeName="baseFrequency"
-        dur="32s"
+        dur="90s"
         repeatCount="indefinite"
         values="0.010 0.018; 0.016 0.012; 0.012 0.021; 0.018 0.015; 0.010 0.018" />
     </feTurbulence>
@@ -50,7 +50,7 @@
       xChannelSelector="R"
       yChannelSelector="G">
       <animate attributeName="scale"
-        dur="32s"
+        dur="90s"
         repeatCount="indefinite"
         values="18; 24; 20; 26; 18" />
     </feDisplacementMap>
