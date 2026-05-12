@@ -79,7 +79,8 @@ export function IntroHero() {
       const maxDim = Math.max(width, height);
       const centerX = width / 2;
       const centerY = height / 2;
-      const pulse = 1 + Math.sin(frame * 0.45) * 0.08;
+      const bounce = Math.sin(frame * 0.9);
+      const pulse = 1 + bounce * 0.18 + Math.sin(frame * 1.8) * 0.04;
 
       for (let row = 0; row < rows; row += 1) {
         for (let col = 0; col < cols; col += 1) {
@@ -88,11 +89,11 @@ export function IntroHero() {
           const dx = (worldX - centerX) / maxDim;
           const dy = (worldY - centerY) / maxDim;
           const distance = Math.hypot(dx, dy);
-          const radial = distance * 3.2 * pulse;
+          const radial = distance * (3.2 * pulse);
           const n1 = noise2D(dx * 3.5 + radial, dy * 3.5 - radial);
           const n2 = noise2D(
-            dx * 1.8 + Math.sin(frame * 0.45 + distance * 2.2) * 0.12,
-            dy * 1.8 + Math.cos(frame * 0.45 + distance * 2.2) * 0.12,
+            dx * 1.8 + Math.sin(frame * 1.15 + distance * 2.2) * 0.16,
+            dy * 1.8 + Math.cos(frame * 1.15 + distance * 2.2) * 0.16,
           );
           grid[row * cols + col] = ((n1 + n2 * 0.55) / 1.55 + 1) / 2;
         }
