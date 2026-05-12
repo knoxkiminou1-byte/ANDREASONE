@@ -5,9 +5,9 @@ const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
 const INTRO_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
 const NUM_LEVELS = 10;
-const OLIVE_R = 90;
-const OLIVE_G = 107;
-const OLIVE_B = 35;
+const LIGHT_OLIVE = { r: 106, g: 124, b: 61 };
+const DARK_OLIVE = { r: 62, g: 78, b: 31 };
+const LINE_OLIVE = "#39481d";
 
 type Phase = "idle" | "ringing" | "flashing" | "exit";
 
@@ -72,7 +72,7 @@ export function IntroHero() {
 
     function draw() {
       const scale = 0.003;
-      const speed = 0.006;
+      const speed = 0.0015;
       const cols = Math.ceil(width / STEP) + 2;
       const rows = Math.ceil(height / STEP) + 2;
       const grid = new Float32Array(cols * rows);
@@ -81,10 +81,12 @@ export function IntroHero() {
         for (let col = 0; col < cols; col += 1) {
           const worldX = col * STEP;
           const worldY = row * STEP;
-          const n1 = noise2D(worldX * scale + frame, worldY * scale);
+          const orbitX = Math.cos(frame) * 0.18;
+          const orbitY = Math.sin(frame) * 0.18;
+          const n1 = noise2D(worldX * scale + orbitX, worldY * scale + orbitY);
           const n2 = noise2D(
-            worldX * scale * 0.45 + frame * 0.6,
-            worldY * scale * 0.45 + frame * 0.35,
+            worldX * scale * 0.45 + Math.cos(frame * 0.6) * 0.1,
+            worldY * scale * 0.45 + Math.sin(frame * 0.6) * 0.1,
           );
           grid[row * cols + col] = ((n1 + n2 * 0.55) / 1.55 + 1) / 2;
         }
@@ -119,22 +121,17 @@ export function IntroHero() {
           const isOlive = band % 2 === 0;
           const offset = (pixelY * width + pixelX) * 4;
 
-          if (isOlive) {
-            data[offset] = OLIVE_R;
-            data[offset + 1] = OLIVE_G;
-            data[offset + 2] = OLIVE_B;
-          } else {
-            data[offset] = 0;
-            data[offset + 1] = 0;
-            data[offset + 2] = 0;
-          }
+          const tone = isOlive ? LIGHT_OLIVE : DARK_OLIVE;
+          data[offset] = tone.r;
+          data[offset + 1] = tone.g;
+          data[offset + 2] = tone.b;
 
           data[offset + 3] = 255;
         }
       }
 
       context.putImageData(imageData, 0, 0);
-      context.strokeStyle = "#000000";
+      context.strokeStyle = LINE_OLIVE;
       context.lineWidth = Math.max(2, Math.min(width, height) * 0.009);
       context.lineJoin = "round";
       context.lineCap = "round";
@@ -209,9 +206,9 @@ export function IntroHero() {
       className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-[1800ms] ease-in-out ${
         isGone ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
-      style={{ background: "#445829" }}
+      style={{ background: "#546632" }}
     >
-      <div className="absolute inset-0 bg-[#445829]" />
+      <div className="absolute inset-0 bg-[#546632]" />
 
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
 
@@ -255,7 +252,7 @@ export function IntroHero() {
             filter: "drop-shadow(0 10px 24px rgba(17,17,17,0.3))",
             animation:
               phase === "idle"
-                ? "pyramidLogoWobble 5s ease-in-out infinite"
+                ? "pyramidLogoWobble 20s ease-in-out infinite"
                 : phase === "ringing" || phase === "flashing"
                   ? "pyramidRing 1.8s cubic-bezier(0.22,1,0.36,1) forwards"
                   : undefined,
