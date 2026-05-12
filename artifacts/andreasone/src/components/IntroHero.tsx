@@ -1,13 +1,9 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { createNoise2D } from "simplex-noise";
+import React, { useLayoutEffect, useRef, useState } from "react";
+import introLiquidOlive from "@/assets/intro-liquid-olive.png";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
 const INTRO_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
-const NUM_LEVELS = 10;
-const LIGHT_OLIVE = { r: 106, g: 124, b: 61 };
-const DARK_OLIVE = { r: 62, g: 78, b: 31 };
-const LINE_OLIVE = "#39481d";
 
 type Phase = "idle" | "ringing" | "flashing" | "exit";
 
@@ -17,7 +13,6 @@ interface Geo {
 }
 
 export function IntroHero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const logoRef = useRef<HTMLButtonElement>(null);
   const phaseRef = useRef<Phase>("idle");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -48,153 +43,6 @@ export function IntroHero() {
     };
   }, []);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const context = canvas.getContext("2d");
-    if (!context) return;
-
-    const noise2D = createNoise2D();
-    let frame = 0;
-    let width = 0;
-    let height = 0;
-    function resize() {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-    }
-
-    const STEP = 4;
-    resize();
-    window.addEventListener("resize", resize);
-
-    function draw() {
-      const scale = 0.003;
-      const speed = 0.00165;
-      const cols = Math.ceil(width / STEP) + 2;
-      const rows = Math.ceil(height / STEP) + 2;
-      const grid = new Float32Array(cols * rows);
-      const maxDim = Math.max(width, height);
-      const centerX = width / 2;
-      const centerY = height / 2;
-      const bounce = Math.sin(frame * 0.9);
-      const pulse = 1 + bounce * 0.18 + Math.sin(frame * 1.8) * 0.04;
-
-      for (let row = 0; row < rows; row += 1) {
-        for (let col = 0; col < cols; col += 1) {
-          const worldX = col * STEP;
-          const worldY = row * STEP;
-          const dx = (worldX - centerX) / maxDim;
-          const dy = (worldY - centerY) / maxDim;
-          const distance = Math.hypot(dx, dy);
-          const radial = distance * (3.2 * pulse);
-          const n1 = noise2D(dx * 3.5 + radial, dy * 3.5 - radial);
-          const n2 = noise2D(
-            dx * 1.8 + Math.sin(frame * 1.15 + distance * 2.2) * 0.16,
-            dy * 1.8 + Math.cos(frame * 1.15 + distance * 2.2) * 0.16,
-          );
-          grid[row * cols + col] = ((n1 + n2 * 0.55) / 1.55 + 1) / 2;
-        }
-      }
-
-      const imageData = context.createImageData(width, height);
-      const data = imageData.data;
-
-      for (let pixelY = 0; pixelY < height; pixelY += 1) {
-        const gridRow = pixelY / STEP;
-        const row0 = Math.floor(gridRow);
-        const row1 = Math.min(row0 + 1, rows - 1);
-        const rowMix = gridRow - row0;
-
-        for (let pixelX = 0; pixelX < width; pixelX += 1) {
-          const gridCol = pixelX / STEP;
-          const col0 = Math.floor(gridCol);
-          const col1 = Math.min(col0 + 1, cols - 1);
-          const colMix = gridCol - col0;
-
-          const v00 = grid[row0 * cols + col0];
-          const v10 = grid[row0 * cols + col1];
-          const v01 = grid[row1 * cols + col0];
-          const v11 = grid[row1 * cols + col1];
-          const value =
-            v00 * (1 - colMix) * (1 - rowMix) +
-            v10 * colMix * (1 - rowMix) +
-            v01 * (1 - colMix) * rowMix +
-            v11 * colMix * rowMix;
-
-          const band = Math.floor(value * NUM_LEVELS);
-          const isOlive = band % 2 === 0;
-          const offset = (pixelY * width + pixelX) * 4;
-
-          const tone = isOlive ? LIGHT_OLIVE : DARK_OLIVE;
-          data[offset] = tone.r;
-          data[offset + 1] = tone.g;
-          data[offset + 2] = tone.b;
-
-          data[offset + 3] = 255;
-        }
-      }
-
-      context.putImageData(imageData, 0, 0);
-      context.strokeStyle = LINE_OLIVE;
-      context.lineWidth = Math.max(2, Math.min(width, height) * 0.009);
-      context.lineJoin = "round";
-      context.lineCap = "round";
-
-      for (let level = 1; level < NUM_LEVELS; level += 1) {
-        const threshold = level / NUM_LEVELS;
-        context.beginPath();
-
-        for (let row = 0; row < rows - 1; row += 1) {
-          for (let col = 0; col < cols - 1; col += 1) {
-            const a = grid[row * cols + col];
-            const b = grid[row * cols + (col + 1)];
-            const d = grid[(row + 1) * cols + col];
-            const e = grid[(row + 1) * cols + (col + 1)];
-
-            const marchingState =
-              (a >= threshold ? 8 : 0) |
-              (b >= threshold ? 4 : 0) |
-              (e >= threshold ? 2 : 0) |
-              (d >= threshold ? 1 : 0);
-
-            if (marchingState === 0 || marchingState === 15) continue;
-
-            const x = col * STEP;
-            const y = row * STEP;
-            const segmentSize = STEP;
-            const lerp = (from: number, to: number) =>
-              segmentSize * ((threshold - from) / (to - from));
-
-            const top: Point = [x + lerp(a, b), y];
-            const right: Point = [x + segmentSize, y + lerp(b, e)];
-            const bottom: Point = [x + lerp(d, e), y + segmentSize];
-            const left: Point = [x, y + lerp(a, d)];
-
-            for (const [x0, y0, x1, y1] of getSegments(marchingState, top, right, bottom, left)) {
-              context.moveTo(x0, y0);
-              context.lineTo(x1, y1);
-            }
-          }
-        }
-
-        context.stroke();
-      }
-
-      frame += speed;
-      animationFrame = window.requestAnimationFrame(draw);
-    }
-
-    let animationFrame = window.requestAnimationFrame(draw);
-
-    return () => {
-      window.cancelAnimationFrame(animationFrame);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
   function handleClick() {
     if (phaseRef.current !== "idle") return;
 
@@ -213,11 +61,48 @@ export function IntroHero() {
       className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-[1800ms] ease-in-out ${
         isGone ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
-      style={{ background: "#546632" }}
+      style={{ background: "rgb(82, 90, 41)" }}
     >
-      <div className="absolute inset-0 bg-[#546632]" />
+      <div
+        className="absolute"
+        style={{
+          inset: "-4%",
+          backgroundImage: `url(${introLiquidOlive})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "url(#liquid)",
+          animation: "slowDrift 32s linear infinite",
+          transformOrigin: "center",
+        }}
+      />
 
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+      <svg aria-hidden="true" className="absolute h-0 w-0">
+        <filter id="liquid">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.010 0.018"
+            numOctaves="2"
+            seed="7"
+            result="noise"
+          >
+            <animate
+              attributeName="baseFrequency"
+              dur="32s"
+              repeatCount="indefinite"
+              values="0.010 0.018; 0.016 0.012; 0.012 0.021; 0.018 0.015; 0.010 0.018"
+            />
+          </feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="24"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          >
+            <animate attributeName="scale" dur="32s" repeatCount="indefinite" values="18; 24; 20; 26; 18" />
+          </feDisplacementMap>
+        </filter>
+      </svg>
 
       <div
         className="absolute inset-0 opacity-[0.09] pointer-events-none mix-blend-multiply"
