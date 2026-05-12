@@ -20,7 +20,7 @@ export default function Roots() {
           <h1 className="text-[12vw] stacked-title-word text-[#efe7d7] -mt-2 md:mt-0">FROM THE</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <h1 className="text-massive stacked-title-word text-[#cf5d27] -mt-2 md:mt-0">SOIL</h1>
+          <h1 className="text-massive stacked-title-word text-[#445829] -mt-2 md:mt-0">SOIL</h1>
         </ScrollReveal>
       </section>
 
@@ -44,7 +44,15 @@ export default function Roots() {
       <section className="bg-black poster-panel">
         <div className="flex flex-col lg:flex-row items-start gap-16 w-full">
           <ScrollReveal className="w-full lg:w-[45%] hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a] flex-shrink-0" direction="left">
-            <img src={portraitPhoto} alt="Andreas" className="w-full h-auto object-cover" />
+            <div className="relative overflow-hidden">
+              <img
+                src={portraitPhoto}
+                alt="Andreas"
+                className="w-full h-auto object-cover"
+                style={{ filter: "brightness(0.88) contrast(1.15) saturate(0.2) sepia(0.85) hue-rotate(15deg)" }}
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(119,130,64,0.08),rgba(119,130,64,0.28))] mix-blend-multiply" />
+            </div>
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-[#efe7d7]" direction="right">
             <div className="space-y-6 font-sans text-2xl md:text-3xl font-bold uppercase tracking-wide leading-relaxed text-[#efe7d7]">

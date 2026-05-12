@@ -4,7 +4,7 @@
 export const SHOP_URL = "";
 // Example: "https://andreasone.myshopify.com"
 
-export const FMLY_SITE_URL = "";
+export const FMLY_SITE_URL = "https://soundcloud.com/fmlybzns";
 // Example: "https://fmlybzns.com"
 
 export const BOOKING_EMAIL = "mgmt@andreasone.co";

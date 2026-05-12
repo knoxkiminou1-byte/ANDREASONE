@@ -10,6 +10,7 @@ import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
 import portraitPhoto from "@assets/Andreas-48_1778035403218.jpeg";
 import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
 import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
+import worldBuildingBackdrop from "@assets/Screen_Shot_2026-04-19_at_12.34.46_PM_1776997719113.png";
 import artE from "@assets/IMG_0177_1776998601433.JPG";
 
 export default function Home() {
@@ -55,32 +56,6 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           />
-          <motion.p
-            className="font-sans font-bold uppercase tracking-[0.35em] sm:tracking-[0.5em] text-[#f6c45a] text-[10px] sm:text-sm md:text-base mt-2 sm:mt-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            SIGNALS FROM THE SOIL
-          </motion.p>
-
-          <motion.div
-            className="flex flex-row justify-center gap-3 sm:gap-4 mt-4 sm:mt-6 w-full px-4"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-          >
-            <Link href="/sounds">
-              <Button size="lg" className="h-10 sm:h-14 px-6 sm:px-10 text-base sm:text-xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-4 border-[#111111]">
-                LISTEN
-              </Button>
-            </Link>
-            <Link href="/connect">
-              <Button size="lg" className="h-10 sm:h-14 px-6 sm:px-10 text-base sm:text-xl font-display uppercase bg-[#cf5d27] text-[#111111] hover:bg-[#f6c45a] hover:-translate-y-1 rounded-none border-4 border-[#111111]">
-                BOOKING
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </section>
 
@@ -88,23 +63,18 @@ export default function Home() {
       <section className="bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center">
         <ScrollReveal>
           <h2 className="text-massive text-[#cf5d27] break-words uppercase">
-            MUSIC IS THE
+            SIGNALS
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.06}>
           <h2 className="text-massive text-[#f6c45a] break-words uppercase">
-            WEAPON
+            FROM THE
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.12}>
-          <h2 className="text-massive text-[#d9decf]/40 break-words uppercase">
-            OF THE FUTURE
+          <h2 className="text-massive text-[#445829] break-words uppercase">
+            SOIL
           </h2>
-        </ScrollReveal>
-        <ScrollReveal delay={0.18}>
-          <p className="font-sans text-sm md:text-base uppercase tracking-[0.25em] text-[#efe7d7]/35 text-right mt-8 pr-2">
-            — Fela Kuti
-          </p>
         </ScrollReveal>
       </section>
 
@@ -139,48 +109,36 @@ export default function Home() {
         </div>
         <div className="w-full lg:w-1/2 bg-[#445829] flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
           <ScrollReveal direction="right">
-            <p className="font-sans text-xl uppercase tracking-[0.3em] text-[#d9decf]/70 mb-4">GLOBAL DJ · CREATIVE DIRECTOR</p>
-            <h2 className="text-[10vw] lg:text-[7vw] leading-none text-[#f6c45a] mb-8">BLENDING<br />WORLDS</h2>
-            <p className="font-sans text-2xl font-bold uppercase tracking-wide text-[#efe7d7] leading-relaxed mb-12">
-              Earthy + Urban. Festival Culture meets Global Music. A frequency you step into.
+            <p className="font-sans text-xl uppercase tracking-[0.3em] text-[#d9decf]/70 mb-4">SIGNALS FROM THE SOIL</p>
+            <h2 className="text-[10vw] lg:text-[7vw] leading-none text-[#f6c45a] mb-8">GLOBAL<br />FREQUENCY</h2>
+            <p className="font-sans text-2xl font-bold uppercase tracking-wide text-[#efe7d7] leading-relaxed max-w-2xl">
+              Rhythm as language.
+              <br />
+              Movement as ritual.
+              <br />
+              Sound, space &amp; visual culture in motion.
             </p>
-            <Link href="/roots">
-              <Button size="lg" className="h-16 px-12 text-2xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:-translate-y-1 rounded-none">
-                THE ROOTS
-              </Button>
-            </Link>
           </ScrollReveal>
         </div>
       </section>
 
       {/* WORLD BUILDING */}
-      <section className="bg-[#cf5d27] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center">
-        <ScrollReveal className="w-full text-center mb-16">
-          <h2 className="text-[15vw] stacked-title-word text-[#111111]">WORLD</h2>
-          <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] mt-0 md:-mt-12">BUILDING</h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 w-full">
-          {[
-            { tag: "VISUAL IDENTITY",       bg: "#111111", color: "#f6c45a", sub: "#efe7d7" },
-            { tag: "IMMERSIVE ENVIRONMENTS", bg: "#f6c45a", color: "#cf5d27", sub: "#111111" },
-            { tag: "FASHION & OBJECTS",      bg: "#445829", color: "#f6c45a", sub: "#d9decf" },
-            { tag: "CREATIVE COLLAB",        bg: "#efe7d7", color: "#111111", sub: "#111111" },
-          ].map((c, i) => (
-            <ScrollReveal key={c.tag} delay={i * 0.1}>
-              <div className="p-10 md:p-12 text-center" style={{ backgroundColor: c.bg }}>
-                <h3 className="font-display text-3xl md:text-4xl mb-2 leading-tight" style={{ color: c.color }}>{c.tag}</h3>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-        <ScrollReveal className="mt-16 flex justify-center" delay={0.2}>
-          <Link href="/world-building">
-            <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#111111] text-[#efe7d7] hover:bg-[#f6c45a] hover:text-[#111111] hover:-translate-y-1 rounded-none">
-              ENTER THE WORLD
-            </Button>
-          </Link>
-        </ScrollReveal>
-      </section>
+      <Link href="/world-building" className="block">
+        <section className="relative min-h-[70vh] overflow-hidden bg-[#cf5d27] flex items-center justify-center px-4 md:px-8 py-20 md:py-32 cursor-pointer">
+          <img
+            src={worldBuildingBackdrop}
+            alt="World Building"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ filter: "saturate(1.05) contrast(1.05)" }}
+          />
+          <div className="absolute inset-0 bg-[#111111]/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/50 via-transparent to-[#111111]/35" />
+          <ScrollReveal className="relative z-10 text-center">
+            <h2 className="text-[15vw] stacked-title-word text-[#111111] [text-shadow:0_0_24px_rgba(0,0,0,0.25)]">WORLD</h2>
+            <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] mt-0 md:-mt-12 [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">BUILDING</h2>
+          </ScrollReveal>
+        </section>
+      </Link>
 
       {/* EXPERIENCES */}
       <section className="bg-[#445829] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center">
@@ -205,11 +163,19 @@ export default function Home() {
       <section className="bg-[#efe7d7] w-full flex flex-col lg:flex-row min-h-[70vh]">
         <div className="w-full lg:w-1/2 bg-[#111111] flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
           <ScrollReveal direction="left">
-            <p className="font-sans text-lg uppercase tracking-[0.4em] text-[#cf5d27] mb-6">SOUND MOVES PEOPLE</p>
-            <h2 className="text-[11vw] lg:text-[8vw] leading-none text-[#efe7d7] mb-8">GLOBAL<br /><span className="text-[#f6c45a]">FREQUENCY</span></h2>
-            <p className="font-sans text-xl font-bold uppercase tracking-wide text-[#d9decf]/80 leading-relaxed max-w-lg">
-              A living world of sound, culture, and movement — rooted in the soil, reaching every corner of the globe.
-            </p>
+            <img
+              src={logoOutline}
+              alt="AndreasOne"
+              className="w-56 md:w-72 mb-8"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+            <h2 className="text-[11vw] lg:text-[7vw] leading-none text-[#efe7d7]">
+              FREQUENCY
+              <br />
+              <span className="text-[#f6c45a]">CULTURE</span>
+              <br />
+              MOVEMENT
+            </h2>
           </ScrollReveal>
         </div>
         <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full">
@@ -217,8 +183,9 @@ export default function Home() {
             src={portraitPhoto}
             alt="Andreas One"
             className="absolute inset-0 w-full h-full object-cover object-top"
-            style={{ filter: "brightness(0.8) contrast(1.1)" }}
+            style={{ filter: "brightness(0.8) contrast(1.15) saturate(0.2) sepia(0.7) hue-rotate(-20deg)" }}
           />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,132,0,0.15),rgba(255,132,0,0.35))] mix-blend-multiply" />
         </div>
       </section>
 
