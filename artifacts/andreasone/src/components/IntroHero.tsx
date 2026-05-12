@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import introLiquidOlive from "@/assets/intro-liquid-olive.png";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
@@ -61,28 +60,17 @@ export function IntroHero() {
       className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-[1800ms] ease-in-out ${
         isGone ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
-      style={{ background: "rgb(22, 34, 8)" }}
+      style={{ background: "#2d3e10" }}
     >
+      {/* Two-tone olive liquid — pure CSS gradient, no image, no color grading */}
       <div
         className="absolute"
         style={{
           inset: "-4%",
-          backgroundImage: `url(${introLiquidOlive})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "url(#liquid) grayscale(1) contrast(1.45) brightness(0.82) sepia(0.85) saturate(1.55) hue-rotate(68deg)",
-          animation: "slowDrift 32s linear infinite",
+          background: "repeating-radial-gradient(ellipse at 42% 52%, #526620 0px, #526620 48px, #2e3e0e 48px, #2e3e0e 96px)",
+          filter: "url(#liquid)",
+          animation: "slowDrift 48s linear infinite",
           transformOrigin: "center",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(22,34,8,0.78) 0%, rgba(58,80,22,0.62) 52%, rgba(22,34,8,0.78) 100%)",
-          mixBlendMode: "multiply",
-          opacity: 0.88,
         }}
       />
 
@@ -90,26 +78,26 @@ export function IntroHero() {
         <filter id="liquid">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.006 0.011"
+            baseFrequency="0.010 0.018"
             numOctaves="2"
             seed="7"
             result="noise"
           >
             <animate
               attributeName="baseFrequency"
-              dur="32s"
+              dur="48s"
               repeatCount="indefinite"
-              values="0.006 0.011; 0.008 0.010; 0.007 0.012; 0.009 0.010; 0.006 0.011"
+              values="0.010 0.018; 0.016 0.012; 0.012 0.021; 0.018 0.015; 0.010 0.018"
             />
           </feTurbulence>
           <feDisplacementMap
             in="SourceGraphic"
             in2="noise"
-            scale="14"
+            scale="24"
             xChannelSelector="R"
             yChannelSelector="G"
           >
-            <animate attributeName="scale" dur="32s" repeatCount="indefinite" values="11; 14; 12; 15; 11" />
+            <animate attributeName="scale" dur="48s" repeatCount="indefinite" values="18; 24; 20; 26; 18" />
           </feDisplacementMap>
         </filter>
       </svg>
