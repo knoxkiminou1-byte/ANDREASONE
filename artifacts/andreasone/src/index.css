@@ -264,24 +264,17 @@ a, button {
   100% { opacity: 0; }
 }
 
-@keyframes swirlOne {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+@keyframes introCircularOrbit {
+  0%   { transform: rotate(0deg) scale(1.02); }
+  25%  { transform: rotate(90deg) scale(1.04); }
+  50%  { transform: rotate(180deg) scale(1.02); }
+  75%  { transform: rotate(270deg) scale(1.04); }
+  100% { transform: rotate(360deg) scale(1.02); }
 }
 
-@keyframes swirlTwo {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
-
-@keyframes orbitOrange {
-  0%   { transform: translate(0px, 0px); }
-  100% { transform: translate(60px, -40px); }
-}
-
-@keyframes orbitOlive {
-  0%   { transform: translate(0px, 0px); }
-  100% { transform: translate(-50px, 50px); }
+@keyframes introEyeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
 }
 
 /* Pyramid logo subtle wobble */

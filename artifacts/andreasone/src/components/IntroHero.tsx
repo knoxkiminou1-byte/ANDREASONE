@@ -12,18 +12,31 @@ interface Geo {
 }
 
 const RAYS = [
-  { angle: -92, spread: 4, color: "#111111", duration: "18s", delay: "-2s" },
-  { angle: -70, spread: 5, color: "#9f8fd1", duration: "22s", delay: "-7s" },
-  { angle: -48, spread: 4.5, color: "#7397b8", duration: "20s", delay: "-4s" },
-  { angle: -24, spread: 6, color: "#445829", duration: "24s", delay: "-10s" },
-  { angle: 0, spread: 5, color: "#EEC76C", duration: "19s", delay: "-3s" },
-  { angle: 26, spread: 4.5, color: "#4d9ad6", duration: "21s", delay: "-8s" },
-  { angle: 48, spread: 5.5, color: "#111111", duration: "23s", delay: "-12s" },
-  { angle: 74, spread: 5, color: "#dba8b9", duration: "20s", delay: "-6s" },
-  { angle: 98, spread: 6, color: "#cf5d27", duration: "22s", delay: "-9s" },
-  { angle: 124, spread: 4, color: "#f6c45a", duration: "18s", delay: "-1s" },
-  { angle: 150, spread: 5, color: "#6e88b9", duration: "25s", delay: "-5s" },
-  { angle: 176, spread: 6, color: "#111111", duration: "24s", delay: "-11s" },
+  { angle: -90, spread: 4, color: "#445829" },
+  { angle: -72, spread: 4.5, color: "#cf5d27" },
+  { angle: -54, spread: 4, color: "#f6c45a" },
+  { angle: -36, spread: 5, color: "#445829" },
+  { angle: -18, spread: 4.5, color: "#cf5d27" },
+  { angle: 0, spread: 4, color: "#f6c45a" },
+  { angle: 18, spread: 5, color: "#445829" },
+  { angle: 36, spread: 4.5, color: "#cf5d27" },
+  { angle: 54, spread: 4, color: "#f6c45a" },
+  { angle: 72, spread: 5, color: "#445829" },
+  { angle: 90, spread: 4.5, color: "#cf5d27" },
+  { angle: 108, spread: 4, color: "#f6c45a" },
+  { angle: 126, spread: 5, color: "#445829" },
+  { angle: 144, spread: 4.5, color: "#cf5d27" },
+  { angle: 162, spread: 4, color: "#f6c45a" },
+  { angle: 180, spread: 5, color: "#445829" },
+  { angle: 198, spread: 4.5, color: "#cf5d27" },
+  { angle: 216, spread: 4, color: "#f6c45a" },
+  { angle: 234, spread: 5, color: "#445829" },
+  { angle: 252, spread: 4.5, color: "#cf5d27" },
+  { angle: 270, spread: 4, color: "#f6c45a" },
+  { angle: 288, spread: 5, color: "#445829" },
+  { angle: 306, spread: 4.5, color: "#cf5d27" },
+  { angle: 324, spread: 4, color: "#f6c45a" },
+  { angle: 342, spread: 5, color: "#445829" },
 ];
 
 function rayClip(spread: number) {
@@ -83,7 +96,12 @@ export function IntroHero() {
     >
       <div className="absolute inset-0 bg-[#efe7d7]" />
 
-      <div className="absolute inset-[-18%]">
+      <div
+        className="absolute inset-[-24%]"
+        style={{
+          animation: phase === "idle" ? "introCircularOrbit 26s linear infinite" : undefined,
+        }}
+      >
         {RAYS.map((ray, index) => (
           <div
             key={`${ray.angle}-${index}`}
@@ -91,10 +109,9 @@ export function IntroHero() {
             style={{
               background: ray.color,
               clipPath: rayClip(ray.spread),
-              transform: `rotate(${ray.angle}deg) scale(1.42)`,
+              transform: `rotate(${ray.angle}deg) scale(1.7)`,
               transformOrigin: "50% 50%",
-              opacity: 0.96,
-              animation: `introRayDrift ${ray.duration} ease-in-out ${ray.delay} infinite alternate`,
+              opacity: 0.98,
             }}
           />
         ))}
@@ -104,7 +121,7 @@ export function IntroHero() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(239,231,215,0.05) 0%, rgba(239,231,215,0.05) 8%, rgba(17,17,17,0.05) 8.6%, rgba(17,17,17,0.05) 9.2%, transparent 10%)",
+            "radial-gradient(circle at 50% 50%, rgba(239,231,215,0.06) 0%, rgba(239,231,215,0.06) 8%, rgba(17,17,17,0.06) 8.6%, rgba(17,17,17,0.06) 9.2%, transparent 10%)",
           mixBlendMode: "soft-light",
           opacity: 0.6,
         }}
@@ -114,7 +131,7 @@ export function IntroHero() {
         className="absolute inset-0 opacity-[0.2] pointer-events-none"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(0deg, rgba(17,17,17,0.07) 0 1px, transparent 1px 4px), repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 5px)",
+            "repeating-linear-gradient(0deg, rgba(17,17,17,0.06) 0 1px, transparent 1px 4px), repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 5px)",
         }}
       />
 
