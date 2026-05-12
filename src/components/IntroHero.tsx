@@ -23,7 +23,7 @@ export function IntroHero() {
     setTimeout(() => {
       setIsKnockedOut(true);
       setIsSwirlingOut(true);
-    }, 860);
+    }, 1032);
 
     setTimeout(() => {
       // Transition to actual home content
@@ -31,18 +31,18 @@ export function IntroHero() {
       // We can manage state in a parent or simply hide this component.
       // We dispatch a custom event to notify App.tsx that intro is done.
       window.dispatchEvent(new CustomEvent('introFinished'));
-    }, 860 + 1150);
+    }, 1032 + 1380);
   };
 
   return (
     <div 
-      className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#f3efe6] transition-opacity duration-700
-        ${isSwirlingOut ? "animate-[sceneWarp_1.15s_cubic-bezier(0.15,0.86,0.24,1)_forwards]" : "animate-[sceneVibrate_0.1s_steps(2,end)_infinite]"}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#f3efe6] transition-opacity duration-[840ms]
+        ${isSwirlingOut ? "animate-[sceneWarp_1.38s_cubic-bezier(0.15,0.86,0.24,1)_forwards]" : "animate-[sceneVibrate_0.12s_steps(2,end)_infinite]"}`}
     >
       {/* Gradient Layers from original CSS */}
       <div 
         className="absolute inset-[-35%] rounded-full origin-center mix-blend-normal opacity-100 filter contrast-108 saturate-116 
-          animate-[swirlOne_12s_linear_infinite,colorCycle_8s_linear_infinite]"
+          animate-[swirlOne_14.4s_linear_infinite,colorCycle_9.6s_linear_infinite]"
         style={{
           background: `radial-gradient(circle at 18% 72%, rgba(207, 93, 39, 0.4) 0%, transparent 46%),
                        radial-gradient(circle at 82% 24%, rgba(68, 88, 41, 0.36) 0%, transparent 38%),
@@ -52,7 +52,7 @@ export function IntroHero() {
       />
       <div 
         className="absolute inset-[-35%] rounded-full origin-center mix-blend-soft-light opacity-[0.88]
-          animate-[swirlTwo_9s_linear_infinite_reverse,colorCycle_10s_linear_infinite_reverse]"
+          animate-[swirlTwo_10.8s_linear_infinite_reverse,colorCycle_12s_linear_infinite_reverse]"
         style={{
           background: `radial-gradient(circle at 65% 72%, rgba(207, 93, 39, 0.32) 0%, transparent 42%),
                        radial-gradient(circle at 38% 36%, rgba(68, 88, 41, 0.3) 0%, transparent 42%),
@@ -60,14 +60,14 @@ export function IntroHero() {
         }}
       />
 
-      <div className="absolute w-[50vmax] h-[50vmax] rounded-full mix-blend-multiply blur-[72px] bg-[rgba(207,93,39,0.32)] -left-[10vmax] -bottom-[8vmax] animate-[orbitOrange_9s_ease-in-out_infinite_alternate]" />
-      <div className="absolute w-[50vmax] h-[50vmax] rounded-full mix-blend-multiply blur-[72px] bg-[rgba(68,88,41,0.3)] -right-[10vmax] -top-[8vmax] animate-[orbitOlive_10s_ease-in-out_infinite_alternate]" />
+      <div className="absolute w-[50vmax] h-[50vmax] rounded-full mix-blend-multiply blur-[72px] bg-[rgba(207,93,39,0.32)] -left-[10vmax] -bottom-[8vmax] animate-[orbitOrange_10.8s_ease-in-out_infinite_alternate]" />
+      <div className="absolute w-[50vmax] h-[50vmax] rounded-full mix-blend-multiply blur-[72px] bg-[rgba(68,88,41,0.3)] -right-[10vmax] -top-[8vmax] animate-[orbitOlive_12s_ease-in-out_infinite_alternate]" />
 
       <section 
         className={`relative z-10 w-[min(54vw,390px)] max-w-[330px] sm:max-w-[390px]
-          ${!isHit ? "animate-[floatLogo_4.8s_ease-in-out_infinite]" : ""}
-          ${isHit && !isKnockedOut ? "animate-[floatLogo_4.8s_ease-in-out_infinite,logoImpact_0.45s_ease-out] saturate-124" : ""}
-          ${isKnockedOut ? "animate-[logoKnockOut_1.8s_cubic-bezier(0.12,0.74,0.18,1)_forwards]" : ""}
+          ${!isHit ? "animate-[floatLogo_5.76s_ease-in-out_infinite]" : ""}
+          ${isHit && !isKnockedOut ? "animate-[floatLogo_5.76s_ease-in-out_infinite,logoImpact_0.54s_ease-out] saturate-124" : ""}
+          ${isKnockedOut ? "animate-[logoKnockOut_2.16s_cubic-bezier(0.12,0.74,0.18,1)_forwards]" : ""}
         `}
       >
         <button
@@ -83,7 +83,7 @@ export function IntroHero() {
 
           <div 
             className={`absolute top-[-56%] left-1/2 w-[320px] h-[420px] origin-[50%_0] pointer-events-none
-              ${!isHit ? "opacity-0 -translate-x-1/2 -rotate-60" : "opacity-1 animate-[pendulumHit_1.95s_cubic-bezier(0.2,0.75,0.28,1)_forwards]"}
+              ${!isHit ? "opacity-0 -translate-x-1/2 -rotate-60" : "opacity-1 animate-[pendulumHit_2.34s_cubic-bezier(0.2,0.75,0.28,1)_forwards]"}
             `}
           >
             <svg className="w-full h-full overflow-visible drop-shadow-[0_14px_24px_rgba(0,0,0,0.28)]" viewBox="0 0 180 300">
