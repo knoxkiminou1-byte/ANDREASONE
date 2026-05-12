@@ -104,22 +104,6 @@ export function IntroHero() {
         </filter>
       </svg>
 
-      <div
-        className="absolute inset-0 opacity-[0.09] pointer-events-none mix-blend-multiply"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, rgba(17,17,17,0.05) 0 1px, transparent 1px 4px), repeating-linear-gradient(90deg, rgba(239,231,215,0.04) 0 1px, transparent 1px 5px)",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(239,231,215,0.16) 0%, rgba(239,231,215,0.08) 18%, rgba(68,88,41,0) 46%)",
-        }}
-      />
-
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
         <button
           ref={logoRef}
