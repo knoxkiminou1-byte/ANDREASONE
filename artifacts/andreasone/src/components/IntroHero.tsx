@@ -60,47 +60,22 @@ export function IntroHero() {
       className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-[1800ms] ease-in-out ${
         isGone ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
-      style={{ background: "#2d3e10" }}
+      style={{ background: "rgb(82,90,41)" }}
     >
-      {/* Two-tone olive liquid — pure CSS gradient, no image, no color grading */}
-      <div
-        className="absolute"
+      {/* Exact HTML background — served as static file, overlaid with logo */}
+      <iframe
+        src="/intro-bg.html"
+        aria-hidden="true"
+        tabIndex={-1}
         style={{
-          inset: "-4%",
-          background: "repeating-radial-gradient(ellipse at 42% 52%, #526620 0px, #526620 48px, #2e3e0e 48px, #2e3e0e 96px)",
-          filter: "url(#liquid)",
-          animation: "slowDrift 48s linear infinite",
-          transformOrigin: "center",
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          border: "none",
+          pointerEvents: "none",
         }}
       />
-
-      <svg aria-hidden="true" className="absolute h-0 w-0">
-        <filter id="liquid">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.010 0.018"
-            numOctaves="2"
-            seed="7"
-            result="noise"
-          >
-            <animate
-              attributeName="baseFrequency"
-              dur="48s"
-              repeatCount="indefinite"
-              values="0.010 0.018; 0.016 0.012; 0.012 0.021; 0.018 0.015; 0.010 0.018"
-            />
-          </feTurbulence>
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="noise"
-            scale="24"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          >
-            <animate attributeName="scale" dur="48s" repeatCount="indefinite" values="18; 24; 20; 26; 18" />
-          </feDisplacementMap>
-        </filter>
-      </svg>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
         <button
