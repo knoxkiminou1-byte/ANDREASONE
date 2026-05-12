@@ -61,7 +61,7 @@ export function IntroHero() {
       className={`fixed inset-0 z-[100] overflow-hidden transition-all duration-[1800ms] ease-in-out ${
         isGone ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
       }`}
-      style={{ background: "rgb(82, 90, 41)" }}
+      style={{ background: "rgb(22, 34, 8)" }}
     >
       <div
         className="absolute"
@@ -70,7 +70,7 @@ export function IntroHero() {
           backgroundImage: `url(${introLiquidOlive})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "url(#liquid) grayscale(1) contrast(1.12) brightness(0.94) sepia(0.9) saturate(1.9) hue-rotate(42deg)",
+          filter: "url(#liquid) grayscale(1) contrast(1.45) brightness(0.82) sepia(0.85) saturate(1.55) hue-rotate(68deg)",
           animation: "slowDrift 32s linear infinite",
           transformOrigin: "center",
         }}
@@ -80,9 +80,9 @@ export function IntroHero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(135deg, rgba(57,72,29,0.84) 0%, rgba(106,124,61,0.72) 52%, rgba(57,72,29,0.84) 100%)",
+            "linear-gradient(135deg, rgba(22,34,8,0.78) 0%, rgba(58,80,22,0.62) 52%, rgba(22,34,8,0.78) 100%)",
           mixBlendMode: "multiply",
-          opacity: 0.92,
+          opacity: 0.88,
         }}
       />
 
