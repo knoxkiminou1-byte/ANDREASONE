@@ -72,7 +72,7 @@ export function IntroHero() {
 
     function draw() {
       const scale = 0.003;
-      const speed = 0.0015;
+      const speed = 0.00165;
       const cols = Math.ceil(width / STEP) + 2;
       const rows = Math.ceil(height / STEP) + 2;
       const grid = new Float32Array(cols * rows);
@@ -81,12 +81,12 @@ export function IntroHero() {
         for (let col = 0; col < cols; col += 1) {
           const worldX = col * STEP;
           const worldY = row * STEP;
-          const orbitX = Math.cos(frame) * 0.18;
-          const orbitY = Math.sin(frame) * 0.18;
+          const orbitX = Math.cos(frame) * 0.198;
+          const orbitY = Math.sin(frame) * 0.198;
           const n1 = noise2D(worldX * scale + orbitX, worldY * scale + orbitY);
           const n2 = noise2D(
-            worldX * scale * 0.45 + Math.cos(frame * 0.6) * 0.1,
-            worldY * scale * 0.45 + Math.sin(frame * 0.6) * 0.1,
+            worldX * scale * 0.45 + Math.cos(frame * 0.6) * 0.11,
+            worldY * scale * 0.45 + Math.sin(frame * 0.6) * 0.11,
           );
           grid[row * cols + col] = ((n1 + n2 * 0.55) / 1.55 + 1) / 2;
         }
@@ -252,7 +252,7 @@ export function IntroHero() {
             filter: "drop-shadow(0 10px 24px rgba(17,17,17,0.3))",
             animation:
               phase === "idle"
-                ? "pyramidLogoWobble 20s ease-in-out infinite"
+                ? "pyramidLogoWobble 18s ease-in-out infinite"
                 : phase === "ringing" || phase === "flashing"
                   ? "pyramidRing 1.8s cubic-bezier(0.22,1,0.36,1) forwards"
                   : undefined,

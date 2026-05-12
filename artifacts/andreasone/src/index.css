@@ -288,10 +288,10 @@ a, button {
 /* Pyramid logo subtle wobble */
 @keyframes pyramidLogoWobble {
   0%, 100% { transform: rotate(0deg); }
-  25%       { transform: rotate(0.3deg); }
-  75%       { transform: rotate(-0.3deg); }
+  25%       { transform: rotate(0.33deg); }
+  75%       { transform: rotate(-0.33deg); }
 }
 
 .pyramid-logo-wobble-subtle {
-  animation: pyramidLogoWobble 16s ease-in-out infinite;
+  animation: pyramidLogoWobble 14.4s ease-in-out infinite;
 }
