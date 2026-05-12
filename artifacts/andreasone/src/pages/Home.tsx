@@ -60,19 +60,19 @@ export default function Home() {
       </section>
 
       {/* QUOTE BLOCK */}
-      <section className="bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center">
+      <section className="bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center overflow-hidden">
         <ScrollReveal>
-          <h2 className="text-massive text-[#cf5d27] break-words uppercase">
+          <h2 className="text-[17vw] md:text-[15vw] stacked-title-word text-[#cf5d27] uppercase">
             SIGNALS
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.06}>
-          <h2 className="text-massive text-[#f6c45a] break-words uppercase">
+          <h2 className="text-[8vw] md:text-[6.5vw] stacked-title-word text-[#f6c45a] uppercase tracking-[0.18em] -mt-2 md:-mt-4">
             FROM THE
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.12}>
-          <h2 className="text-massive text-[#445829] break-words uppercase">
+          <h2 className="text-[21vw] md:text-[18vw] stacked-title-word text-[#445829] uppercase -mt-4 md:-mt-8">
             SOIL
           </h2>
         </ScrollReveal>

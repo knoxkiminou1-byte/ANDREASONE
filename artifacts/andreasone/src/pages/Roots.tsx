@@ -17,10 +17,14 @@ export default function Roots() {
           <h1 className="text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[12vw] stacked-title-word text-[#efe7d7] -mt-2 md:mt-0">FROM THE</h1>
+          <h1 className="text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] -mt-2 md:-mt-4">
+            FROM THE
+          </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <h1 className="text-massive stacked-title-word text-[#445829] -mt-2 md:mt-0">SOIL</h1>
+          <h1 className="text-[21vw] md:text-[18vw] stacked-title-word text-[#445829] uppercase -mt-4 md:-mt-8">
+            SOIL
+          </h1>
         </ScrollReveal>
       </section>
 
