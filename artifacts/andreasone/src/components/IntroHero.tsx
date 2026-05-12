@@ -59,17 +59,11 @@ export function IntroHero() {
     let frame = 0;
     let width = 0;
     let height = 0;
-    let dpr = 1;
-
     function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      canvas.width = width;
+      canvas.height = height;
     }
 
     const STEP = 4;
