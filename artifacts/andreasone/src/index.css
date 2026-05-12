@@ -277,6 +277,14 @@ a, button {
   50%      { transform: translateY(-10px); }
 }
 
+@keyframes introLiquidDrift {
+  0%   { transform: translate3d(0px, 0px, 0px) scale(1.03); }
+  25%  { transform: translate3d(-18px, 10px, 0px) scale(1.05); }
+  50%  { transform: translate3d(12px, -14px, 0px) scale(1.04); }
+  75%  { transform: translate3d(20px, 8px, 0px) scale(1.06); }
+  100% { transform: translate3d(-10px, -10px, 0px) scale(1.04); }
+}
+
 /* Pyramid logo subtle wobble */
 @keyframes pyramidLogoWobble {
   0%, 100% { transform: rotate(0deg); }
