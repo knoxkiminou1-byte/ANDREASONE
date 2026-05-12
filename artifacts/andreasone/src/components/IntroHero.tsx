@@ -70,9 +70,19 @@ export function IntroHero() {
           backgroundImage: `url(${introLiquidOlive})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "url(#liquid)",
+          filter: "url(#liquid) grayscale(1) contrast(1.12) brightness(0.94) sepia(0.9) saturate(1.9) hue-rotate(42deg)",
           animation: "slowDrift 32s linear infinite",
           transformOrigin: "center",
+        }}
+      />
+
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(57,72,29,0.84) 0%, rgba(106,124,61,0.72) 52%, rgba(57,72,29,0.84) 100%)",
+          mixBlendMode: "multiply",
+          opacity: 0.92,
         }}
       />
 
@@ -80,7 +90,7 @@ export function IntroHero() {
         <filter id="liquid">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.010 0.018"
+            baseFrequency="0.006 0.011"
             numOctaves="2"
             seed="7"
             result="noise"
@@ -89,17 +99,17 @@ export function IntroHero() {
               attributeName="baseFrequency"
               dur="32s"
               repeatCount="indefinite"
-              values="0.010 0.018; 0.016 0.012; 0.012 0.021; 0.018 0.015; 0.010 0.018"
+              values="0.006 0.011; 0.008 0.010; 0.007 0.012; 0.009 0.010; 0.006 0.011"
             />
           </feTurbulence>
           <feDisplacementMap
             in="SourceGraphic"
             in2="noise"
-            scale="24"
+            scale="14"
             xChannelSelector="R"
             yChannelSelector="G"
           >
-            <animate attributeName="scale" dur="32s" repeatCount="indefinite" values="18; 24; 20; 26; 18" />
+            <animate attributeName="scale" dur="32s" repeatCount="indefinite" values="11; 14; 12; 15; 11" />
           </feDisplacementMap>
         </filter>
       </svg>
