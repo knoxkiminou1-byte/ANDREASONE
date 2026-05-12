@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 import heroPhoto from "@assets/Andreas_0217_1778035391882.jpeg";
 import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
-import portraitPhoto from "@assets/Andreas-48_1778035403218.jpeg";
+import rootsPoster from "@assets/roots-poster.jpeg";
 
 export default function Roots() {
   return (
@@ -44,15 +44,11 @@ export default function Roots() {
       <section className="bg-black poster-panel">
         <div className="flex flex-col lg:flex-row items-start gap-16 w-full">
           <ScrollReveal className="w-full lg:w-[45%] hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a] flex-shrink-0" direction="left">
-            <div className="relative overflow-hidden">
-              <img
-                src={portraitPhoto}
-                alt="Andreas"
-                className="w-full h-auto object-cover"
-                style={{ filter: "brightness(0.88) contrast(1.15) saturate(0.2) sepia(0.85) hue-rotate(15deg)" }}
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(119,130,64,0.08),rgba(119,130,64,0.28))] mix-blend-multiply" />
-            </div>
+            <img
+              src={rootsPoster}
+              alt="Andreas roots portrait"
+              className="w-full h-auto object-cover"
+            />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-[#efe7d7]" direction="right">
             <div className="space-y-6 font-sans text-2xl md:text-3xl font-bold uppercase tracking-wide leading-relaxed text-[#efe7d7]">
@@ -101,7 +97,7 @@ export default function Roots() {
         <div className="absolute inset-0 flex items-center justify-center">
           <ScrollReveal>
             <p className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-[0.3em] text-[#f6c45a] text-center px-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
-              "A vibe, a frequency"
+              "Music is the weapon of the future"
             </p>
           </ScrollReveal>
         </div>

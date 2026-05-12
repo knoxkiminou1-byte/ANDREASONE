@@ -6,12 +6,12 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 import logoOutline from "@assets/AndreasOne_New_Logo_One_color_Transparent_1776997848574.png";
 import heroPhoto from "@assets/Andreas_0217_1778035391882.jpeg";
-import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
-import portraitPhoto from "@assets/Andreas-48_1778035403218.jpeg";
 import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
 import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
 import worldBuildingBackdrop from "@assets/Screen_Shot_2026-04-19_at_12.34.46_PM_1776997719113.png";
 import artE from "@assets/IMG_0177_1776998601433.JPG";
+import globalFrequencyPoster from "@assets/global-frequency-poster.jpeg";
+import frequencyCultureMovementPoster from "@assets/frequency-culture-movement-poster.jpeg";
 
 export default function Home() {
   return (
@@ -98,14 +98,12 @@ export default function Home() {
 
       {/* EDITORIAL PORTRAIT BLOCK */}
       <section className="bg-[#111111] w-full flex flex-col lg:flex-row min-h-[80vh]">
-        <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full">
+        <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full bg-[#cf5d27]">
           <img
-            src={layerPhoto}
-            alt="Andreas One"
+            src={globalFrequencyPoster}
+            alt="Andreas One editorial portrait"
             className="absolute inset-0 w-full h-full object-cover object-center"
-            style={{ filter: "brightness(0.75) contrast(1.15)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#111111]/60" />
         </div>
         <div className="w-full lg:w-1/2 bg-[#445829] flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
           <ScrollReveal direction="right">
@@ -172,7 +170,7 @@ export default function Home() {
             <h2 className="text-[11vw] lg:text-[7vw] leading-none text-[#efe7d7]">
               FREQUENCY
               <br />
-              <span className="text-[#f6c45a]">CULTURE</span>
+              CULTURE
               <br />
               MOVEMENT
             </h2>
@@ -180,12 +178,10 @@ export default function Home() {
         </div>
         <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full">
           <img
-            src={portraitPhoto}
-            alt="Andreas One"
-            className="absolute inset-0 w-full h-full object-cover object-top"
-            style={{ filter: "brightness(0.8) contrast(1.15) saturate(0.2) sepia(0.7) hue-rotate(-20deg)" }}
+            src={frequencyCultureMovementPoster}
+            alt="Andreas One frequency culture movement portrait"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,132,0,0.15),rgba(255,132,0,0.35))] mix-blend-multiply" />
         </div>
       </section>
 

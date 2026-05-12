@@ -125,7 +125,12 @@ export default function Music() {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <p className="font-sans text-3xl md:text-5xl text-[#efe7d7] max-w-5xl mx-auto leading-tight font-bold uppercase tracking-wide">
-            "From Fela's horns in Lagos to a basement in Brooklyn... these aren't different musics. They're the same conversation moving through different rooms."
+            "Music is the weapon of the future"
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.16}>
+          <p className="font-sans text-xl md:text-2xl text-[#efe7d7]/75 mt-8 uppercase tracking-[0.35em]">
+            Fela Kuti
           </p>
         </ScrollReveal>
       </section>
