@@ -1,10 +1,13 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
-import introLiquidOlive from "../assets/intro-liquid-olive.png";
-import introLiquidOliveLoop from "../assets/intro-liquid-olive.webm";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createNoise2D } from "simplex-noise";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
 const INTRO_SYMBOL_MASK = "url(/brand/andreasone-symbol.svg)";
+const NUM_LEVELS = 10;
+const OLIVE_R = 90;
+const OLIVE_G = 107;
+const OLIVE_B = 35;
 
 type Phase = "idle" | "ringing" | "flashing" | "exit";
 
@@ -14,6 +17,7 @@ interface Geo {
 }
 
 export function IntroHero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const logoRef = useRef<HTMLButtonElement>(null);
   const phaseRef = useRef<Phase>("idle");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -44,6 +48,155 @@ export function IntroHero() {
     };
   }, []);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const context = canvas.getContext("2d");
+    if (!context) return;
+
+    const noise2D = createNoise2D();
+    let frame = 0;
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    const STEP = 4;
+    resize();
+    window.addEventListener("resize", resize);
+
+    function draw() {
+      const scale = 0.003;
+      const speed = 0.006;
+      const cols = Math.ceil(width / STEP) + 2;
+      const rows = Math.ceil(height / STEP) + 2;
+      const grid = new Float32Array(cols * rows);
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let col = 0; col < cols; col += 1) {
+          const worldX = col * STEP;
+          const worldY = row * STEP;
+          const n1 = noise2D(worldX * scale + frame, worldY * scale);
+          const n2 = noise2D(
+            worldX * scale * 0.45 + frame * 0.6,
+            worldY * scale * 0.45 + frame * 0.35,
+          );
+          grid[row * cols + col] = ((n1 + n2 * 0.55) / 1.55 + 1) / 2;
+        }
+      }
+
+      const imageData = context.createImageData(width, height);
+      const data = imageData.data;
+
+      for (let pixelY = 0; pixelY < height; pixelY += 1) {
+        const gridRow = pixelY / STEP;
+        const row0 = Math.floor(gridRow);
+        const row1 = Math.min(row0 + 1, rows - 1);
+        const rowMix = gridRow - row0;
+
+        for (let pixelX = 0; pixelX < width; pixelX += 1) {
+          const gridCol = pixelX / STEP;
+          const col0 = Math.floor(gridCol);
+          const col1 = Math.min(col0 + 1, cols - 1);
+          const colMix = gridCol - col0;
+
+          const v00 = grid[row0 * cols + col0];
+          const v10 = grid[row0 * cols + col1];
+          const v01 = grid[row1 * cols + col0];
+          const v11 = grid[row1 * cols + col1];
+          const value =
+            v00 * (1 - colMix) * (1 - rowMix) +
+            v10 * colMix * (1 - rowMix) +
+            v01 * (1 - colMix) * rowMix +
+            v11 * colMix * rowMix;
+
+          const band = Math.floor(value * NUM_LEVELS);
+          const isOlive = band % 2 === 0;
+          const offset = (pixelY * width + pixelX) * 4;
+
+          if (isOlive) {
+            data[offset] = OLIVE_R;
+            data[offset + 1] = OLIVE_G;
+            data[offset + 2] = OLIVE_B;
+          } else {
+            data[offset] = 0;
+            data[offset + 1] = 0;
+            data[offset + 2] = 0;
+          }
+
+          data[offset + 3] = 255;
+        }
+      }
+
+      context.putImageData(imageData, 0, 0);
+      context.strokeStyle = "#000000";
+      context.lineWidth = Math.max(2, Math.min(width, height) * 0.009);
+      context.lineJoin = "round";
+      context.lineCap = "round";
+
+      for (let level = 1; level < NUM_LEVELS; level += 1) {
+        const threshold = level / NUM_LEVELS;
+        context.beginPath();
+
+        for (let row = 0; row < rows - 1; row += 1) {
+          for (let col = 0; col < cols - 1; col += 1) {
+            const a = grid[row * cols + col];
+            const b = grid[row * cols + (col + 1)];
+            const d = grid[(row + 1) * cols + col];
+            const e = grid[(row + 1) * cols + (col + 1)];
+
+            const marchingState =
+              (a >= threshold ? 8 : 0) |
+              (b >= threshold ? 4 : 0) |
+              (e >= threshold ? 2 : 0) |
+              (d >= threshold ? 1 : 0);
+
+            if (marchingState === 0 || marchingState === 15) continue;
+
+            const x = col * STEP;
+            const y = row * STEP;
+            const segmentSize = STEP;
+            const lerp = (from: number, to: number) =>
+              segmentSize * ((threshold - from) / (to - from));
+
+            const top: Point = [x + lerp(a, b), y];
+            const right: Point = [x + segmentSize, y + lerp(b, e)];
+            const bottom: Point = [x + lerp(d, e), y + segmentSize];
+            const left: Point = [x, y + lerp(a, d)];
+
+            for (const [x0, y0, x1, y1] of getSegments(marchingState, top, right, bottom, left)) {
+              context.moveTo(x0, y0);
+              context.lineTo(x1, y1);
+            }
+          }
+        }
+
+        context.stroke();
+      }
+
+      frame += speed;
+      animationFrame = window.requestAnimationFrame(draw);
+    }
+
+    let animationFrame = window.requestAnimationFrame(draw);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
   function handleClick() {
     if (phaseRef.current !== "idle") return;
 
@@ -66,39 +219,7 @@ export function IntroHero() {
     >
       <div className="absolute inset-0 bg-[#445829]" />
 
-      <div className="absolute inset-[-8%] overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster={introLiquidOlive}
-          className="absolute inset-0 h-full w-full max-w-none object-cover opacity-[0.98]"
-          style={{
-            width: "116%",
-            height: "116%",
-            left: "-8%",
-            top: "-8%",
-            filter: "saturate(0.95) contrast(1.02)",
-          }}
-        >
-          <source src={introLiquidOliveLoop} type="video/webm" />
-        </video>
-        <img
-          src={introLiquidOlive}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full max-w-none object-cover opacity-0"
-          style={{
-            width: "116%",
-            height: "116%",
-            left: "-8%",
-            top: "-8%",
-            filter: "saturate(0.95) contrast(1.02)",
-          }}
-        />
-      </div>
+      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
 
       <div
         className="absolute inset-0 opacity-[0.09] pointer-events-none mix-blend-multiply"
@@ -205,4 +326,44 @@ export function IntroHero() {
       )}
     </div>
   );
+}
+
+type Segment = [number, number, number, number];
+type Point = [number, number];
+
+function getSegments(marchingState: number, top: Point, right: Point, bottom: Point, left: Point): Segment[] {
+  const segment = (start: Point, end: Point): Segment => [start[0], start[1], end[0], end[1]];
+
+  switch (marchingState) {
+    case 1:
+      return [segment(left, bottom)];
+    case 2:
+      return [segment(bottom, right)];
+    case 3:
+      return [segment(left, right)];
+    case 4:
+      return [segment(top, right)];
+    case 5:
+      return [segment(top, right), segment(left, bottom)];
+    case 6:
+      return [segment(top, bottom)];
+    case 7:
+      return [segment(top, left)];
+    case 8:
+      return [segment(top, left)];
+    case 9:
+      return [segment(top, bottom)];
+    case 10:
+      return [segment(top, left), segment(bottom, right)];
+    case 11:
+      return [segment(top, right)];
+    case 12:
+      return [segment(left, right)];
+    case 13:
+      return [segment(bottom, right)];
+    case 14:
+      return [segment(left, bottom)];
+    default:
+      return [];
+  }
 }
