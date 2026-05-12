@@ -96,9 +96,14 @@ export default function Roots() {
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <ScrollReveal>
-            <p className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-[0.3em] text-[#f6c45a] text-center px-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
-              "Music is the weapon of the future"
-            </p>
+            <div className="text-center px-8">
+              <p className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-[0.3em] text-[#f6c45a] drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+                "Music is the weapon of the future"
+              </p>
+              <p className="mt-6 font-sans text-lg md:text-2xl uppercase tracking-[0.35em] text-[#efe7d7] drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+                Fela Kuti
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
