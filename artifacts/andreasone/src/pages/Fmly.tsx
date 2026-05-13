@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FMLY_BZNS_URL } from "@/data/siteLinks";
-import fmlyLogo from "@assets/fmly-bzns-logo.jpeg";
+import fmlyLogo from "@assets/fmly-bzns-logo-transparent.svg";
 
 export default function Fmly() {
   return (
