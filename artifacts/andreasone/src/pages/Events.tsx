@@ -2,8 +2,9 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
 
-import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
+import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
 import baliPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.57_PM_1776997719128.png";
 
 export default function Events() {
@@ -28,14 +29,13 @@ export default function Events() {
             <img src={gatheringPoster} alt="The Gathering 2026" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-left" direction="right">
-            <span className="inline-block bg-[#cf5d27] text-[#111111] font-sans font-bold text-2xl px-6 py-2 border-4 border-[#111111] mb-6 uppercase tracking-widest">
-              ON SALE
-            </span>
             <h3 className="text-[8vw] leading-none text-[#445829] mb-4">THE GATHERING</h3>
-            <p className="font-sans text-3xl font-bold uppercase mb-2">MAY 24, 2026 · LOS ANGELES</p>
-            <p className="font-sans text-xl uppercase tracking-widest text-[#111111]/70 mb-12">Resident — Downtown LA</p>
-            <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#445829] text-[#efe7d7] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-8 border-[#111111]">
-              GET TICKETS
+            <p className="font-sans text-3xl font-bold uppercase mb-2">JULY 31-AUGUST 2, 2026 · HOPLAND, CA</p>
+            <p className="font-sans text-xl uppercase tracking-widest text-[#111111]/70 mb-12">Gateway Mendocino · 13771 US Hwy 101</p>
+            <Button asChild size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#445829] text-[#efe7d7] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-8 border-[#111111]">
+              <a href={THE_GATHERING_TICKETS_URL} target="_blank" rel="noreferrer">
+                GET TICKETS
+              </a>
             </Button>
           </ScrollReveal>
         </div>

@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
 import cover02 from "@assets/IMG_0237_1776998601428.JPG";
 import cover03 from "@assets/IMG_0188_1776998601429.JPG";
-import { SOCIAL_LINKS } from "@/data/siteLinks";
+import { MIXTAPE_VOL_12_URL, SOCIAL_LINKS } from "@/data/siteLinks";
 
 export default function Sounds() {
   return (
@@ -110,14 +110,16 @@ export default function Sounds() {
           ].map((m, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
               <div className="border-8 border-[#111111] bg-[#f6c45a] p-4 shadow-[12px_12px_0_#111111] hover-lift cursor-pointer text-center">
-                <div className="hover-img w-full mb-6 border-b-8 border-[#111111]">
-                  <img src={m.img} alt={m.title} className="w-full aspect-square object-cover" />
-                </div>
-                <h3 className="font-display text-5xl text-[#cf5d27] mb-2">{m.title}</h3>
-                <p className="font-sans text-2xl font-bold uppercase tracking-wider text-[#111111] mb-6">{m.sub}</p>
-                <Button className="w-full h-16 text-2xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] rounded-none border-4 border-[#111111]">
+              <div className="hover-img w-full mb-6 border-b-8 border-[#111111]">
+                <img src={m.img} alt={m.title} className="w-full aspect-square object-cover" />
+              </div>
+              <h3 className="font-display text-5xl text-[#cf5d27] mb-2">{m.title}</h3>
+              <p className="font-sans text-2xl font-bold uppercase tracking-wider text-[#111111] mb-6">{m.sub}</p>
+              <Button asChild className="w-full h-16 text-2xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] rounded-none border-4 border-[#111111]">
+                <a href={i === 0 ? MIXTAPE_VOL_12_URL : SOCIAL_LINKS.soundcloud} target="_blank" rel="noreferrer">
                   PLAY MIX
-                </Button>
+                </a>
+              </Button>
               </div>
             </ScrollReveal>
           ))}

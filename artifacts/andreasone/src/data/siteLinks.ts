@@ -4,8 +4,8 @@
 export const SHOP_URL = "";
 // Example: "https://andreasone.myshopify.com"
 
-export const FMLY_SITE_URL = "https://soundcloud.com/fmlybzns";
-// Example: "https://fmlybzns.com"
+export const FMLY_SITE_URL = "";
+export const FMLY_BZNS_URL = "https://fmlybzns.com";
 
 export const BOOKING_EMAIL = "mgmt@andreasone.co";
 
@@ -18,3 +18,6 @@ export const SOCIAL_LINKS = {
   bandcamp: "https://andreasone.bandcamp.com",
   appleMusic: "https://music.apple.com/us/artist/andreasone/943687639",
 };
+
+export const MIXTAPE_VOL_12_URL = SOCIAL_LINKS.soundcloud;
+export const THE_GATHERING_TICKETS_URL = "https://beatstorapon.com/event/fmly-bzns-the-gathering-69d3389209791083336105e4";

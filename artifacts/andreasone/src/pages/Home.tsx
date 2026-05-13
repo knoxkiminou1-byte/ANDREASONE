@@ -3,11 +3,12 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MIXTAPE_VOL_12_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
 
 import logoOutline from "@assets/AndreasOne_New_Logo_One_color_Transparent_1776997848574.png";
 import heroPhoto from "@assets/Andreas_0217_1778035391882.jpeg";
 import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
-import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
+import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
 import worldBuildingBackdrop from "@assets/Screen_Shot_2026-04-19_at_12.34.46_PM_1776997719113.png";
 import artE from "@assets/IMG_0177_1776998601433.JPG";
 import globalFrequencyPoster from "@assets/global-frequency-poster.jpeg";
@@ -84,11 +85,11 @@ export default function Home() {
           <ScrollReveal className="flex-1 w-full text-center lg:text-left" direction="left">
             <p className="font-sans text-xl md:text-2xl font-bold uppercase tracking-[0.3em] mb-4 text-[#111111]/60">LATEST TRANSMISSION</p>
             <h2 className="text-[12vw] leading-none mb-8 text-[#111111]">FMLY MXTP<br />VOL. 12</h2>
-            <Link href="/sounds">
-              <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_#111111]">
+            <Button asChild size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_#111111]">
+              <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer">
                 PLAY LOUD
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </ScrollReveal>
           <ScrollReveal className="w-full lg:w-[45%] hover-img" direction="right">
             <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto object-cover" />
@@ -147,12 +148,12 @@ export default function Home() {
           <ScrollReveal className="flex-1 w-full text-center lg:text-right" direction="right">
             <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-6">UPCOMING</h2>
             <h2 className="text-[10vw] leading-none text-[#111111] mb-12">EXPERIENCES</h2>
-            <p className="font-sans text-2xl font-bold uppercase text-[#d9decf] mb-12">The Gathering · May 24, 2026 · Los Angeles</p>
-            <Link href="/experiences">
-              <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_rgba(0,0,0,0.3)]">
+            <p className="font-sans text-2xl font-bold uppercase text-[#d9decf] mb-12">The Gathering · July 31-August 2, 2026 · Hopland, CA</p>
+            <Button asChild size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_rgba(0,0,0,0.3)]">
+              <a href={THE_GATHERING_TICKETS_URL} target="_blank" rel="noreferrer">
                 GET TICKETS
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </ScrollReveal>
         </div>
       </section>

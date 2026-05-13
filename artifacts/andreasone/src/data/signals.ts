@@ -70,12 +70,12 @@ export const signals: Signal[] = [
   },
   {
     id: "s04",
-    title: "THE GATHERING 2026 — TICKETS ON SALE",
+    title: "THE GATHERING 2026 — GATEWAY MENDOCINO",
     slug: "the-gathering-2026",
     type: "announcement",
     date: "FEB 2026",
     excerpt:
-      "The Gathering returns — May 24, 2026, Los Angeles. Resident, Downtown. One room. All night. The culture gathers here.",
+      "The Gathering returns July 31-August 2, 2026 in Hopland, California at Gateway Mendocino. The culture gathers here.",
     externalLink: "/experiences",
     tags: ["announcement", "experiences", "the-gathering"],
     published: true,
