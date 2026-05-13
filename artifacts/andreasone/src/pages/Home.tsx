@@ -37,7 +37,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#cf5d27] opacity-10 mix-blend-color pointer-events-none" />
 
         {/* Logo pinned to bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-10 sm:pb-16 px-2 sm:px-4 translate-y-[34px] sm:translate-y-[48px]">
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center px-2 sm:px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:pb-16 translate-y-0 sm:translate-y-[48px]">
           <motion.div
             role="img"
             aria-label="ANDREASONE"
