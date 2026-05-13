@@ -56,7 +56,7 @@ export const archiveItems: ArchiveItem[] = [
   { id: "a08", title: "DESERT SKY",       image: art08, alt: "Desert Sky",         series: "Illustrations",      year: "2024", medium: "Digital",  displayOrder: 14, active: true },
   { id: "a11", title: "MAZUNTE",          image: art11, alt: "Mazunte",            series: "Illustrations",      year: "2025", medium: "Digital",  displayOrder: 15, active: true },
   { id: "a14", title: "OAXACA",           image: art14, alt: "Oaxaca",             series: "Illustrations",      year: "2024", medium: "Digital",  displayOrder: 16, active: true },
-  { id: "a17", title: "A PLACE I'VE SEEN", image: art17, alt: "A Place I've Seen", series: "Illustrations",      year: "2025", medium: "Digital",  displayOrder: 17, active: true },
+  { id: "a17", title: "MUSE",             image: art17, alt: "Muse",               series: "Illustrations",      year: "2025", medium: "Digital",  displayOrder: 17, active: true },
   // TODO: Add new archive items below this line
   // {
   //   id: "a18",

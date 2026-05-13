@@ -40,7 +40,7 @@ const pieces = [
   { src: art08, title: "DESERT SKY",        series: "Illustrations", year: "2024" },
   { src: art11, title: "MAZUNTE",           series: "Illustrations", year: "2025" },
   { src: art14, title: "OAXACA",            series: "Illustrations", year: "2024" },
-  { src: art17, title: "A PLACE I'VE SEEN", series: "Illustrations", year: "2025" },
+  { src: art17, title: "MUSE",             series: "Illustrations", year: "2025" },
 ];
 
 export default function Art() {
