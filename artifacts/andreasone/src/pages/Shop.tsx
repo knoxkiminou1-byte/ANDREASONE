@@ -22,7 +22,7 @@ const products: Product[] = [
   { id: "ap2", name: "PYRAMID LOGO TEE",       price: 45,  status: "LOW STOCK", image: logoOrange,     bg: "#cf5d27", wobbleLogo: true },
   { id: "ap3", name: "AO MONOGRAM CAP",        price: 38,  status: "AVAILABLE", image: monogram,       bg: "#f6c45a", wobbleLogo: true },
   { id: "pr1", name: "VISION PRINT",           price: 120, status: "AVAILABLE", image: print01,        bg: "#111111" },
-  { id: "pr2", name: "NATURAL WINE 2 PRINT",   price: 120, status: "AVAILABLE", image: print02,        bg: "#111111" },
+  { id: "pr2", name: "NATURAL WINE PRINT",     price: 120, status: "AVAILABLE", image: print02,        bg: "#111111" },
   { id: "po1", name: "THE GATHERING POSTER",   price: 35,  status: "AVAILABLE", image: gatheringPoster,bg: "#111111" },
   { id: "mx1", name: "MXTP VOL. 12 CASSETTE", price: 22,  status: "AVAILABLE", image: mxtpCover,      bg: "#111111" },
 ];

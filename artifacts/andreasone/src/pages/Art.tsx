@@ -29,18 +29,18 @@ const pieces = [
   { src: art05, title: "AWAKE",             series: "Illustrations", year: "2024" },
   { src: art07, title: "VISION",            series: "Illustrations", year: "2024" },
   { src: art13, title: "RELAXATION",        series: "Goddess Body", year: "2025" },
-  { src: art16, title: "KICK BACK",         series: "Goddess Body", year: "2025" },
-  { src: art03, title: "NATURAL WINE",      series: "Goddess Body", year: "2025" },
-  { src: art09, title: "NATURAL WINE 2",    series: "Goddess Body", year: "2025" },
+  { src: art16, title: "GIVER OF LIFE",     series: "Goddess Body", year: "2025" },
+  { src: art03, title: "THIS LIFE",         series: "Goddess Body", year: "2025" },
+  { src: art09, title: "NATURAL WINE",      series: "Goddess Body", year: "2025" },
   { src: art12, title: "SUNKISSED",         series: "Goddess Body", year: "2025" },
   { src: art10, title: "TIME TO HEAL",      series: "Goddess Body", year: "2025" },
   { src: art02, title: "EXPLORATION",       series: "Goddess Body", year: "2025" },
-  { src: art15, title: "GIVER OF LIFE",     series: "Goddess Body", year: "2025" },
+  { src: art15, title: "GODESS BODY",       series: "Goddess Body", year: "2025" },
   { src: art06, title: "SWING-A-LING",      series: "Illustrations", year: "2024" },
   { src: art08, title: "DESERT SKY",        series: "Illustrations", year: "2024" },
   { src: art11, title: "MAZUNTE",           series: "Illustrations", year: "2025" },
   { src: art14, title: "OAXACA",            series: "Illustrations", year: "2024" },
-  { src: art17, title: "MUSE",             series: "Illustrations", year: "2025" },
+  { src: art17, title: "A PLACE I'VE SEEN", series: "Illustrations", year: "2025" },
 ];
 
 export default function Art() {
