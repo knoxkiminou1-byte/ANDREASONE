@@ -21,8 +21,8 @@ const products: Product[] = [
   { id: "ap1", name: "FMLY SIGIL TEE",        price: 45,  status: "AVAILABLE", image: sigilMark,      bg: "#efe7d7" },
   { id: "ap2", name: "PYRAMID LOGO TEE",       price: 45,  status: "LOW STOCK", image: logoOrange,     bg: "#cf5d27", wobbleLogo: true },
   { id: "ap3", name: "AO MONOGRAM CAP",        price: 38,  status: "AVAILABLE", image: monogram,       bg: "#f6c45a", wobbleLogo: true },
-  { id: "pr1", name: "EYE OF THE SUN PRINT",   price: 120, status: "AVAILABLE", image: print01,        bg: "#111111" },
-  { id: "pr2", name: "GOLDEN HOUR PRINT",      price: 120, status: "AVAILABLE", image: print02,        bg: "#111111" },
+  { id: "pr1", name: "VISION PRINT",           price: 120, status: "AVAILABLE", image: print01,        bg: "#111111" },
+  { id: "pr2", name: "NATURAL WINE 2 PRINT",   price: 120, status: "AVAILABLE", image: print02,        bg: "#111111" },
   { id: "po1", name: "THE GATHERING POSTER",   price: 35,  status: "AVAILABLE", image: gatheringPoster,bg: "#111111" },
   { id: "mx1", name: "MXTP VOL. 12 CASSETTE", price: 22,  status: "AVAILABLE", image: mxtpCover,      bg: "#111111" },
 ];
