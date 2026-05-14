@@ -33,24 +33,12 @@ export default function Music() {
             <p className="font-sans text-2xl mb-12 max-w-xl mx-auto lg:mx-0">
               A 68 min journey through Amapiano, Afro House, Deep House, Gqom, Baile Funk, and Global Edits.
             </p>
-            <div className="flex flex-col gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer">
-                <Button size="lg" className="h-20 px-12 text-2xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:-translate-y-1 rounded-none border-4 border-[#f6c45a] w-full sm:w-auto">
-                  YOUTUBE
+                <Button size="lg" className="h-20 px-12 text-2xl font-display uppercase bg-[#cf5d27] text-[#111111] hover:bg-[#f6c45a] hover:-translate-y-1 rounded-none border-4 border-[#cf5d27]">
+                  SOUNDCLOUD
                 </Button>
               </a>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a href={SOCIAL_LINKS.soundcloud} target="_blank" rel="noreferrer">
-                  <Button size="lg" className="h-20 px-12 text-2xl font-display uppercase bg-[#cf5d27] text-[#111111] hover:bg-[#f6c45a] hover:-translate-y-1 rounded-none border-4 border-[#cf5d27]">
-                    SOUNDCLOUD
-                  </Button>
-                </a>
-                <a href={SOCIAL_LINKS.spotify} target="_blank" rel="noreferrer">
-                  <Button size="lg" className="h-20 px-12 text-2xl font-display uppercase bg-transparent text-[#f6c45a] hover:bg-[#f6c45a] hover:text-[#111111] hover:-translate-y-1 rounded-none border-4 border-[#f6c45a]">
-                    SPOTIFY
-                  </Button>
-                </a>
-              </div>
             </div>
           </ScrollReveal>
         </div>
