@@ -66,17 +66,9 @@ export default function Archive() {
                       />
                     </div>
                     <div className="pt-6 text-center">
-                      <p className="font-sans text-lg uppercase tracking-[0.3em] text-[#cf5d27] mb-3">
-                        {collection.items.length} pieces
-                      </p>
                       <h2 className="font-display text-5xl md:text-4xl text-[#111111] leading-none">
                         {collection.title}
                       </h2>
-                      {collection.description && (
-                        <p className="font-sans text-lg uppercase tracking-wide text-[#111111]/60 mt-4">
-                          {collection.description}
-                        </p>
-                      )}
                     </div>
                   </div>
                 </button>
