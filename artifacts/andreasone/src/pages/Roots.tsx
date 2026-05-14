@@ -75,11 +75,13 @@ export default function Roots() {
         </ScrollReveal>
         <div className="max-w-5xl mx-auto space-y-12 text-left">
           {[
-            { year: "2018", text: "Started DJing in Brooklyn — house parties, lofts, basement nights." },
-            { year: "2019", text: "Founded FMLY BZNS as a creative studio and event series." },
-            { year: "2022", text: "Launches The Gathering — annual cultural festival, sold out year one." },
-            { year: "2025", text: "Lisbon, Lagos, New York, Tokyo. Global rooms. One sound." },
-            { year: "2026", text: "Touring NYC, Lagos, Lisbon, Berlin, Mexico City. andreasone.co" },
+            { year: "1997 — 2007", text: "Entered the Bay Area underground. Produced events, emceed parties, designed flyers and album covers across hip-hop, reggae, and rave culture. Sold original T-shirt designs at festivals and late-night gatherings." },
+            { year: "2007", text: "Founded PEACE Fits — a cult streetwear label bridging festival culture, global influence, and Afro-inspired visual motifs." },
+            { year: "2007 — 2015", text: "Performed internationally as an emcee, live visual artist, and designer. From Oakland warehouses to festivals in Australia, Costa Rica, and Canada." },
+            { year: "2018", text: "First public DJ set at Lightning in a Bottle. Merging influences and experience into global dance music culture." },
+            { year: "2020", text: "Launched FMLY BZNS as a livestream DJ and artist collective connecting music, visuals, and community during the pandemic era." },
+            { year: "2022", text: "FMLY BZNS evolves into a live event series. Immersive dance floors rooted in diaspora sounds, rave energy, and visual world-building." },
+            { year: "2023", text: "Performed at Coachella. Expanded FMLY BZNS takeovers to Lightning in a Bottle and Burning Man." },
           ].map((t, i) => (
             <ScrollReveal key={t.year} delay={i * 0.09} direction="left">
               <div className="border-l-8 border-[#cf5d27] pl-8 hover-lift">
@@ -112,36 +114,13 @@ export default function Roots() {
         </div>
       </section>
 
-      {/* RECOGNITION */}
-      <section className="bg-cream poster-panel text-center">
-        <ScrollReveal>
-          <h2 className="text-[10vw] leading-none text-[#cf5d27] mb-16">AS SEEN IN</h2>
-        </ScrollReveal>
-        <div className="flex flex-wrap justify-center gap-8">
-          {["RESIDENT ADVISOR", "MIXMAG", "OKAYAFRICA", "HIGHSNOBIETY", "i-D", "BOILER ROOM"].map((p, i) => (
-            <ScrollReveal key={p} delay={i * 0.06}>
-              <span className="block font-display text-3xl md:text-5xl text-[#111111] hover:text-[#f6c45a] transition-colors bg-[#cf5d27] px-6 py-2 border-4 border-[#111111] shadow-[6px_6px_0_#111111] hover-lift cursor-pointer">
-                {p}
-              </span>
-            </ScrollReveal>
-          ))}
-        </div>
-        <ScrollReveal delay={0.3} className="mt-16">
-          <Link href="/signals">
-            <Button size="lg" className="h-16 px-12 text-2xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-4 border-[#111111]">
-              SIGNALS
-            </Button>
-          </Link>
-        </ScrollReveal>
-      </section>
-
       {/* BOOKING CTA */}
       <section className="bg-black poster-panel border-t-8 border-[#cf5d27] text-center">
         <ScrollReveal>
           <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-4">BOOK</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h2 className="text-[10vw] leading-none text-[#cf5d27] mb-16">ANDREAS</h2>
+          <h2 className="text-[10vw] leading-none text-[#cf5d27] mb-16">ANDREASONE</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <Link href="/connect">

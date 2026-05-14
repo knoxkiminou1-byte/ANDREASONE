@@ -52,13 +52,13 @@ export default function Music() {
         <ScrollReveal className="w-full">
           <div className="border-8 border-[#111111] overflow-hidden shadow-[16px_16px_0_#111111]">
             <iframe
-              title="AndreasOne on SoundCloud"
+              title="AndreasOne latest tracks on SoundCloud"
               width="100%"
               height="450"
               scrolling="no"
               frameBorder="no"
               allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andreasone&color=%23cf5d27&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andreasone/tracks&color=%23cf5d27&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
             />
           </div>
         </ScrollReveal>
