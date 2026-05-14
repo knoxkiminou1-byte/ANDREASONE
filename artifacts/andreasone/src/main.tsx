@@ -1,11 +1,8 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { startAnimatedFavicon } from "./lib/animatedFavicon";
 
 createRoot(document.getElementById("root")!).render(<App />);
-
-startAnimatedFavicon();
 
 const TILT_SELECTOR = ".group, [data-tilt]";
 const MAX_TILT = 10;
