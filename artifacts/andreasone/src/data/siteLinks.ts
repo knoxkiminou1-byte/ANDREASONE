@@ -19,5 +19,5 @@ export const SOCIAL_LINKS = {
   appleMusic: "https://music.apple.com/us/artist/andreasone/943687639",
 };
 
-export const MIXTAPE_VOL_12_URL = SOCIAL_LINKS.soundcloud;
+export const MIXTAPE_VOL_12_URL = "https://youtu.be/DgbGTttnbo4";
 export const THE_GATHERING_TICKETS_URL = "https://beatstorapon.com/event/fmly-bzns-the-gathering-69d3389209791083336105e4";

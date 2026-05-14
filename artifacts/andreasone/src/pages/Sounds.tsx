@@ -2,8 +2,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
-import cover02 from "@assets/IMG_0237_1776998601428.JPG";
-import cover03 from "@assets/IMG_0188_1776998601429.JPG";
 import { MIXTAPE_VOL_12_URL, SOCIAL_LINKS } from "@/data/siteLinks";
 
 export default function Sounds() {
@@ -27,7 +25,9 @@ export default function Sounds() {
       <section className="bg-black poster-panel">
         <div className="flex flex-col lg:flex-row items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a]" direction="left">
-            <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto" />
+            <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer" className="block">
+              <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto" />
+            </a>
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-left text-[#efe7d7]" direction="right">
             <h2 className="text-[8vw] leading-none mb-4 text-[#f6c45a]">FMLY MXTP</h2>
@@ -38,7 +38,13 @@ export default function Sounds() {
             <p className="font-sans text-2xl mb-12 max-w-xl mx-auto lg:mx-0">
               A 68 min journey through Amapiano, Afro House, Deep House, Gqom, Baile Funk, and Global Edits.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col gap-4 justify-center lg:justify-start">
+              <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer">
+                <Button size="lg" className="h-20 px-12 text-2xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:-translate-y-1 rounded-none border-4 border-[#f6c45a] w-full sm:w-auto">
+                  YOUTUBE
+                </Button>
+              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href={SOCIAL_LINKS.soundcloud} target="_blank" rel="noreferrer">
                 <Button size="lg" className="h-20 px-12 text-2xl font-display uppercase bg-[#cf5d27] text-[#111111] hover:bg-[#f6c45a] hover:-translate-y-1 rounded-none border-4 border-[#cf5d27]">
                   SOUNDCLOUD
@@ -49,6 +55,7 @@ export default function Sounds() {
                   SPOTIFY
                 </Button>
               </a>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -98,35 +105,6 @@ export default function Sounds() {
             </Button>
           </a>
         </ScrollReveal>
-      </section>
-
-      {/* Mixtape Grid */}
-      <section className="bg-orange poster-panel border-y-8 border-[#111111]">
-        <ScrollReveal>
-          <h2 className="text-[10vw] text-[#111111] text-center mb-16 leading-none">THE MIXTAPES</h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
-          {[
-            { img: mxtpCover, title: "VOL. 12", sub: "MARCH MEDITATIONS" },
-            { img: cover02, title: "VOL. 11", sub: "LAGOS NIGHTS" },
-            { img: cover03, title: "VOL. 10", sub: "BAHIA AT DAWN" },
-          ].map((m, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="border-8 border-[#111111] bg-[#f6c45a] p-4 shadow-[12px_12px_0_#111111] hover-lift cursor-pointer text-center">
-              <div className="hover-img w-full mb-6 border-b-8 border-[#111111]">
-                <img src={m.img} alt={m.title} className="w-full aspect-square object-cover" />
-              </div>
-              <h3 className="font-display text-5xl text-[#cf5d27] mb-2">{m.title}</h3>
-              <p className="font-sans text-2xl font-bold uppercase tracking-wider text-[#111111] mb-6">{m.sub}</p>
-              <Button asChild className="w-full h-16 text-2xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] rounded-none border-4 border-[#111111]">
-                <a href={i === 0 ? MIXTAPE_VOL_12_URL : SOCIAL_LINKS.soundcloud} target="_blank" rel="noreferrer">
-                  PLAY MIX
-                </a>
-              </Button>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
       </section>
 
       {/* Philosophy */}
