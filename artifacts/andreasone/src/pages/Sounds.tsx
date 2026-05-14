@@ -98,14 +98,11 @@ export default function Sounds() {
       {/* Philosophy */}
       <section className="bg-olive poster-panel text-center">
         <ScrollReveal>
-          <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-12">THE LINEAGE</h2>
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <p className="font-sans text-3xl md:text-5xl text-[#efe7d7] max-w-5xl mx-auto leading-tight font-bold uppercase tracking-wide">
+          <p className="font-sans text-[11vw] md:text-[7vw] text-[#efe7d7] max-w-6xl mx-auto leading-[0.9] font-bold uppercase tracking-tight">
             "MUSIC IS THE WEAPON OF THE FUTURE"
           </p>
         </ScrollReveal>
-        <ScrollReveal delay={0.16}>
+        <ScrollReveal delay={0.1}>
           <p className="font-sans text-lg md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/70 mt-8">
             — Fela Kuti
           </p>

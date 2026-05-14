@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
 import rootsPoster from "@assets/roots-poster.jpeg";
-import rootsOriginStage from "@assets/roots-origin-stage.jpg";
+import rootsOriginStage from "@assets/roots-origin-stage.png";
 
 export default function Roots() {
   return (
@@ -120,7 +120,9 @@ export default function Roots() {
           <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-4">BOOK</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h2 className="text-[10vw] leading-none text-[#cf5d27] mb-16">ANDREASONE</h2>
+          <h2 className="text-[9vw] md:text-[8vw] leading-none text-[#cf5d27] mb-16 normal-case tracking-tight">
+            AndreasOne
+          </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <Link href="/connect">

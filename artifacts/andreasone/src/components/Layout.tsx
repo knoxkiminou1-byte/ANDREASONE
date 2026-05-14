@@ -248,7 +248,7 @@ export function Layout({ children }: LayoutProps) {
             <div
               role="img"
               aria-label="AndreasOne"
-              className="mb-4 h-10 w-[220px]"
+              className="mb-5 h-14 md:h-16 w-[280px] md:w-[340px]"
               style={{
                 backgroundColor: BRAND_GOLD,
                 maskImage: `url(${logoOutline})`,
