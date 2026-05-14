@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
+import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
 import cover02 from "@assets/IMG_0237_1776998601428.JPG";
 import cover03 from "@assets/IMG_0188_1776998601429.JPG";
 

@@ -11,7 +11,7 @@ import monogram from "@assets/AndreasOne-AO_New_Logo.02_-2025_1776997848573.png"
 import print01 from "@assets/IMG_0237_1776998601428.JPG";
 import print02 from "@assets/IMG_0188_1776998601429.JPG";
 import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
-import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
+import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
 
 type Product = {
   id: string; name: string; price: number; status: string; image: string; bg: string; wobbleLogo?: boolean;

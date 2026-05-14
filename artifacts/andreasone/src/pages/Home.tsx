@@ -7,7 +7,7 @@ import { MIXTAPE_VOL_12_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks"
 
 import logoOutline from "@assets/AndreasOne_New_Logo_One_color_Transparent_1776997848574.png";
 import heroPhoto from "@assets/Andreas_0217_1778035391882.jpeg";
-import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
+import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
 import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
 import worldBuildingBackdrop from "@assets/Screen_Shot_2026-04-19_at_12.34.46_PM_1776997719113.png";
 import artE from "@assets/IMG_0177_1776998601433.JPG";
