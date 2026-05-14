@@ -43,7 +43,7 @@ import payam from "@assets/archive/illustrations/payam.jpg";
 import perfection from "@assets/archive/illustrations/perfection.jpg";
 import rootsMan from "@assets/archive/illustrations/roots-man.png";
 import soules from "@assets/archive/illustrations/soules.jpg";
-import source from "@assets/archive/illustrations/source.jpg";
+import source from "@assets/archive/illustrations/source-zero.jpeg";
 import vision from "@assets/archive/illustrations/vision.jpg";
 import zumbi from "@assets/archive/illustrations/zumbi.jpg";
 
@@ -90,7 +90,7 @@ export const archiveCollections: ArchiveCollection[] = [
       { id: "ill-01", title: "SWING-A-LING", image: swingALing, alt: "Swing-A-Ling", series: "Illustrations", year: "2026", medium: "Digital" },
       { id: "ill-02", title: "A PLACE I'VE SEEN", image: aPlaceIveSeen, alt: "A Place I've Seen", series: "Illustrations", year: "2026", medium: "Digital" },
       { id: "ill-03", title: "AWAKE", image: awakeEye, alt: "Awake eye artwork", series: "Illustrations", year: "2026", medium: "Digital" },
-      { id: "ill-04", title: "AWAKE", image: awakeHand, alt: "Awake hand artwork", series: "Illustrations", year: "2026", medium: "Digital" },
+      { id: "ill-04", title: "AWAKE 2", image: awakeHand, alt: "Awake hand artwork", series: "Illustrations", year: "2026", medium: "Digital" },
       { id: "ill-05", title: "DESERT SKY", image: desertSky, alt: "Desert Sky", series: "Illustrations", year: "2026", medium: "Digital" },
       { id: "ill-06", title: "MAZUNTE MORNING", image: mazunteMorning, alt: "Mazunte Morning", series: "Illustrations", year: "2026", medium: "Digital" },
       { id: "ill-07", title: "MEDITATION", image: meditation, alt: "Meditation", series: "Illustrations", year: "2026", medium: "Digital" },
