@@ -30,10 +30,13 @@ export default function Sounds() {
             <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-left text-[#efe7d7]" direction="right">
-            <h2 className="text-[8vw] leading-none mb-4 text-[#f6c45a]">VOL. 12</h2>
-            <h3 className="font-display text-5xl mb-8">MARCH MEDITATIONS</h3>
+            <h2 className="text-[8vw] leading-none mb-4 text-[#f6c45a]">FMLY MXTP</h2>
+            <h3 className="font-display text-5xl mb-3">VOL. 12</h3>
+            <p className="font-sans text-xl md:text-2xl font-bold uppercase tracking-[0.18em] text-[#efe7d7]/75 mb-8">
+              AndreasOne
+            </p>
             <p className="font-sans text-2xl mb-12 max-w-xl mx-auto lg:mx-0">
-              A 84-minute journey through afro house, amapiano, and unreleased edits.
+              A 68 min journey through Amapiano, Afro House, Deep House, Gqom, Baile Funk, and Global Edits.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href={SOCIAL_LINKS.soundcloud} target="_blank" rel="noreferrer">
