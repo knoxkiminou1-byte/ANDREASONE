@@ -7,7 +7,7 @@ export const SHOP_URL = "";
 export const FMLY_SITE_URL = "";
 export const FMLY_BZNS_URL = "https://fmlybzns.com";
 
-export const BOOKING_EMAIL = "mgmt@andreasone.co";
+export const BOOKING_EMAIL = "andreasone.music@gmail.com";
 
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/andreasone/",

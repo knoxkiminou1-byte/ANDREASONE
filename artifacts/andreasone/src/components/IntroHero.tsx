@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+import introBackground from "@assets/intro-background.webm";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
@@ -13,6 +14,7 @@ interface Geo {
 
 export function IntroHero() {
   const logoRef = useRef<HTMLButtonElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const phaseRef = useRef<Phase>("idle");
   const [phase, setPhase] = useState<Phase>("idle");
   const [geo, setGeo] = useState<Geo | null>(null);
@@ -23,6 +25,10 @@ export function IntroHero() {
   }
 
   useLayoutEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+
     function measure() {
       const logo = logoRef.current;
       if (!logo) return;
@@ -62,19 +68,33 @@ export function IntroHero() {
       }`}
       style={{ background: "rgb(82,90,41)" }}
     >
-      {/* Exact HTML background — served as static file, overlaid with logo */}
-      <iframe
-        src="/intro-bg.html"
+      <video
+        ref={videoRef}
+        src={introBackground}
         aria-hidden="true"
-        tabIndex={-1}
+        autoPlay
+        muted
+        loop
+        playsInline
         style={{
           position: "absolute",
           inset: 0,
           width: "100%",
           height: "100%",
-          border: "none",
+          objectFit: "cover",
           pointerEvents: "none",
         }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "rgba(82,90,41,0.5)",
+          mixBlendMode: "multiply",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "rgba(82,90,41,0.18)" }}
       />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
