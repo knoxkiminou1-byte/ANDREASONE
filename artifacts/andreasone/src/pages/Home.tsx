@@ -101,9 +101,9 @@ export default function Home() {
       {/* EDITORIAL PORTRAIT BLOCK */}
       <section className="relative isolate bg-[#111111] w-full flex flex-col lg:flex-row min-h-[80vh] overflow-hidden">
         <MotionBackdrop
-          opacity={0.2}
+          opacity={0.5}
           playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.18), rgba(17,17,17,0.55))" }}
+          overlayStyle={{ background: "rgba(17,17,17,0.08)" }}
         />
         <div className="relative z-10 w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full bg-[#cf5d27]">
           <img
@@ -112,7 +112,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </div>
-        <div className="relative z-10 w-full lg:w-1/2 bg-[#445829] flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
+        <div className="relative z-10 w-full lg:w-1/2 bg-[#445829]/60 flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
           <ScrollReveal direction="right">
             <p className="font-sans text-xl uppercase tracking-[0.3em] text-[#d9decf]/70 mb-4">SIGNALS FROM THE SOIL</p>
             <h2 className="text-[10vw] lg:text-[7vw] leading-none text-[#f6c45a] mb-8">GLOBAL<br />FREQUENCY</h2>
@@ -148,9 +148,9 @@ export default function Home() {
       {/* EXPERIENCES */}
       <section className="relative isolate bg-[#445829] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center overflow-hidden">
         <MotionBackdrop
-          opacity={0.18}
+          opacity={0.5}
           playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(69,88,41,0.14), rgba(17,17,17,0.48))" }}
+          overlayStyle={{ background: "rgba(69,88,41,0.18)" }}
         />
         <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img" direction="left">
