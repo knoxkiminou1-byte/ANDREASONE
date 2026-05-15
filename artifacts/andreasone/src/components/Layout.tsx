@@ -61,7 +61,7 @@ export function Layout({ children }: LayoutProps) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen flex flex-col text-[#efe7d7] selection:bg-[#f6c45a] selection:text-[#111111]" style={{ background: "rgb(82,90,41)" }}>
+    <div className="min-h-screen flex flex-col text-[#efe7d7] selection:bg-[#f6c45a] selection:text-[#111111]" style={{ background: "#3a5618" }}>
       {/* Site-wide olive liquid background */}
       <iframe
         src="/intro-bg.html"
