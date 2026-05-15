@@ -27,9 +27,14 @@ export default function WorldBuilding() {
       </section>
 
       {/* Intro statement */}
-      <section className="bg-[#efe7d7] poster-panel border-b-8 border-[#111111] text-center">
+      <section className="relative isolate bg-[#efe7d7] poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.12}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(239,231,215,0.22), rgba(17,17,17,0.18))" }}
+        />
         <ScrollReveal>
-          <p className="font-sans text-3xl md:text-5xl font-bold uppercase tracking-wide text-[#111111] max-w-6xl mx-auto leading-tight">
+          <p className="relative z-10 font-sans text-3xl md:text-5xl font-bold uppercase tracking-wide text-[#111111] max-w-6xl mx-auto leading-tight">
             {worldBuildingIntro}
           </p>
         </ScrollReveal>

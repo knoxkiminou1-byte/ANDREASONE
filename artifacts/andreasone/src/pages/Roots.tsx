@@ -122,17 +122,22 @@ export default function Roots() {
       </section>
 
       {/* BOOKING CTA */}
-      <section className="bg-black poster-panel border-t-8 border-[#cf5d27] text-center">
-        <ScrollReveal>
+      <section className="relative isolate bg-black poster-panel border-t-8 border-[#cf5d27] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.18}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.18), rgba(17,17,17,0.52))" }}
+        />
+        <ScrollReveal className="relative z-10">
           <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-4">BOOK</h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.07}>
+        <ScrollReveal delay={0.07} className="relative z-10">
           <AndreasWordmark
             text="AndreasOne"
             className="mb-16 font-display text-[#cf5d27] text-[9vw] md:text-[8vw] tracking-[0.06em]"
           />
         </ScrollReveal>
-        <ScrollReveal delay={0.14}>
+        <ScrollReveal delay={0.14} className="relative z-10">
           <Link href="/connect">
             <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-8 border-[#cf5d27]">
               GET IN TOUCH

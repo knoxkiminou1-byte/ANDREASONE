@@ -18,7 +18,7 @@ export default function Fmly() {
         />
         <a href={FMLY_BZNS_URL} target="_blank" rel="noreferrer" className="inline-block w-full hover-lift">
           <ScrollReveal className="relative z-10">
-            <img src={fmlyLogo} alt="FMLY BZNS" className="w-full max-w-[min(92vw,980px)] mx-auto" />
+            <img src={fmlyLogo} alt="FMLY BZNS" className="w-full max-w-[min(72vw,680px)] mx-auto" />
           </ScrollReveal>
         </a>
       </section>

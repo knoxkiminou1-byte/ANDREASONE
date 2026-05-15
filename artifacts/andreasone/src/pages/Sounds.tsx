@@ -108,14 +108,19 @@ export default function Sounds() {
       </section>
 
       {/* Philosophy */}
-      <section className="bg-olive poster-panel text-center">
+      <section className="relative isolate bg-olive poster-panel text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.18}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(69,88,41,0.14), rgba(17,17,17,0.44))" }}
+        />
         <ScrollReveal>
-          <p className="font-sans text-[11vw] md:text-[7vw] text-[#efe7d7] max-w-6xl mx-auto leading-[0.9] font-bold uppercase tracking-tight">
+          <p className="relative z-10 font-sans text-[11vw] md:text-[7vw] text-[#efe7d7] max-w-6xl mx-auto leading-[0.9] font-bold uppercase tracking-tight">
             "MUSIC IS THE WEAPON OF THE FUTURE"
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <p className="font-sans text-lg md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/70 mt-8">
+          <p className="relative z-10 font-sans text-lg md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/70 mt-8">
             — Fela Kuti
           </p>
         </ScrollReveal>
