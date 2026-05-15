@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+import introBackground from "@assets/intro-background.mp4";
 import { AndreasWordmark } from "@/components/AndreasWordmark";
-import { TopoBackdrop } from "@/components/TopoBackdrop";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
@@ -15,6 +15,7 @@ interface Geo {
 
 export function IntroHero() {
   const logoRef = useRef<HTMLButtonElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const phaseRef = useRef<Phase>("idle");
   const [phase, setPhase] = useState<Phase>("idle");
   const [geo, setGeo] = useState<Geo | null>(null);
@@ -25,6 +26,10 @@ export function IntroHero() {
   }
 
   useLayoutEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+
     function measure() {
       const logo = logoRef.current;
       if (!logo) return;
@@ -64,7 +69,35 @@ export function IntroHero() {
       }`}
       style={{ background: "#3a5618" }}
     >
-      <TopoBackdrop opacity={1} />
+      <video
+        ref={videoRef}
+        src={introBackground}
+        aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "rgba(58,86,24,0.5)",
+          mixBlendMode: "multiply",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "rgba(58,86,24,0.18)" }}
+      />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
         <button

@@ -3,40 +3,59 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Topographic Olive Background</title>
+<title>Two Tone Olive Slow Liquid Loop</title>
 <style>
   html, body {
     margin: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #3a5618;
+    background: rgb(58, 86, 24);
   }
-  svg {
+  .stage {
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    inset: -4%;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABnwAAAOzCAIAAAAdnz9WAACyHklEQVR4nO3dydEcSZKE7SgIrh8LEFybgSGkj03FnIdaCFgAA3OIkuysXCJj8UVV7X2kD/8yBYSbm5t7Gjwy//rf//uf5aDfv/4c/U/C/Pj51fuvIMilNMwohcxpNRyFsRwyoDLgKPEsslssFx945HS0XY/iiYQpqPk6jFZo87SxGLvLYiGYA4gHOeDw0GQIatPknvbfTvw37mO+qPjw0UPDukZ+AgDQG7stAORRazYhw5mm28JRA2gtqe/WaizTBwIAAPRxYEATJNIABBkFnWy6LSyYnmq22H/8/Hr43+wnGo2+m7uaowYAADs1PypMP/LtwQGpIYLZW9InMog433RbSCNctt1iq9yAw4qpBwCoYW8SxKSgCRJpAILcFW1ZQZeabgtrpoMi6+RoK61I6y3pn1aKZPKDmqNGHWQ4AFnTTz6zWAzcaPvQj6dRMGFKfxV4udp0q4b8u+jizbUKF9+S+m5NZIwCs5A/AAApdEwA8eMZixRtNWi6ia8ZL8ErvG2zLLv7FpMGMQM5pOaoZTEdANpKPXtkYHaUGe3IJNIARYJcZJjY1uamG8mEd3p3x1Jbb/wA6D27URgdK+PZJU82pgMAlqo/p+CFkAJopdnrpRQmPBjZDou8+JbRd6P9BAAAhgk7DYbxOhYq55JXJN8hwp1YP3yklt/pprxsmug9wJjlMbH/Fdl9uy4gIHZDiFnOAIAbu82opprTVHPUgD7TtWn62Joa/5ACc1OcTsNL50muyGjcZIwCAACgFU5HFgI+TYhTjjCLFK3w66UqAla1YNEMaL3xkumN3VQGLGoAK7v6AxRXc81ajNrudGQRVQDK2jfdKEwFife2xB/vo4y+WxMBQwAAmGIP8qI/X3btp7L0c8ka4e2B8iKly003Vk4dRv0so0d9FtB3q1n6a44aAABMYXHWdTwdWQQWzQV8BIOCXq+X5iVW1xE57j2L5yxbt96weGYd0BvrAuiNVeZIf9ZMPwLUpJZOScmjFlugLb7TDWe4t64cnz/gX1qSDgf71Rw1AAAK7M5711kM2fR0ZBFboBUSvpWOTTcmKVXMzNoNJKDv1oT78wMAAKxM20/XmQ6cU2gnsoH1/fxlusQi9b3pJrt4pHish7A5tbvy5pUtz9yf/5yaowaAGF5HBTwoOH0FhzwS4QVwCK+XYi+7/tR+XkNr0sExGu9Lds9P3w0AgFnEjw1lDwm+AxfPKFNEFam6N90yFk+/UbhsNhnzuM1ojNZ9N99L2gCAgthu4Ii87W16hKc/QB0uH9h7IM2aGHHTjalyV2cGva68Xefed/NSc9QAACgQP+CVPSRYD1w8qRxlhzR7dF1ZF4qF10vxUcHqYNF6cy89TehPEwDAGhtNkmqzWW28U1h8akBZfGAUMajpRjF6SX8ZVJ44/bHzkqmdmqMGMuhvCgCs9TgkWBSugNORRZxdaAYzIEsxETfd8JZmyRtJ/x+v6LuJT9Az9uzBCDgA4Mbu2FBEwGY9+FMDmWyKiatpXNONDPPCfN2IhyLgmHKR+AQBAEyxv0RSntayl91iEO0mCKMUpuM6brpNI9sr0b/eNZ54TK7nkvVlNzs1Rw0A0Pf715+H/81+oi6UD3VlxSTbgE8NJPAUpilq+thhhjbdKBD6mKMN2cGxHp3dw7P/YUUmALLsdpZzPrbYKvTgpFS+7JaUYC4xl0UAkWT0TTfH9eP4zOfUGelpslfefI8pvk8OXKdZTwBku9JEi2nAVSu/1caroNOnBqbSHTNYEK+XzuF+UilOs1b6vmTahN3DUwSwkAaAKrs9Zae2zTL37pvsLPuG9Lq8sbdtvckmbRF5+WnEOvgTmm4UC03MyyGaV95M+26taqjgjGyz3jwAAC56d8d8u2+yJwdeMg2zfnC4OAUuM9hKtfH");
+    background-size: cover;
+    background-position: center;
+    filter: url(#liquid);
+    animation: slowDrift 108s linear infinite;
+    transform-origin: center;
   }
+  @keyframes slowDrift {
+    0%   { transform: scale(1.08) translate3d(0, 0, 0); }
+    25%  { transform: scale(1.10) translate3d(-1.2%, 0.8%, 0); }
+    50%  { transform: scale(1.09) translate3d(0.9%, -1.1%, 0); }
+    75%  { transform: scale(1.10) translate3d(1.1%, 0.7%, 0); }
+    100% { transform: scale(1.08) translate3d(0, 0, 0); }
+  }
+  svg { position: absolute; width: 0; height: 0; }
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-  <defs>
-    <filter id="topo" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011" numOctaves="4" seed="42" result="noise">
-        <animate attributeName="baseFrequency" dur="120s" repeatCount="indefinite"
-          values="0.007 0.011;0.010 0.008;0.008 0.013;0.012 0.009;0.007 0.011" />
-      </feTurbulence>
-      <feColorMatrix type="saturate" values="0" in="noise" result="gray"/>
-      <feComponentTransfer in="gray">
-        <feFuncR type="discrete" tableValues="0.227 0.227 0.141 0.227 0.227 0.141 0.227 0.227 0.141 0.227 0.227 0.141"/>
-        <feFuncG type="discrete" tableValues="0.337 0.337 0.208 0.337 0.337 0.208 0.337 0.337 0.208 0.337 0.337 0.208"/>
-        <feFuncB type="discrete" tableValues="0.094 0.094 0.063 0.094 0.094 0.063 0.094 0.094 0.063 0.094 0.094 0.063"/>
-      </feComponentTransfer>
-    </filter>
-  </defs>
-  <rect width="100%" height="100%" fill="#3a5618" filter="url(#topo)"/>
+<svg aria-hidden="true">
+  <filter id="liquid">
+    <feTurbulence type="fractalNoise"
+      baseFrequency="0.010 0.018"
+      numOctaves="2"
+      seed="7"
+      result="noise">
+      <animate attributeName="baseFrequency"
+        dur="108s"
+        repeatCount="indefinite"
+        values="0.010 0.018; 0.016 0.012; 0.012 0.021; 0.018 0.015; 0.010 0.018" />
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise"
+      scale="24"
+      xChannelSelector="R"
+      yChannelSelector="G">
+      <animate attributeName="scale"
+        dur="108s"
+        repeatCount="indefinite"
+        values="18; 24; 20; 26; 18" />
+    </feDisplacementMap>
+  </filter>
 </svg>
+<div class="stage"></div>
 </body>
 </html>
