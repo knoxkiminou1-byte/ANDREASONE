@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import introBackground from "@assets/intro-background.webm";
+import introBackground from "@assets/intro-background.mp4";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
@@ -76,6 +76,7 @@ export function IntroHero() {
         muted
         loop
         playsInline
+        preload="auto"
         style={{
           position: "absolute",
           inset: 0,
