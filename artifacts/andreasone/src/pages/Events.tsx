@@ -64,10 +64,10 @@ export default function Events() {
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
           {[
-            { city: "LISBON", venue: "Lux Frágil", date: "OCT 2025" },
-            { city: "NEW YORK", venue: "Elsewhere", date: "AUG 2025" },
-            { city: "LAGOS", venue: "Hard Rock", date: "DEC 2024" },
-            { city: "TOKYO", venue: "La Machine", date: "FEB 2024" },
+            { city: "COACHELLA", venue: "DoLab Stage", date: "APR 2023" },
+            { city: "LIGHTNING IN A BOTTLE", venue: "Lightning Stage", date: "MAY 2025" },
+            { city: "SAME SAME BUT DIFFERENT", venue: "Lake Perris", date: "SEPT 2025" },
+            { city: "BALI", venue: "DiskoAfrika", date: "NOV 2025" },
           ].map((ev, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
               <div className="border-8 border-[#cf5d27] bg-[#111111] p-8 hover-lift shadow-[8px_8px_0_#cf5d27]">
