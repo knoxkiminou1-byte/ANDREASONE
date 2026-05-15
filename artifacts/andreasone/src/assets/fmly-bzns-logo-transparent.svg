@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1080" fill="none">
+  <g
+    font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+    font-size="430"
+    font-weight="900"
+    letter-spacing="-20"
+    stroke="#000"
+    stroke-linejoin="round"
+    stroke-width="38"
+    paint-order="stroke fill"
+  >
+    <text x="90" y="430" fill="#7f8253">F</text>
+    <text x="315" y="430" fill="#ffd86b">M</text>
+    <text x="650" y="430" fill="#efc1ad">L</text>
+    <text x="830" y="430" fill="#cfa903">Y</text>
+    <text x="90" y="820" fill="#ff9300">B</text>
+    <text x="395" y="820" fill="#d69a7c">Z</text>
+    <text x="635" y="820" fill="#ffdc2b">N</text>
+    <text x="930" y="820" fill="#d9cc62">S</text>
+  </g>
+</svg>
