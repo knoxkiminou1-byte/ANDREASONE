@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FMLY_BZNS_URL } from "@/data/siteLinks";
-import fmlyLogo from "@assets/fmly-bzns-logo-brand.jpeg";
+import fmlyLogo from "@assets/fmly-bzns-logo-goat.png";
 
 export default function Fmly() {
   return (
     <div className="w-full flex flex-col">
-      <section className="bg-sage poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
-        <a href={FMLY_BZNS_URL} target="_blank" rel="noreferrer" className="inline-block hover-lift">
+      <section className="bg-sage min-h-[72vh] md:min-h-[82vh] flex items-center justify-center px-4 py-16 md:py-20 border-b-8 border-[#111111] text-center overflow-hidden">
+        <a href={FMLY_BZNS_URL} target="_blank" rel="noreferrer" className="inline-block w-full hover-lift">
           <ScrollReveal>
-            <img src={fmlyLogo} alt="FMLY BZNS" className="w-full max-w-3xl mx-auto" />
+            <img src={fmlyLogo} alt="FMLY BZNS" className="w-full max-w-[min(92vw,980px)] mx-auto" />
           </ScrollReveal>
         </a>
       </section>

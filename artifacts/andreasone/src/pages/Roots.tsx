@@ -120,7 +120,7 @@ export default function Roots() {
           <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-4">BOOK</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h2 className="text-[9vw] md:text-[8vw] leading-none text-[#cf5d27] mb-16 normal-case tracking-tight">
+          <h2 className="text-[9vw] md:text-[8vw] leading-none text-[#cf5d27] -mt-2 md:-mt-6 mb-16 normal-case tracking-tight">
             AndreasOne
           </h2>
         </ScrollReveal>

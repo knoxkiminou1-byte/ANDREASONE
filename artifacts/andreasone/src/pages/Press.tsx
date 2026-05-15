@@ -48,12 +48,6 @@ const features = [
   },
 ];
 
-const awards = [
-  { title: "BEST EMERGING ARTIST", org: "Afro House Awards", year: "2025" },
-  { title: "BEST EVENT SERIES", org: "LA Music Pulse", year: "2025" },
-  { title: "BREAKOUT DJ", org: "Mixmag", year: "2024" },
-];
-
 export default function Press() {
   return (
     <div className="w-full flex flex-col">
@@ -91,23 +85,6 @@ export default function Press() {
                 <div className="flex-shrink-0 font-sans font-bold text-xl text-[#111111]/40 uppercase tracking-widest">
                   {f.date}
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-orange poster-panel border-y-8 border-[#111111]">
-        <ScrollReveal>
-          <h2 className="text-[10vw] leading-none text-[#111111] text-center mb-16">RECOGNITION</h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-          {awards.map((a, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="border-8 border-[#111111] bg-[#efe7d7] p-10 shadow-[12px_12px_0_#111111] hover-lift text-center">
-                <p className="font-sans font-bold text-xl uppercase tracking-widest text-[#cf5d27] mb-4">{a.year}</p>
-                <h3 className="font-display text-4xl text-[#111111] mb-4 leading-tight">{a.title}</h3>
-                <p className="font-sans text-xl font-bold uppercase text-[#445829]">{a.org}</p>
               </div>
             </ScrollReveal>
           ))}

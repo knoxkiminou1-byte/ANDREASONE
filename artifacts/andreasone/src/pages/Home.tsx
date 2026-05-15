@@ -133,8 +133,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#111111]/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/50 via-transparent to-[#111111]/35" />
           <ScrollReveal className="relative z-10 text-center">
-            <h2 className="text-[15vw] stacked-title-word text-[#111111] [text-shadow:0_0_24px_rgba(0,0,0,0.25)]">WORLD</h2>
-            <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] mt-0 md:-mt-12 [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">BUILDING</h2>
+            <h2 className="text-[15vw] stacked-title-word text-[#445829] [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">WORLD</h2>
+            <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] -mt-6 md:-mt-12 [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">BUILDING</h2>
           </ScrollReveal>
         </section>
       </Link>

@@ -15,7 +15,7 @@ export default function Experiences() {
           <h1 className="text-[18vw] stacked-title-word text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[12vw] stacked-title-word text-[#cf5d27] -mt-2 md:mt-0">& GATHERINGS</h1>
+          <h1 className="text-[12vw] stacked-title-word text-[#cf5d27] -mt-6 md:-mt-12">& GATHERINGS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#efe7d7]/60 mt-8 max-w-3xl mx-auto">
@@ -65,10 +65,10 @@ export default function Experiences() {
 
       <section className="bg-black poster-panel border-y-8 border-[#cf5d27] text-center">
         <ScrollReveal>
-          <h2 className="text-[12vw] leading-none text-[#f6c45a] mb-4">PAST</h2>
+          <h2 className="text-[12vw] stacked-title-word text-[#f6c45a]">PAST</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.05}>
-          <h2 className="text-[12vw] leading-none text-[#cf5d27] mb-16">FLOORS</h2>
+          <h2 className="text-[12vw] stacked-title-word text-[#cf5d27] -mt-6 md:-mt-10 mb-16">FLOORS</h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
           {[

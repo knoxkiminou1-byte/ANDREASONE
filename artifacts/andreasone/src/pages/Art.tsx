@@ -98,7 +98,7 @@ export default function Art() {
           </Link>
           <Link href="/shop">
             <Button size="lg" className="h-24 px-16 text-4xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#111111] hover:text-[#f6c45a] hover:-translate-y-1 rounded-none border-8 border-[#111111]">
-              SHOP PRINTS
+              SHOP COMING SOON
             </Button>
           </Link>
         </ScrollReveal>

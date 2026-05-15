@@ -20,4 +20,4 @@ export const SOCIAL_LINKS = {
 };
 
 export const MIXTAPE_VOL_12_URL = "https://on.soundcloud.com/hg9NBPNYzj6S44jQaY";
-export const THE_GATHERING_TICKETS_URL = "https://beatstorapon.com/event/fmly-bzns-the-gathering-69d3389209791083336105e4";
+export const THE_GATHERING_TICKETS_URL = "https://www.eventbrite.com/e/fmly-bzns-the-gathering-tickets-1986467302175";

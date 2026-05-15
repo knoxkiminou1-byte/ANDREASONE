@@ -14,7 +14,6 @@ export type ArchiveCollection = {
   cover: string;
   alt: string;
   year?: string;
-  description?: string;
   items: ArchiveItem[];
 };
 
@@ -64,7 +63,6 @@ export const archiveCollections: ArchiveCollection[] = [
     cover: sunkissed,
     alt: "Sunkissed cover artwork",
     year: "2025",
-    description: "Figure studies and warm-toned compositions from the Goddess Body collection.",
     items: [
       { id: "gb-01", title: "SUNKISSED", image: sunkissed, alt: "Sunkissed", series: "Goddess Body", year: "2025", medium: "Digital" },
       { id: "gb-02", title: "EXPLORATION", image: exploration, alt: "Exploration", series: "Goddess Body", year: "2025", medium: "Digital" },
@@ -85,7 +83,6 @@ export const archiveCollections: ArchiveCollection[] = [
     cover: swingALing,
     alt: "Swing-A-Ling cover artwork",
     year: "2024-2026",
-    description: "Portraits, symbols, scenes, and graphic studies from the illustrations archive.",
     items: [
       { id: "ill-01", title: "SWING-A-LING", image: swingALing, alt: "Swing-A-Ling", series: "Illustrations", year: "2026", medium: "Digital" },
       { id: "ill-02", title: "A PLACE I'VE SEEN", image: aPlaceIveSeen, alt: "A Place I've Seen", series: "Illustrations", year: "2026", medium: "Digital" },
@@ -111,7 +108,6 @@ export const archiveCollections: ArchiveCollection[] = [
     cover: powerToThePeople,
     alt: "Power to the People cover artwork",
     year: "2026",
-    description: "Portraits and statement pieces built around affirmation, resistance, and cultural memory.",
     items: [
       { id: "wa-01", title: "POWER TO THE PEOPLE", image: powerToThePeople, alt: "Power to the People", series: "Words and Affirmations", year: "2026", medium: "Digital" },
       { id: "wa-02", title: "ANGELA", image: angela, alt: "Angela", series: "Words and Affirmations", year: "2026", medium: "Digital" },

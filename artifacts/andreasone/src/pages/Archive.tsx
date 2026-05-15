@@ -81,17 +81,9 @@ export default function Archive() {
           <div className="flex flex-col gap-10 w-full">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <div>
-                <p className="font-sans text-lg uppercase tracking-[0.3em] text-[#cf5d27] mb-4">
-                  {selectedCollection.items.length} works
-                </p>
                 <h2 className="font-display text-[12vw] md:text-[8vw] leading-none text-[#111111]">
                   {selectedCollection.title}
                 </h2>
-                {selectedCollection.description && (
-                  <p className="font-sans text-xl md:text-2xl uppercase tracking-wide text-[#111111]/60 mt-6 max-w-4xl">
-                    {selectedCollection.description}
-                  </p>
-                )}
               </div>
               <Button
                 size="lg"
@@ -146,7 +138,7 @@ export default function Archive() {
               size="lg"
               className="h-24 px-16 text-4xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#111111] hover:text-[#f6c45a] hover:-translate-y-1 rounded-none border-8 border-[#111111]"
             >
-              SHOP PRINTS
+              SHOP COMING SOON
             </Button>
           </Link>
         </ScrollReveal>
