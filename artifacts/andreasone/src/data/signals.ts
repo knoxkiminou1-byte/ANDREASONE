@@ -1,4 +1,4 @@
-import { LIB_PASSES_URL, MIXTAPE_VOL_12_URL } from "./siteLinks";
+import { LIB_PASSES_URL } from "./siteLinks";
 import lib2026Poster from "@assets/lib2026-fmly-bzns.png";
 
 export type SignalType = "thought" | "mix" | "art" | "announcement" | "field-note" | "event" | "takeover";
@@ -42,7 +42,7 @@ export const signals: Signal[] = [
       "The launch of the FMLY MXTP series. Weekly DJ mix releases featuring selectors, producers, and cultural voices across the global dance spectrum — streaming every week on YouTube and SoundCloud.",
     audioEmbed:
       "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andreasone&color=%23cf5d27&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&visual=true",
-    externalLink: MIXTAPE_VOL_12_URL,
+    externalLink: "https://www.youtube.com/@FMLYBZNS",
     tags: ["MIX", "ARCHIVE", "SOUND"],
     published: true,
     displayOrder: 2,
