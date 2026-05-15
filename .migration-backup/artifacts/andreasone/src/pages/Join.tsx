@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 import { toast } from "sonner";
 
 export default function Join() {
@@ -50,7 +51,11 @@ export default function Join() {
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noreferrer">
                     <Button className="h-14 px-8 text-xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] rounded-none border-4 border-[#111111]">
-                      {s.label}
+                      {s.label === "SPOTIFY" ? (
+                        <AndreasWordmark text="AndreasOne" className="font-display text-xl text-[#f6c45a] group-hover:text-[#111111]" />
+                      ) : (
+                        s.label
+                      )}
                     </Button>
                   </a>
                 ))}
@@ -105,7 +110,11 @@ export default function Join() {
               <a key={i} href={s.href} target="_blank" rel="noreferrer">
                 <div className="border-4 border-[#cf5d27] px-6 py-4 hover-lift hover:bg-[#cf5d27] transition-colors group">
                   <p className="font-sans font-bold text-sm uppercase tracking-widest text-[#cf5d27] group-hover:text-[#111111] mb-1">{s.platform}</p>
-                  <p className="font-display text-2xl text-[#efe7d7] group-hover:text-[#111111]">{s.label}</p>
+                  {s.label === "AndreasOne" ? (
+                    <AndreasWordmark text={s.label} className="font-display text-2xl text-[#efe7d7] group-hover:text-[#111111]" />
+                  ) : (
+                    <p className="font-display text-2xl text-[#efe7d7] group-hover:text-[#111111]">{s.label}</p>
+                  )}
                 </div>
               </a>
             ))}

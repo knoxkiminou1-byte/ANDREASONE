@@ -1,12 +1,9 @@
 {
-  "framework": "vite",
-  "installCommand": "cd artifacts/andreasone && npm install",
-  "buildCommand": "cd artifacts/andreasone && npm run build",
-  "outputDirectory": "artifacts/andreasone/dist",
+  "buildCommand": "pnpm --filter @workspace/andreasone run build",
+  "outputDirectory": "artifacts/andreasone/dist/public",
+  "installCommand": "pnpm install",
+  "framework": null,
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -2,18 +2,27 @@ import React from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 import { publishedSignals, signalTypeLabel, signalTypeColor } from "@/data/signals";
 
 export default function Signals() {
   return (
     <div className="w-full flex flex-col">
-      <section className="bg-black poster-panel border-b-8 border-[#cf5d27] text-center">
+      <section className="relative isolate bg-black poster-panel border-b-8 border-[#cf5d27] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.16}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.2), rgba(17,17,17,0.58))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-[15vw] leading-none text-[#f6c45a]">SIGNALS</h1>
+          <h1 className="relative z-10 text-[15vw] leading-none text-[#f6c45a]">SIGNALS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/50 mt-6 max-w-3xl mx-auto">
-            Transmissions, field notes, cultural dispatches, and sound documents from the AndreasOne world.
+          <p className="relative z-10 font-sans text-xl md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/50 mt-6 max-w-4xl mx-auto">
+            Transmissions, field notes, cultural dispatches, and sound documents from the{" "}
+            <AndreasWordmark text="AndreasOne" className="inline-flex align-baseline text-[#efe7d7] text-[1.08em] tracking-[0.06em]" />
+            world.
           </p>
         </ScrollReveal>
       </section>
@@ -47,6 +56,15 @@ export default function Signals() {
                   <p className="font-sans text-xl text-[#111111]/70 leading-relaxed max-w-3xl">
                     {s.excerpt}
                   </p>
+                  {s.image && (
+                    <div className="mt-6 max-w-xl border-4 border-[#111111] bg-[#111111] overflow-hidden">
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        className="w-full max-h-[520px] object-contain"
+                      />
+                    </div>
+                  )}
                   {/* Audio embed preview */}
                   {s.audioEmbed && (
                     <div className="mt-6 border-4 border-[#111111] overflow-hidden">
@@ -89,28 +107,6 @@ export default function Signals() {
               <p className="font-sans text-xl text-[#111111]/30 mt-4 uppercase tracking-widest">Check back soon.</p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Recognition carried from Press */}
-      <section className="bg-orange poster-panel border-y-8 border-[#111111]">
-        <ScrollReveal>
-          <h2 className="text-[10vw] leading-none text-[#111111] text-center mb-16">RECOGNITION</h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-          {[
-            { title: "BEST EMERGING ARTIST", org: "Afro House Awards", year: "2025" },
-            { title: "BEST EVENT SERIES", org: "LA Music Pulse", year: "2025" },
-            { title: "BREAKOUT DJ", org: "Mixmag", year: "2024" },
-          ].map((a, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="border-8 border-[#111111] bg-[#efe7d7] p-10 shadow-[12px_12px_0_#111111] hover-lift text-center">
-                <p className="font-sans font-bold text-xl uppercase tracking-widest text-[#cf5d27] mb-4">{a.year}</p>
-                <h3 className="font-display text-4xl text-[#111111] mb-4 leading-tight">{a.title}</h3>
-                <p className="font-sans text-xl font-bold uppercase text-[#445829]">{a.org}</p>
-              </div>
-            </ScrollReveal>
-          ))}
         </div>
       </section>
 

@@ -2,27 +2,34 @@ import React from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 
 import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
 import rootsPoster from "@assets/roots-poster.jpeg";
-import rootsOriginStage from "@assets/roots-origin-stage.jpg";
+import rootsOriginStage from "@assets/roots-origin-stage.png";
 
 export default function Roots() {
   return (
     <div className="w-full flex flex-col">
 
       {/* TITLE BLOCK */}
-      <section className="bg-orange poster-panel border-b-8 border-[#111111] text-center">
+      <section className="relative isolate bg-orange poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.16}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(207,93,39,0.18), rgba(17,17,17,0.42))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
+          <h1 className="relative z-10 text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] -mt-2 md:-mt-4">
+          <h1 className="relative z-10 text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] mt-1 md:mt-0">
             FROM THE
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <h1 className="text-[21vw] md:text-[18vw] stacked-title-word text-[#445829] uppercase -mt-4 md:-mt-8">
+          <h1 className="relative z-10 text-[24vw] md:text-[20vw] stacked-title-word text-[#445829] uppercase mt-1 md:-mt-2">
             SOIL
           </h1>
         </ScrollReveal>
@@ -75,11 +82,13 @@ export default function Roots() {
         </ScrollReveal>
         <div className="max-w-5xl mx-auto space-y-12 text-left">
           {[
-            { year: "2018", text: "Started DJing in Brooklyn — house parties, lofts, basement nights." },
-            { year: "2019", text: "Founded FMLY BZNS as a creative studio and event series." },
-            { year: "2022", text: "Launches The Gathering — annual cultural festival, sold out year one." },
-            { year: "2025", text: "Lisbon, Lagos, New York, Tokyo. Global rooms. One sound." },
-            { year: "2026", text: "Touring NYC, Lagos, Lisbon, Berlin, Mexico City. andreasone.co" },
+            { year: "1997 — 2007", text: "Entered the Bay Area underground. Produced events, emceed parties, designed flyers and album covers across hip-hop, reggae, and rave culture. Sold original T-shirt designs at festivals and late-night gatherings." },
+            { year: "2007", text: "Founded PEACE Fits — a cult streetwear label bridging festival culture, global influence, and Afro-inspired visual motifs." },
+            { year: "2007 — 2015", text: "Performed internationally as an emcee, live visual artist, and designer. From Oakland warehouses to festivals in Australia, Costa Rica, and Canada." },
+            { year: "2018", text: "First public DJ set at Lightning in a Bottle. Merging influences and experience into global dance music culture." },
+            { year: "2020", text: "Launched FMLY BZNS as a livestream DJ and artist collective connecting music, visuals, and community during the pandemic era." },
+            { year: "2022", text: "FMLY BZNS evolves into a live event series. Immersive dance floors rooted in diaspora sounds, rave energy, and visual world-building." },
+            { year: "2023", text: "Performed at Coachella. Expanded FMLY BZNS takeovers to Lightning in a Bottle and Burning Man." },
           ].map((t, i) => (
             <ScrollReveal key={t.year} delay={i * 0.09} direction="left">
               <div className="border-l-8 border-[#cf5d27] pl-8 hover-lift">
@@ -112,36 +121,16 @@ export default function Roots() {
         </div>
       </section>
 
-      {/* RECOGNITION */}
-      <section className="bg-cream poster-panel text-center">
-        <ScrollReveal>
-          <h2 className="text-[10vw] leading-none text-[#cf5d27] mb-16">AS SEEN IN</h2>
-        </ScrollReveal>
-        <div className="flex flex-wrap justify-center gap-8">
-          {["RESIDENT ADVISOR", "MIXMAG", "OKAYAFRICA", "HIGHSNOBIETY", "i-D", "BOILER ROOM"].map((p, i) => (
-            <ScrollReveal key={p} delay={i * 0.06}>
-              <span className="block font-display text-3xl md:text-5xl text-[#111111] hover:text-[#f6c45a] transition-colors bg-[#cf5d27] px-6 py-2 border-4 border-[#111111] shadow-[6px_6px_0_#111111] hover-lift cursor-pointer">
-                {p}
-              </span>
-            </ScrollReveal>
-          ))}
-        </div>
-        <ScrollReveal delay={0.3} className="mt-16">
-          <Link href="/signals">
-            <Button size="lg" className="h-16 px-12 text-2xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-4 border-[#111111]">
-              SIGNALS
-            </Button>
-          </Link>
-        </ScrollReveal>
-      </section>
-
       {/* BOOKING CTA */}
       <section className="bg-black poster-panel border-t-8 border-[#cf5d27] text-center">
         <ScrollReveal>
           <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-4">BOOK</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h2 className="text-[10vw] leading-none text-[#cf5d27] mb-16">ANDREAS</h2>
+          <AndreasWordmark
+            text="AndreasOne"
+            className="mb-16 font-display text-[#cf5d27] text-[9vw] md:text-[8vw] tracking-[0.06em]"
+          />
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <Link href="/connect">

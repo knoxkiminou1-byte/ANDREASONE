@@ -1,9 +1,0 @@
-{
-  "buildCommand": "pnpm --filter @workspace/andreasone run build",
-  "outputDirectory": "artifacts/andreasone/dist/public",
-  "installCommand": "pnpm install",
-  "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}

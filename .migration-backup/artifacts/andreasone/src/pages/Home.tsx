@@ -3,11 +3,13 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { MIXTAPE_VOL_12_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
 
 import logoOutline from "@assets/AndreasOne_New_Logo_One_color_Transparent_1776997848574.png";
 import heroPhoto from "@assets/Andreas_0217_1778035391882.jpeg";
-import mxtpCover from "@assets/Screen_Shot_2026-04-19_at_12.36.35_PM_1776997719111.png";
-import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
+import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
+import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
 import worldBuildingBackdrop from "@assets/Screen_Shot_2026-04-19_at_12.34.46_PM_1776997719113.png";
 import artE from "@assets/IMG_0177_1776998601433.JPG";
 import globalFrequencyPoster from "@assets/global-frequency-poster.jpeg";
@@ -36,7 +38,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#cf5d27] opacity-10 mix-blend-color pointer-events-none" />
 
         {/* Logo pinned to bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-10 sm:pb-16 px-2 sm:px-4 translate-y-[34px] sm:translate-y-[48px]">
+        <div className="absolute left-0 right-0 z-10 flex flex-col items-center px-2 sm:px-4 bottom-[22svh] sm:bottom-0 pb-0 sm:pb-16 translate-y-0 sm:translate-y-[48px]">
           <motion.div
             role="img"
             aria-label="ANDREASONE"
@@ -60,52 +62,67 @@ export default function Home() {
       </section>
 
       {/* QUOTE BLOCK */}
-      <section className="bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center overflow-hidden">
+      <section className="relative isolate bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.24}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.28), rgba(17,17,17,0.6))" }}
+        />
         <ScrollReveal>
-          <h2 className="text-[17vw] md:text-[15vw] stacked-title-word text-[#cf5d27] uppercase">
+          <h2 className="relative z-10 text-[17vw] md:text-[15vw] stacked-title-word text-[#cf5d27] uppercase">
             SIGNALS
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.06}>
-          <h2 className="text-[8vw] md:text-[6.5vw] stacked-title-word text-[#f6c45a] uppercase tracking-[0.18em] -mt-2 md:-mt-4">
+          <h2 className="relative z-10 text-[8vw] md:text-[6.5vw] stacked-title-word text-[#f6c45a] uppercase tracking-[0.18em] -mt-2 md:-mt-4">
             FROM THE
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.12}>
-          <h2 className="text-[21vw] md:text-[18vw] stacked-title-word text-[#445829] uppercase -mt-4 md:-mt-8">
+          <h2 className="relative z-10 text-[21vw] md:text-[18vw] stacked-title-word text-[#445829] uppercase -mt-4 md:-mt-8">
             SOIL
           </h2>
         </ScrollReveal>
       </section>
 
       {/* LATEST DROP */}
-      <section className="bg-[#f6c45a] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center border-y-8 border-[#111111]">
+      <section className="relative isolate bg-[#f6c45a] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center border-y-8 border-[#111111] overflow-hidden">
+        <MotionBackdrop
+          opacity={0.18}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(246,196,90,0.2), rgba(17,17,17,0.18))" }}
+        />
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
-          <ScrollReveal className="flex-1 w-full text-center lg:text-left" direction="left">
+          <ScrollReveal className="relative z-10 flex-1 w-full text-center lg:text-left" direction="left">
             <p className="font-sans text-xl md:text-2xl font-bold uppercase tracking-[0.3em] mb-4 text-[#111111]/60">LATEST TRANSMISSION</p>
             <h2 className="text-[12vw] leading-none mb-8 text-[#111111]">FMLY MXTP<br />VOL. 12</h2>
-            <Link href="/sounds">
-              <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_#111111]">
+            <Button asChild size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#111111] text-[#f6c45a] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_#111111]">
+              <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer">
                 PLAY LOUD
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </ScrollReveal>
-          <ScrollReveal className="w-full lg:w-[45%] hover-img" direction="right">
+          <ScrollReveal className="relative z-10 w-full lg:w-[45%] hover-img" direction="right">
             <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto object-cover" />
           </ScrollReveal>
         </div>
       </section>
 
       {/* EDITORIAL PORTRAIT BLOCK */}
-      <section className="bg-[#111111] w-full flex flex-col lg:flex-row min-h-[80vh]">
-        <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full bg-[#cf5d27]">
+      <section className="relative isolate bg-[#111111] w-full flex flex-col lg:flex-row min-h-[80vh] overflow-hidden">
+        <MotionBackdrop
+          opacity={0.2}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.18), rgba(17,17,17,0.55))" }}
+        />
+        <div className="relative z-10 w-full lg:w-1/2 relative overflow-hidden min-h-[50vh] lg:min-h-full bg-[#cf5d27]">
           <img
             src={globalFrequencyPoster}
             alt="Andreas One editorial portrait"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </div>
-        <div className="w-full lg:w-1/2 bg-[#445829] flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
+        <div className="relative z-10 w-full lg:w-1/2 bg-[#445829] flex flex-col justify-center w-full px-4 md:px-8 py-20 md:py-32">
           <ScrollReveal direction="right">
             <p className="font-sans text-xl uppercase tracking-[0.3em] text-[#d9decf]/70 mb-4">SIGNALS FROM THE SOIL</p>
             <h2 className="text-[10vw] lg:text-[7vw] leading-none text-[#f6c45a] mb-8">GLOBAL<br />FREQUENCY</h2>
@@ -132,27 +149,32 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#111111]/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/50 via-transparent to-[#111111]/35" />
           <ScrollReveal className="relative z-10 text-center">
-            <h2 className="text-[15vw] stacked-title-word text-[#111111] [text-shadow:0_0_24px_rgba(0,0,0,0.25)]">WORLD</h2>
-            <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] mt-0 md:-mt-12 [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">BUILDING</h2>
+            <h2 className="text-[15vw] stacked-title-word text-[#445829] [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">WORLD</h2>
+            <h2 className="text-[15vw] stacked-title-word text-[#f6c45a] -mt-6 md:-mt-12 [text-shadow:0_0_24px_rgba(0,0,0,0.35)]">BUILDING</h2>
           </ScrollReveal>
         </section>
       </Link>
 
       {/* EXPERIENCES */}
-      <section className="bg-[#445829] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center">
-        <div className="flex flex-col lg:flex-row items-center gap-12 w-full">
+      <section className="relative isolate bg-[#445829] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.18}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(69,88,41,0.14), rgba(17,17,17,0.48))" }}
+        />
+        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img" direction="left">
             <img src={gatheringPoster} alt="The Gathering" className="w-full h-auto" />
           </ScrollReveal>
           <ScrollReveal className="flex-1 w-full text-center lg:text-right" direction="right">
             <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-6">UPCOMING</h2>
             <h2 className="text-[10vw] leading-none text-[#111111] mb-12">EXPERIENCES</h2>
-            <p className="font-sans text-2xl font-bold uppercase text-[#d9decf] mb-12">The Gathering · May 24, 2026 · Los Angeles</p>
-            <Link href="/experiences">
-              <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_rgba(0,0,0,0.3)]">
+            <p className="font-sans text-2xl font-bold uppercase text-[#d9decf] mb-12">The Gathering · July 31-August 2, 2026 · Hopland, CA</p>
+            <Button asChild size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#f6c45a] text-[#111111] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none shadow-[8px_8px_0_rgba(0,0,0,0.3)]">
+              <a href={THE_GATHERING_TICKETS_URL} target="_blank" rel="noreferrer">
                 GET TICKETS
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </ScrollReveal>
         </div>
       </section>

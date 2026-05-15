@@ -29,8 +29,22 @@ export default function Connect() {
       toast.error("Please fill in your name, email, and inquiry type.");
       return;
     }
+
+    const subject = `AndreasOne inquiry: ${form.type}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `City / Venue: ${form.city || "Not provided"}`,
+      `Inquiry Type: ${form.type}`,
+      `Event Date: ${form.date || "Not provided"}`,
+      "",
+      "Details:",
+      form.details || "Not provided",
+    ].join("\n");
+
+    window.location.href = `mailto:${BOOKING_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
-    toast.success("Signal received. We'll be in touch.");
+    toast.success("Email draft opened.");
   };
 
   return (

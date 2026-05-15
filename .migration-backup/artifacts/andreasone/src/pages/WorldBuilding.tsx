@@ -2,21 +2,27 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
 import { worldBuildingIntro, worldBuildingCategories } from "@/data/worldBuilding";
 
-import afroCollective from "@assets/Screen_Shot_2026-04-19_at_12.34.46_PM_1776997719113.png";
-import logoOrange from "@assets/Screen_Shot_2026-04-20_at_11.46.48_AM_1776997719112.png";
+import fmlyBrandProject from "@assets/project-fmly-bzns-brand.jpeg";
+import fmlyLibEvent from "@assets/project-fmly-lib-event.jpeg";
 import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_1776997719109.png";
 
 export default function WorldBuilding() {
   return (
     <div className="w-full flex flex-col">
-      <section className="bg-black poster-panel border-b-8 border-[#cf5d27] text-center">
+      <section className="relative isolate bg-black poster-panel border-b-8 border-[#cf5d27] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.16}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.2), rgba(17,17,17,0.58))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-massive stacked-title-word text-[#cf5d27]">WORLD</h1>
+          <h1 className="relative z-10 text-massive stacked-title-word text-[#445829]">WORLD</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[12vw] stacked-title-word text-[#f6c45a] -mt-2 md:mt-0">BUILDING</h1>
+          <h1 className="relative z-10 text-[12vw] stacked-title-word text-[#f6c45a] -mt-6 md:-mt-12">BUILDING</h1>
         </ScrollReveal>
       </section>
 
@@ -81,9 +87,9 @@ export default function WorldBuilding() {
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
           {[
-            { img: logoOrange, tag: "VISUAL IDENTITY", client: "FMLY BZNS", title: "BRAND IDENTITY" },
-            { img: afroCollective, tag: "IMMERSIVE ENVIRONMENTS", client: "PANGEA SOUND", title: "SOUND DIRECTION" },
-            { img: gatheringPoster, tag: "CREATIVE COLLABORATION", client: "THE GATHERING", title: "FESTIVAL DESIGN" },
+            { img: fmlyBrandProject, tag: "VISUAL IDENTITY", client: "FMLY BZNS", title: "BRAND IDENTITY" },
+            { img: gatheringPoster, tag: "IMMERSIVE ENVIRONMENTS", client: "THE GATHERING", title: "FESTIVAL DESIGN" },
+            { img: fmlyLibEvent, tag: "CREATIVE COLLABORATION", client: "FMLY BZNS x LIB", title: "CURATION AND CREATIVE DIRECTION" },
           ].map((c, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
               <div className="border-8 border-[#111111] bg-[#efe7d7] p-6 shadow-[12px_12px_0_#111111] hover-lift cursor-pointer text-center">
