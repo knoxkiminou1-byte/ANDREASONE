@@ -2,10 +2,81 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
+import { LIB_PASSES_URL, MIXTAPE_VOL_12_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
 
 import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
 import baliPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.57_PM_1776997719128.png";
+import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
+import libPoster from "@assets/project-fmly-lib-event.jpeg";
+
+const experienceEntries = [
+  {
+    date: "NOV 2025",
+    title: "AFRO RAVE X DISKO AFRIKA — BALI",
+    copy:
+      "A late-night collision of Afrobeats, Dancehall, Reggae, and global club energy in Bali. FMLY BZNS joined forces with Disko Afrika and Afrobeats Oakland for a tropical transmission rooted in rhythm, movement, and Afro-diasporic sound system culture.",
+    tags: ["EVENT", "GLOBAL AFRO-RAVE"],
+    image: baliPoster,
+  },
+  {
+    date: "JAN 2026",
+    title: "FMLY MXTP SERIES — WEEKLY TRANSMISSIONS BEGIN",
+    copy:
+      "The launch of the FMLY MXTP series. Weekly DJ mix releases featuring selectors, producers, and cultural voices across the global dance spectrum, streaming every week on YouTube and SoundCloud.",
+    tags: ["MIX ARCHIVE", "SOUND"],
+    image: mxtpCover,
+    href: MIXTAPE_VOL_12_URL,
+    cta: "LISTEN",
+  },
+  {
+    date: "MAY 2026",
+    title: "SECRET SESSIONS @ LIB — POWERED BY FREQUENCY EXCHANGE",
+    copy:
+      "A hidden-zone transmission during Lightning in a Bottle, running May 20-24, 2026. Powered by Frequency Exchange, a curated platform for DJ tools, exclusive edits, and production resources created by Davix Foreman through Dojo In The Sky Inc. Secret Sessions bridges sound system culture, music discovery, and forward-thinking creative technology inside the LIB landscape.",
+    tags: ["LIB", "SECRET-SESSIONS", "FREQUENCY-EXCHANGE"],
+    image: libPoster,
+    href: LIB_PASSES_URL,
+    cta: "PASSES",
+  },
+  {
+    date: "MAY 2026",
+    title: "FREQUENCY EXCHANGE — PLATFORM RELEASE",
+    copy:
+      "Frequency Exchange launches as a curated boutique platform for DJ packs, exclusive edits, and production tools created by Grammy-nominated songwriter, producer, and music industry architect Davix Foreman through Dojo In The Sky Inc.",
+    tags: ["PLATFORM", "FREQUENCY-EXCHANGE", "DOJO-IN-THE-SKY"],
+    image: libPoster,
+    href: LIB_PASSES_URL,
+    cta: "PASSES",
+  },
+  {
+    date: "MAY 2026",
+    title: "FMLY BZNS TAKEOVER — CROSSROADS @ LIB",
+    copy:
+      "FMLY BZNS takes over Crossroads at Lightning in a Bottle on Sunday, May 24. An all-night transmission of Afro-diasporic rhythms, global club sounds, special guests, live performance, and immersive dancefloor energy until sunrise.",
+    tags: ["TAKEOVER", "LIB", "DANCEFLOOR"],
+    image: libPoster,
+    href: LIB_PASSES_URL,
+    cta: "PASSES",
+  },
+  {
+    date: "JUL 2026",
+    title: "THE GATHERING 2026 — ANNOUNCED",
+    copy:
+      "The Gathering returns July 31-August 2, 2026 in Hopland, California at Gateway Mendocino. A boutique gathering rooted in music, movement, healing arts, immersive environments, and global dancefloor culture.",
+    tags: ["ANNOUNCEMENT", "EXPERIENCES", "THE-GATHERING"],
+    image: gatheringPoster,
+    href: THE_GATHERING_TICKETS_URL,
+    cta: "GET TICKETS",
+  },
+  {
+    date: "SEPT 2026",
+    title: "SAME SAME BUT DIFFERENT — FMLY BZNS TAKEOVER",
+    copy:
+      "FMLY BZNS takes over Nakey Island at Same Same But Different Festival, September 25-27, 2026 at Lake Perris, California. Daytime beach vibes, tropical energy, and global dancefloor rhythms carried through the shoreline atmosphere of SSBD.",
+    tags: ["SSBD", "TAKEOVER", "NAKEY-ISLAND"],
+    image: libPoster,
+  },
+];
 
 export default function Experiences() {
   return (
@@ -29,37 +100,39 @@ export default function Experiences() {
           <h2 className="text-[10vw] text-[#111111] text-center mb-16 leading-none">UPCOMING</h2>
         </ScrollReveal>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12 w-full mb-24">
-          <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#111111] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#445829]" direction="left">
-            <img src={gatheringPoster} alt="The Gathering 2026" className="w-full h-auto" />
-          </ScrollReveal>
-          <ScrollReveal className="flex-1 w-full text-center lg:text-left" direction="right">
-            <h3 className="text-[8vw] leading-none text-[#445829] mb-4">THE GATHERING</h3>
-            <p className="font-sans text-3xl font-bold uppercase mb-2">JULY 31-AUGUST 2, 2026 · HOPLAND, CA</p>
-            <p className="font-sans text-xl uppercase tracking-widest text-[#111111]/70 mb-12">Gateway Mendocino · 13771 US Hwy 101</p>
-            <Button asChild size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#445829] text-[#efe7d7] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-8 border-[#111111]">
-              <a href={THE_GATHERING_TICKETS_URL} target="_blank" rel="noreferrer">
-                GET TICKETS
-              </a>
-            </Button>
-          </ScrollReveal>
-        </div>
-
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-12 w-full">
-          <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#111111] bg-[#f6c45a] p-4 shadow-[-16px_16px_0_#cf5d27]" direction="right">
-            <img src={baliPoster} alt="Mari Beach Club" className="w-full h-auto" />
-          </ScrollReveal>
-          <ScrollReveal className="flex-1 w-full text-center lg:text-right" direction="left">
-            <span className="inline-block bg-[#f6c45a] text-[#111111] font-sans font-bold text-2xl px-6 py-2 border-4 border-[#111111] mb-6 uppercase tracking-widest">
-              PRESALE
-            </span>
-            <h3 className="text-[8vw] leading-none text-[#cf5d27] mb-4">MARI BEACH CLUB</h3>
-            <p className="font-sans text-3xl font-bold uppercase mb-2">JUL 11, 2026 · BALI, ID</p>
-            <p className="font-sans text-xl uppercase tracking-widest text-[#111111]/70 mb-12">Canggu</p>
-            <Button size="lg" className="h-20 px-16 text-3xl font-display uppercase bg-[#cf5d27] text-[#111111] hover:bg-[#f6c45a] hover:-translate-y-1 rounded-none border-8 border-[#111111]">
-              RSVP
-            </Button>
-          </ScrollReveal>
+        <div className="flex flex-col gap-10 w-full">
+          {experienceEntries.map((entry, i) => (
+            <ScrollReveal key={entry.title} delay={i * 0.05}>
+              <article className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 border-8 border-[#111111] bg-[#efe7d7] p-4 md:p-6 shadow-[10px_10px_0_#cf5d27] hover-lift">
+                <div className="bg-[#111111] border-4 border-[#111111] overflow-hidden min-h-[260px]">
+                  <img src={entry.image} alt={entry.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="flex flex-col justify-center text-left py-4">
+                  <p className="font-sans text-xl md:text-2xl font-bold uppercase tracking-[0.22em] text-[#cf5d27] mb-3">
+                    {entry.date}
+                  </p>
+                  <h3 className="text-4xl md:text-6xl leading-none text-[#111111] mb-5">{entry.title}</h3>
+                  <p className="font-sans text-lg md:text-xl font-bold uppercase leading-relaxed text-[#111111]/75 mb-6">
+                    {entry.copy}
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {entry.tags.map(tag => (
+                      <span key={tag} className="font-sans text-sm md:text-base font-bold uppercase tracking-widest border-2 border-[#445829] text-[#445829] px-3 py-1">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {entry.href && (
+                    <Button asChild size="lg" className="mt-8 h-16 w-fit px-10 text-2xl font-display uppercase bg-[#445829] text-[#efe7d7] hover:bg-[#cf5d27] hover:text-[#111111] hover:-translate-y-1 rounded-none border-4 border-[#111111]">
+                      <a href={entry.href} target="_blank" rel="noreferrer">
+                        {entry.cta}
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </article>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 

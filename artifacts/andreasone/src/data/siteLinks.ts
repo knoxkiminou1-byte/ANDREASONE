@@ -21,3 +21,4 @@ export const SOCIAL_LINKS = {
 
 export const MIXTAPE_VOL_12_URL = "https://on.soundcloud.com/hg9NBPNYzj6S44jQaY";
 export const THE_GATHERING_TICKETS_URL = "https://www.eventbrite.com/e/fmly-bzns-the-gathering-tickets-1986467302175";
+export const LIB_PASSES_URL = "https://www.libfestival.org/passes";
