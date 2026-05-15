@@ -12,17 +12,12 @@ import gatheringPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.08_PM_17769
 export default function WorldBuilding() {
   return (
     <div className="w-full flex flex-col">
-      <section className="relative isolate bg-black poster-panel border-b-8 border-[#cf5d27] text-center overflow-hidden">
-        <MotionBackdrop
-          opacity={0.16}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.2), rgba(17,17,17,0.58))" }}
-        />
+      <section className="bg-black poster-panel border-b-8 border-[#cf5d27] text-center overflow-hidden">
         <ScrollReveal>
-          <h1 className="relative z-10 text-massive stacked-title-word text-[#445829]">WORLD</h1>
+          <h1 className="text-massive stacked-title-word text-[#445829]">WORLD</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="relative z-10 text-[12vw] stacked-title-word text-[#f6c45a] -mt-6 md:-mt-12">BUILDING</h1>
+          <h1 className="text-[12vw] stacked-title-word text-[#f6c45a] -mt-6 md:-mt-12">BUILDING</h1>
         </ScrollReveal>
       </section>
 

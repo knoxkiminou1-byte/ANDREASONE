@@ -34,20 +34,15 @@ const experienceEntries = [
 export default function Experiences() {
   return (
     <div className="w-full flex flex-col">
-      <section className="relative isolate bg-olive poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
-        <MotionBackdrop
-          opacity={0.18}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(69,88,41,0.18), rgba(17,17,17,0.44))" }}
-        />
+      <section className="bg-olive poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
         <ScrollReveal>
-          <h1 className="relative z-10 text-[18vw] stacked-title-word text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
+          <h1 className="text-[18vw] stacked-title-word text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="relative z-10 text-[12vw] stacked-title-word text-[#cf5d27] -mt-6 md:-mt-12">& GATHERINGS</h1>
+          <h1 className="text-[12vw] stacked-title-word text-[#cf5d27] -mt-6 md:-mt-12">& GATHERINGS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <p className="relative z-10 font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#efe7d7]/60 mt-8 max-w-3xl mx-auto">
+          <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#efe7d7]/60 mt-8 max-w-3xl mx-auto">
             Live sets, festival appearances, activations, nightlife moments, and immersive environments.
           </p>
         </ScrollReveal>

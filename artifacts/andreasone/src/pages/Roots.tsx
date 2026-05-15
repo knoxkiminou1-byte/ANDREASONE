@@ -14,22 +14,17 @@ export default function Roots() {
     <div className="w-full flex flex-col">
 
       {/* TITLE BLOCK */}
-      <section className="relative isolate bg-orange poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
-        <MotionBackdrop
-          opacity={0.16}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(207,93,39,0.18), rgba(17,17,17,0.42))" }}
-        />
+      <section className="bg-orange poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
         <ScrollReveal>
-          <h1 className="relative z-10 text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
+          <h1 className="text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="relative z-10 text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] mt-1 md:mt-0">
+          <h1 className="text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] mt-1 md:mt-0">
             FROM THE
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <h1 className="relative z-10 text-[24vw] md:text-[20vw] stacked-title-word text-[#445829] uppercase mt-1 md:-mt-2">
+          <h1 className="text-[24vw] md:text-[20vw] stacked-title-word text-[#445829] uppercase mt-1 md:-mt-2">
             SOIL
           </h1>
         </ScrollReveal>

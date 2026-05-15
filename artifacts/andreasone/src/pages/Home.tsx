@@ -62,12 +62,7 @@ export default function Home() {
       </section>
 
       {/* QUOTE BLOCK */}
-      <section className="relative isolate bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center overflow-hidden">
-        <MotionBackdrop
-          opacity={0.24}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.28), rgba(17,17,17,0.6))" }}
-        />
+      <section className="bg-[#111111] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center text-center overflow-hidden">
         <ScrollReveal>
           <h2 className="relative z-10 text-[17vw] md:text-[15vw] stacked-title-word text-[#cf5d27] uppercase">
             SIGNALS
@@ -86,12 +81,7 @@ export default function Home() {
       </section>
 
       {/* LATEST DROP */}
-      <section className="relative isolate bg-[#f6c45a] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center border-y-8 border-[#111111] overflow-hidden">
-        <MotionBackdrop
-          opacity={0.18}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(246,196,90,0.2), rgba(17,17,17,0.18))" }}
-        />
+      <section className="bg-[#f6c45a] w-full px-4 md:px-8 py-20 md:py-32 flex flex-col justify-center border-y-8 border-[#111111] overflow-hidden">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
           <ScrollReveal className="relative z-10 flex-1 w-full text-center lg:text-left" direction="left">
             <p className="font-sans text-xl md:text-2xl font-bold uppercase tracking-[0.3em] mb-4 text-[#111111]/60">LATEST TRANSMISSION</p>

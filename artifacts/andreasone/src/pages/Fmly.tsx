@@ -23,13 +23,8 @@ export default function Fmly() {
         </a>
       </section>
 
-      <section className="relative isolate bg-mustard poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
-        <MotionBackdrop
-          opacity={0.14}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(246,196,90,0.14), rgba(17,17,17,0.24))" }}
-        />
-        <ScrollReveal className="relative z-10">
+      <section className="bg-mustard poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
+        <ScrollReveal>
           <div className="max-w-5xl mx-auto border-8 border-[#111111] bg-[#efe7d7]/92 p-8 md:p-12 shadow-[12px_12px_0_#cf5d27] text-left">
             <p className="font-sans text-2xl md:text-3xl font-bold uppercase tracking-wide text-[#111111] leading-relaxed">
               FMLY BZNS is a globally connected collective of DJs, producers, musicians, visual artists, dancers, and cultural creatives founded and envisioned by{" "}

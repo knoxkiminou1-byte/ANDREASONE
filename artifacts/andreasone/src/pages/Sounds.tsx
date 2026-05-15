@@ -9,20 +9,15 @@ import { MIXTAPE_VOL_12_URL, SOCIAL_LINKS } from "@/data/siteLinks";
 export default function Sounds() {
   return (
     <div className="w-full flex flex-col">
-      <section className="relative isolate bg-mustard poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
-        <MotionBackdrop
-          opacity={0.18}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(246,196,90,0.18), rgba(17,17,17,0.26))" }}
-        />
+      <section className="bg-mustard poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
         <ScrollReveal>
-          <h1 className="relative z-10 text-massive stacked-title-word text-[#111111]">SOUND</h1>
+          <h1 className="text-massive stacked-title-word text-[#111111]">SOUND</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="relative z-10 text-massive stacked-title-word text-[#cf5d27] mt-0 md:-mt-10">ARCHIVE</h1>
+          <h1 className="text-massive stacked-title-word text-[#cf5d27] mt-0 md:-mt-10">ARCHIVE</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <p className="relative z-10 font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#111111]/60 mt-8 max-w-4xl mx-auto">
+          <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#111111]/60 mt-8 max-w-4xl mx-auto">
             Selections, transmissions, and sound documents from the{" "}
             <AndreasWordmark text="AndreasOne" className="inline-flex align-baseline text-[#111111] text-[1.08em] tracking-[0.08em]" />
             world.
@@ -31,14 +26,9 @@ export default function Sounds() {
       </section>
 
       {/* Featured Mix */}
-      <section className="relative isolate bg-black poster-panel overflow-hidden">
-        <MotionBackdrop
-          opacity={0.15}
-          playbackRate={0.5}
-          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.22), rgba(17,17,17,0.52))" }}
-        />
-        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 w-full">
-          <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a]" direction="left">
+      <section className="bg-black poster-panel overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-center gap-12 w-full">
+          <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a]" direction="left" >
             <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer" className="block">
               <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto" />
             </a>
