@@ -2,18 +2,27 @@ import React from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 import { publishedSignals, signalTypeLabel, signalTypeColor } from "@/data/signals";
 
 export default function Signals() {
   return (
     <div className="w-full flex flex-col">
-      <section className="bg-black poster-panel border-b-8 border-[#cf5d27] text-center">
+      <section className="relative isolate bg-black poster-panel border-b-8 border-[#cf5d27] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.16}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.2), rgba(17,17,17,0.58))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-[15vw] leading-none text-[#f6c45a]">SIGNALS</h1>
+          <h1 className="relative z-10 text-[15vw] leading-none text-[#f6c45a]">SIGNALS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/50 mt-6 max-w-3xl mx-auto">
-            Transmissions, field notes, cultural dispatches, and sound documents from the AndreasOne world.
+          <p className="relative z-10 font-sans text-xl md:text-2xl uppercase tracking-[0.3em] text-[#efe7d7]/50 mt-6 max-w-4xl mx-auto">
+            Transmissions, field notes, cultural dispatches, and sound documents from the{" "}
+            <AndreasWordmark text="AndreasOne" className="inline-flex align-baseline text-[#efe7d7] text-[1.08em] tracking-[0.06em]" />
+            world.
           </p>
         </ScrollReveal>
       </section>

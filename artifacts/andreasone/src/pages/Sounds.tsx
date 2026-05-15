@@ -1,29 +1,43 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
 import { MIXTAPE_VOL_12_URL, SOCIAL_LINKS } from "@/data/siteLinks";
 
 export default function Sounds() {
   return (
     <div className="w-full flex flex-col">
-      <section className="bg-mustard poster-panel border-b-8 border-[#111111] text-center">
+      <section className="relative isolate bg-mustard poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.18}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(246,196,90,0.18), rgba(17,17,17,0.26))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-massive stacked-title-word text-[#111111]">SOUND</h1>
+          <h1 className="relative z-10 text-massive stacked-title-word text-[#111111]">SOUND</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-massive stacked-title-word text-[#cf5d27] mt-0 md:-mt-10">ARCHIVE</h1>
+          <h1 className="relative z-10 text-massive stacked-title-word text-[#cf5d27] mt-0 md:-mt-10">ARCHIVE</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#111111]/60 mt-8 max-w-3xl mx-auto">
-            Selections, transmissions, and sound documents from the AndreasOne world.
+          <p className="relative z-10 font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#111111]/60 mt-8 max-w-4xl mx-auto">
+            Selections, transmissions, and sound documents from the{" "}
+            <AndreasWordmark text="AndreasOne" className="inline-flex align-baseline text-[#111111] text-[1.08em] tracking-[0.08em]" />
+            world.
           </p>
         </ScrollReveal>
       </section>
 
       {/* Featured Mix */}
-      <section className="bg-black poster-panel">
-        <div className="flex flex-col lg:flex-row items-center gap-12 w-full">
+      <section className="relative isolate bg-black poster-panel overflow-hidden">
+        <MotionBackdrop
+          opacity={0.15}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(17,17,17,0.22), rgba(17,17,17,0.52))" }}
+        />
+        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 w-full">
           <ScrollReveal className="w-full lg:w-1/2 hover-img border-8 border-[#cf5d27] bg-[#cf5d27] p-4 shadow-[16px_16px_0_#f6c45a]" direction="left">
             <a href={MIXTAPE_VOL_12_URL} target="_blank" rel="noreferrer" className="block">
               <img src={mxtpCover} alt="FMLY MXTP VOL. 12" className="w-full h-auto" />
@@ -32,9 +46,7 @@ export default function Sounds() {
           <ScrollReveal className="flex-1 w-full text-center lg:text-left text-[#efe7d7]" direction="right">
             <h2 className="text-[8vw] leading-none mb-4 text-[#f6c45a]">FMLY MXTP</h2>
             <h3 className="font-display text-5xl mb-3">VOL. 12</h3>
-            <p className="font-sans text-xl md:text-2xl font-bold uppercase tracking-[0.18em] text-[#efe7d7]/75 mb-8">
-              AndreasOne
-            </p>
+            <AndreasWordmark text="AndreasOne" className="mb-8 font-display text-[#efe7d7]/75 text-4xl md:text-5xl tracking-[0.06em]" />
             <p className="font-sans text-2xl mb-12 max-w-xl mx-auto lg:mx-0">
               A 68 min journey through Amapiano, Afro House, Deep House, Gqom, Baile Funk, and Global Edits.
             </p>

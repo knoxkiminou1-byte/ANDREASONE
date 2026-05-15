@@ -2,6 +2,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 import { LIB_PASSES_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
 
 import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
@@ -32,15 +34,20 @@ const experienceEntries = [
 export default function Experiences() {
   return (
     <div className="w-full flex flex-col">
-      <section className="bg-olive poster-panel border-b-8 border-[#111111] text-center">
+      <section className="relative isolate bg-olive poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.18}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(69,88,41,0.18), rgba(17,17,17,0.44))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-[18vw] stacked-title-word text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
+          <h1 className="relative z-10 text-[18vw] stacked-title-word text-[#f6c45a] tracking-tight">EXPERIENCES</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[12vw] stacked-title-word text-[#cf5d27] -mt-6 md:-mt-12">& GATHERINGS</h1>
+          <h1 className="relative z-10 text-[12vw] stacked-title-word text-[#cf5d27] -mt-6 md:-mt-12">& GATHERINGS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <p className="font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#efe7d7]/60 mt-8 max-w-3xl mx-auto">
+          <p className="relative z-10 font-sans text-xl md:text-2xl uppercase tracking-[0.25em] text-[#efe7d7]/60 mt-8 max-w-3xl mx-auto">
             Live sets, festival appearances, activations, nightlife moments, and immersive environments.
           </p>
         </ScrollReveal>
@@ -112,9 +119,17 @@ export default function Experiences() {
         </div>
       </section>
 
-      <section className="bg-orange poster-panel text-center">
+      <section className="relative isolate bg-orange poster-panel text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.14}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(207,93,39,0.12), rgba(17,17,17,0.34))" }}
+        />
         <ScrollReveal>
-          <h2 className="text-[10vw] leading-none text-[#111111] mb-12">BOOK ANDREAS</h2>
+          <h2 className="relative z-10 text-[10vw] leading-none text-[#111111] mb-12">
+            BOOK{" "}
+            <AndreasWordmark text="Andreas" className="inline-flex align-baseline text-[1em] text-[#111111] tracking-[0.04em]" />
+          </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <Link href="/connect">

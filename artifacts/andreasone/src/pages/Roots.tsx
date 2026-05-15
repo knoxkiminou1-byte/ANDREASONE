@@ -2,6 +2,8 @@ import React from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { MotionBackdrop } from "@/components/MotionBackdrop";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 
 import layerPhoto from "@assets/Andreas_Layer_1778035395766.jpeg";
 import rootsPoster from "@assets/roots-poster.jpeg";
@@ -12,17 +14,22 @@ export default function Roots() {
     <div className="w-full flex flex-col">
 
       {/* TITLE BLOCK */}
-      <section className="bg-orange poster-panel border-b-8 border-[#111111] text-center">
+      <section className="relative isolate bg-orange poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
+        <MotionBackdrop
+          opacity={0.16}
+          playbackRate={0.5}
+          overlayStyle={{ background: "linear-gradient(180deg, rgba(207,93,39,0.18), rgba(17,17,17,0.42))" }}
+        />
         <ScrollReveal>
-          <h1 className="text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
+          <h1 className="relative z-10 text-[15vw] stacked-title-word text-[#111111]">SIGNALS</h1>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h1 className="text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] mt-1 md:mt-0">
+          <h1 className="relative z-10 text-[8vw] md:text-[6.5vw] stacked-title-word text-[#efe7d7] uppercase tracking-[0.18em] mt-1 md:mt-0">
             FROM THE
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
-          <h1 className="text-[24vw] md:text-[20vw] stacked-title-word text-[#445829] uppercase mt-1 md:-mt-2">
+          <h1 className="relative z-10 text-[24vw] md:text-[20vw] stacked-title-word text-[#445829] uppercase mt-1 md:-mt-2">
             SOIL
           </h1>
         </ScrollReveal>
@@ -120,9 +127,10 @@ export default function Roots() {
           <h2 className="text-[10vw] leading-none text-[#f6c45a] mb-4">BOOK</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.07}>
-          <h2 className="text-[9vw] md:text-[8vw] leading-none text-[#cf5d27] -mt-2 md:-mt-6 mb-16 normal-case tracking-tight">
-            AndreasOne
-          </h2>
+          <AndreasWordmark
+            text="AndreasOne"
+            className="mb-16 font-display text-[#cf5d27] text-[9vw] md:text-[8vw] tracking-[0.06em]"
+          />
         </ScrollReveal>
         <ScrollReveal delay={0.14}>
           <Link href="/connect">

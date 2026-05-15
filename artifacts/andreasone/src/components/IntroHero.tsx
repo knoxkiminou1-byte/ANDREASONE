@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import introBackground from "@assets/intro-background.mp4";
+import { AndreasWordmark } from "@/components/AndreasWordmark";
 
 const INTRO_GOLD = "#EEC76C";
 const INTRO_GOLD_RGB = "238,199,108";
@@ -136,9 +137,10 @@ export function IntroHero() {
           onClick={handleClick}
           style={{ cursor: "pointer" }}
         >
-          <p className="font-display text-[#efe7d7] uppercase tracking-[0.42em] text-xl sm:text-2xl">
-            ANDREASONE
-          </p>
+          <AndreasWordmark
+            text="AndreasOne"
+            className="font-display text-[#efe7d7] uppercase tracking-[0.12em] text-3xl sm:text-5xl"
+          />
           <p className="mt-2 font-sans text-[#efe7d7]/70 uppercase tracking-[0.34em] text-xs sm:text-sm">
             CLICK TO ENTER
           </p>
