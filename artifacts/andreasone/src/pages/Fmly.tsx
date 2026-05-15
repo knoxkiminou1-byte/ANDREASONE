@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FMLY_BZNS_URL } from "@/data/siteLinks";
-import fmlyLogo from "@assets/fmly-bzns-logo-transparent.svg";
+import fmlyLogo from "@assets/fmly-bzns-logo-brand.jpeg";
 
 export default function Fmly() {
   return (
@@ -11,7 +11,7 @@ export default function Fmly() {
       <section className="bg-sage poster-panel border-b-8 border-[#111111] text-center overflow-hidden">
         <a href={FMLY_BZNS_URL} target="_blank" rel="noreferrer" className="inline-block hover-lift">
           <ScrollReveal>
-            <img src={fmlyLogo} alt="FMLY BZNS" className="w-full max-w-4xl mx-auto" />
+            <img src={fmlyLogo} alt="FMLY BZNS" className="w-full max-w-3xl mx-auto" />
           </ScrollReveal>
         </a>
       </section>
