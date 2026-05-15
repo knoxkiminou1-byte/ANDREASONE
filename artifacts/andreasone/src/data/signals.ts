@@ -1,16 +1,7 @@
-// SIGNALS DATA FILE
-// Signals is the AndreasOne dispatch / blog / feed.
-// Add new entries here — each is a transmission from the world.
-// Set `published: false` to draft without publishing.
-// Lower `displayOrder` = appears first in the feed.
-//
-// Types: "thought" | "mix" | "art" | "announcement" | "field-note"
-//
-// TODO: Andreas — add real entries here. Sample starters below as examples.
-// TODO: Add real images by importing from @assets/ and setting the image field.
-// TODO: Fill in real excerpts, body copy, and audio/external links.
+import { LIB_PASSES_URL, MIXTAPE_VOL_12_URL } from "./siteLinks";
+import lib2026Poster from "@assets/lib2026-fmly-bzns.png";
 
-export type SignalType = "thought" | "mix" | "art" | "announcement" | "field-note";
+export type SignalType = "thought" | "mix" | "art" | "announcement" | "field-note" | "event" | "takeover";
 
 export type Signal = {
   id: string;
@@ -31,84 +22,70 @@ export type Signal = {
 export const signals: Signal[] = [
   {
     id: "s01",
-    title: "FREQUENCY ALWAYS FINDS ITS ROOM",
-    slug: "frequency-finds-its-room",
-    type: "thought",
-    date: "MAY 2026",
+    title: "AFRO RAVE X DISKO AFRIKA — BALI",
+    slug: "afro-rave-disko-afrika-bali",
+    type: "event",
+    date: "NOV 2025",
     excerpt:
-      "There's a moment in every good set where the room stops being a collection of people and becomes one thing. That's the transmission. That's what we're building toward.",
-    body: "There's a moment in every good set where the room stops being a collection of people and becomes one thing. That's the transmission. That's what we're building toward.\n\nRegardless of geography, the frequency is the same. Lagos, Lisbon, Brooklyn, Bali — the room responds the same way when the right record drops. This is why I travel. Not to perform. To confirm.",
-    tags: ["sound", "philosophy", "worldbuilding"],
+      "A late-night collision of Afrobeats, Dancehall, Reggae, and global club energy in Bali. FMLY BZNS joined forces with Disko Afrika and Afrobeats Oakland for a tropical transmission rooted in rhythm, movement, and Afro-diasporic sound system culture.",
+    tags: ["EVENT", "GLOBAL", "AFRO-RAVE"],
     published: true,
     displayOrder: 1,
   },
   {
     id: "s02",
-    title: "FMLY MXTP VOL. 12 — MARCH MEDITATIONS",
-    slug: "fmly-mxtp-vol-12",
+    title: "FMLY MXTP SERIES — WEEKLY TRANSMISSIONS BEGIN",
+    slug: "fmly-mxtp-series-weekly-transmissions",
     type: "mix",
-    date: "APR 2026",
+    date: "JAN 2026",
     excerpt:
-      "84 minutes. Afro house, amapiano, unreleased edits. Built for early mornings and late arrivals. The latest transmission from the archive.",
+      "The launch of the FMLY MXTP series. Weekly DJ mix releases featuring selectors, producers, and cultural voices across the global dance spectrum — streaming every week on YouTube and SoundCloud.",
     audioEmbed:
       "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andreasone&color=%23cf5d27&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&visual=true",
-    tags: ["mix", "sounds", "archive"],
+    externalLink: MIXTAPE_VOL_12_URL,
+    tags: ["MIX", "ARCHIVE", "SOUND"],
     published: true,
     displayOrder: 2,
   },
   {
     id: "s03",
-    title: "HAND STUDIES — NEW WORK",
-    slug: "hand-studies-new-work",
-    type: "art",
-    date: "MAR 2026",
+    title: "THE GATHERING 2026 — ANNOUNCED",
+    slug: "the-gathering-2026-announced",
+    type: "announcement",
+    date: "JUL 2026",
     excerpt:
-      "New drawings from the Hand Studies series. The hand as instrument, as symbol, as portal. These images started as warmups and turned into something else.",
-    tags: ["art", "archive", "visual"],
+      "The Gathering returns July 31-August 2, 2026 in Hopland, California at Gateway Mendocino. A boutique gathering rooted in music, movement, healing arts, immersive environments, and global dancefloor culture.",
+    externalLink: "/experiences",
+    tags: ["ANNOUNCEMENT", "EXPERIENCES", "THE-GATHERING"],
     published: true,
     displayOrder: 3,
   },
   {
     id: "s04",
-    title: "THE GATHERING 2026 — GATEWAY MENDOCINO",
-    slug: "the-gathering-2026",
-    type: "announcement",
-    date: "FEB 2026",
+    title: "FMLY BZNS TAKEOVER — CROSSROADS @ LIB",
+    slug: "fmly-bzns-crossroads-lib",
+    type: "takeover",
+    date: "MAY 2026",
     excerpt:
-      "The Gathering returns July 31-August 2, 2026 in Hopland, California at Gateway Mendocino. The culture gathers here.",
-    externalLink: "/experiences",
-    tags: ["announcement", "experiences", "the-gathering"],
+      "FMLY BZNS takes over Crossroads at Lightning in a Bottle on Sunday, May 24. An all-night transmission of Afro-diasporic rhythms, global club sounds, special guests, live performance, and immersive dancefloor energy until sunrise.",
+    image: lib2026Poster,
+    externalLink: LIB_PASSES_URL,
+    tags: ["TAKEOVER", "LIB", "DANCEFLOOR"],
     published: true,
     displayOrder: 4,
   },
   {
     id: "s05",
-    title: "FIELD NOTES — BALI",
-    slug: "field-notes-bali",
-    type: "field-note",
-    date: "JAN 2026",
+    title: "SAME SAME BUT DIFFERENT — FMLY BZNS TAKEOVER",
+    slug: "same-same-but-different-fmly-bzns-takeover",
+    type: "takeover",
+    date: "SEPT 2026",
     excerpt:
-      "You land at 2am and the air is warm and thick with something. By morning it's already working on you. Sound systems here have a different relationship with bass.",
-    tags: ["field-note", "travel", "sounds", "bali"],
+      "FMLY BZNS takes over Nakey Island at Same Same But Different Festival, September 25-27, 2026 at Lake Perris, California. Daytime beach vibes, tropical energy, and global dancefloor rhythms carried through the shoreline atmosphere of SSBD.",
+    tags: ["SSBD", "TAKEOVER", "NAKEY-ISLAND"],
     published: true,
     displayOrder: 5,
   },
-  // TODO: Add new signals below this line
-  // {
-  //   id: "s06",
-  //   title: "YOUR TITLE",
-  //   slug: "your-slug",
-  //   type: "thought",           // "thought" | "mix" | "art" | "announcement" | "field-note"
-  //   date: "JUN 2026",
-  //   excerpt: "Short teaser text shown in the feed.",
-  //   body: "Full body text (optional). Shown on detail page if routing supports it.",
-  //   image: undefined,          // import image and reference here
-  //   audioEmbed: undefined,     // SoundCloud/Mixcloud embed iframe src
-  //   externalLink: undefined,   // External URL or internal route
-  //   tags: ["tag1", "tag2"],
-  //   published: false,          // Set to true when ready to publish
-  //   displayOrder: 6,
-  // },
 ];
 
 export const publishedSignals = signals
@@ -121,6 +98,8 @@ export const signalTypeLabel: Record<SignalType, string> = {
   art: "ART",
   announcement: "ANNOUNCEMENT",
   "field-note": "FIELD NOTE",
+  event: "EVENT",
+  takeover: "TAKEOVER",
 };
 
 export const signalTypeColor: Record<SignalType, string> = {
@@ -129,4 +108,6 @@ export const signalTypeColor: Record<SignalType, string> = {
   art: "#f6c45a",
   announcement: "#111111",
   "field-note": "#d9decf",
+  event: "#445829",
+  takeover: "#cf5d27",
 };

@@ -2,59 +2,18 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { LIB_PASSES_URL, MIXTAPE_VOL_12_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
+import { LIB_PASSES_URL, THE_GATHERING_TICKETS_URL } from "@/data/siteLinks";
 
 import gatheringPoster from "@assets/the-gathering-2026-hopland.png";
-import baliPoster from "@assets/Screen_Shot_2026-04-19_at_12.37.57_PM_1776997719128.png";
-import mxtpCover from "@assets/fmly-mxtp-vol-12-full.jpeg";
-import libPoster from "@assets/project-fmly-lib-event.jpeg";
+import lib2026Poster from "@assets/lib2026-fmly-bzns.png";
 
 const experienceEntries = [
   {
-    date: "NOV 2025",
-    title: "AFRO RAVE X DISKO AFRIKA — BALI",
-    copy:
-      "A late-night collision of Afrobeats, Dancehall, Reggae, and global club energy in Bali. FMLY BZNS joined forces with Disko Afrika and Afrobeats Oakland for a tropical transmission rooted in rhythm, movement, and Afro-diasporic sound system culture.",
-    tags: ["EVENT", "GLOBAL AFRO-RAVE"],
-    image: baliPoster,
-  },
-  {
-    date: "JAN 2026",
-    title: "FMLY MXTP SERIES — WEEKLY TRANSMISSIONS BEGIN",
-    copy:
-      "The launch of the FMLY MXTP series. Weekly DJ mix releases featuring selectors, producers, and cultural voices across the global dance spectrum, streaming every week on YouTube and SoundCloud.",
-    tags: ["MIX ARCHIVE", "SOUND"],
-    image: mxtpCover,
-    href: MIXTAPE_VOL_12_URL,
-    cta: "LISTEN",
-  },
-  {
-    date: "MAY 2026",
-    title: "SECRET SESSIONS @ LIB — POWERED BY FREQUENCY EXCHANGE",
-    copy:
-      "A hidden-zone transmission during Lightning in a Bottle, running May 20-24, 2026. Powered by Frequency Exchange, a curated platform for DJ tools, exclusive edits, and production resources created by Davix Foreman through Dojo In The Sky Inc. Secret Sessions bridges sound system culture, music discovery, and forward-thinking creative technology inside the LIB landscape.",
-    tags: ["LIB", "SECRET-SESSIONS", "FREQUENCY-EXCHANGE"],
-    image: libPoster,
-    href: LIB_PASSES_URL,
-    cta: "PASSES",
-  },
-  {
-    date: "MAY 2026",
-    title: "FREQUENCY EXCHANGE — PLATFORM RELEASE",
-    copy:
-      "Frequency Exchange launches as a curated boutique platform for DJ packs, exclusive edits, and production tools created by Grammy-nominated songwriter, producer, and music industry architect Davix Foreman through Dojo In The Sky Inc.",
-    tags: ["PLATFORM", "FREQUENCY-EXCHANGE", "DOJO-IN-THE-SKY"],
-    image: libPoster,
-    href: LIB_PASSES_URL,
-    cta: "PASSES",
-  },
-  {
     date: "MAY 2026",
     title: "FMLY BZNS TAKEOVER — CROSSROADS @ LIB",
-    copy:
-      "FMLY BZNS takes over Crossroads at Lightning in a Bottle on Sunday, May 24. An all-night transmission of Afro-diasporic rhythms, global club sounds, special guests, live performance, and immersive dancefloor energy until sunrise.",
-    tags: ["TAKEOVER", "LIB", "DANCEFLOOR"],
-    image: libPoster,
+    copy: "FMLY BZNS takes over Crossroads at Lightning in a Bottle on Sunday, May 24.",
+    tags: ["TAKEOVER", "LIB", "CROSSROADS"],
+    image: lib2026Poster,
     href: LIB_PASSES_URL,
     cta: "PASSES",
   },
@@ -67,14 +26,6 @@ const experienceEntries = [
     image: gatheringPoster,
     href: THE_GATHERING_TICKETS_URL,
     cta: "GET TICKETS",
-  },
-  {
-    date: "SEPT 2026",
-    title: "SAME SAME BUT DIFFERENT — FMLY BZNS TAKEOVER",
-    copy:
-      "FMLY BZNS takes over Nakey Island at Same Same But Different Festival, September 25-27, 2026 at Lake Perris, California. Daytime beach vibes, tropical energy, and global dancefloor rhythms carried through the shoreline atmosphere of SSBD.",
-    tags: ["SSBD", "TAKEOVER", "NAKEY-ISLAND"],
-    image: libPoster,
   },
 ];
 

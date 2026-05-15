@@ -47,6 +47,15 @@ export default function Signals() {
                   <p className="font-sans text-xl text-[#111111]/70 leading-relaxed max-w-3xl">
                     {s.excerpt}
                   </p>
+                  {s.image && (
+                    <div className="mt-6 max-w-xl border-4 border-[#111111] bg-[#111111] overflow-hidden">
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        className="w-full max-h-[520px] object-contain"
+                      />
+                    </div>
+                  )}
                   {/* Audio embed preview */}
                   {s.audioEmbed && (
                     <div className="mt-6 border-4 border-[#111111] overflow-hidden">
