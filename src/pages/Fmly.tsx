@@ -50,9 +50,11 @@ export default function Fmly() {
   return (
     <div className="flex flex-col w-full bg-background">
       {/* HERO — massive wordmark */}
-      <section className="pt-24 md:pt-32 pb-16 px-4 bg-[#cf5d27] text-[#efe7d7] relative overflow-hidden">
-        <div className="absolute inset-0 bg-noise opacity-10 pointer-events-none" />
-        <div className="container mx-auto max-w-7xl text-center relative">
+      <section className="pt-24 md:pt-32 pb-16 px-4 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="absolute inset-0 bg-noise opacity-10 pointer-events-none z-[1]" />
+        <div className="container mx-auto max-w-7xl text-center relative z-10">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

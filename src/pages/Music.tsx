@@ -86,9 +86,11 @@ export default function Music() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero — featured mix */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-background">
-        <div className="container mx-auto max-w-7xl">
-          <motion.p initial="hidden" animate="visible" variants={fadeUp} className="font-display text-sm tracking-[0.3em] text-primary mb-6">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <motion.p initial="hidden" animate="visible" variants={fadeUp} className="font-display text-sm tracking-[0.3em] text-[#f6c45a] mb-6">
             SOUND ARCHIVE · LATEST RELEASE
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
@@ -100,10 +102,10 @@ export default function Music() {
               <h1 className="font-display text-5xl md:text-7xl leading-[0.95] mb-6">
                 FMLY MXTP<br/>VOL. 12
               </h1>
-              <p className="text-lg text-muted-foreground mb-3 max-w-xl">
-                <span className="font-display tracking-widest text-foreground">MARCH MEDITATIONS</span> — A 84-minute journey through afro house, amapiano, and unreleased edits. Recorded live, mixed in one take.
+              <p className="text-lg text-[#efe7d7]/82 mb-3 max-w-xl">
+                <span className="font-display tracking-widest text-[#efe7d7]">MARCH MEDITATIONS</span> — A 84-minute journey through afro house, amapiano, and unreleased edits. Recorded live, mixed in one take.
               </p>
-              <p className="font-display tracking-widest text-sm text-foreground/60 mb-8">
+              <p className="font-display tracking-widest text-sm text-[#efe7d7]/70 mb-8">
                 1:24:18 · 21 TRACKS · MAR 2026
               </p>
 
@@ -116,7 +118,7 @@ export default function Music() {
                     <div
                       key={i}
                       style={{ height: `${Math.min(h, 64)}px` }}
-                      className={`w-[3px] ${isPlayed ? "bg-primary" : "bg-foreground/20"} transition-colors`}
+                      className={`w-[3px] ${isPlayed ? "bg-[#f6c45a]" : "bg-[#efe7d7]/25"} transition-colors`}
                     />
                   );
                 })}

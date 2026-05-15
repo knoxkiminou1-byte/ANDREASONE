@@ -22,7 +22,9 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden text-[#efe7d7]">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
         <div className="absolute inset-0 z-0">
           <img 
             src={crowdImg} 
@@ -46,7 +48,7 @@ export default function Home() {
           
           <motion.h1 
             variants={fadeUp}
-            className="text-2xl md:text-4xl font-display tracking-[0.2em] text-foreground max-w-3xl leading-snug"
+            className="text-2xl md:text-4xl font-display tracking-[0.2em] text-[#efe7d7] max-w-3xl leading-snug"
           >
             GLOBAL DJ, PRODUCER, ARTIST, DESIGNER, <br/><span className="text-primary">AND CULTURAL CURATOR</span>
           </motion.h1>
@@ -152,19 +154,21 @@ export default function Home() {
       </section>
 
       {/* Upcoming Events Strip */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="flex justify-between items-end mb-12">
             <motion.h2 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="font-display text-4xl md:text-6xl"
+              className="font-display text-4xl md:text-6xl text-[#efe7d7]"
             >
               UPCOMING EVENTS
             </motion.h2>
-            <Link href="/events" className="hidden md:block font-display tracking-widest border-b border-foreground pb-1 hover:text-primary hover:border-primary transition-colors">
+            <Link href="/events" className="hidden md:block font-display tracking-widest border-b border-[#efe7d7] pb-1 hover:text-[#f6c45a] hover:border-[#f6c45a] transition-colors">
               VIEW ALL
             </Link>
           </div>

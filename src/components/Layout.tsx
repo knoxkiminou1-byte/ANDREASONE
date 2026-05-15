@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Instagram, Music2, Disc3, Apple, Menu, X, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { IntroHero } from "@/components/IntroHero";
 import wordmark from "@assets/AndreasOne_New_Logo_One_color_Transparent_1777062868301.png";
 
 interface LayoutProps {
@@ -43,6 +44,8 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col relative text-foreground selection:bg-primary selection:text-white">
+      <IntroHero />
+
       {/* Noise Overlay */}
       <div className="pointer-events-none fixed inset-0 z-50 bg-noise" />
 

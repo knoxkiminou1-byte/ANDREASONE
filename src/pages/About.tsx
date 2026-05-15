@@ -43,8 +43,10 @@ export default function About() {
   return (
     <div className="flex flex-col w-full bg-background">
       {/* Hero portrait */}
-      <section className="pt-24 md:pt-32 pb-12 px-4">
-        <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+      <section className="pt-24 md:pt-32 pb-12 px-4 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-end relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,11 +61,11 @@ export default function About() {
             variants={fadeUp}
             className="lg:col-span-5"
           >
-            <p className="font-display text-sm tracking-[0.3em] text-primary mb-6">ABOUT · ANDREAS</p>
+            <p className="font-display text-sm tracking-[0.3em] text-[#f6c45a] mb-6">ABOUT · ANDREAS</p>
             <h1 className="font-display text-5xl md:text-7xl leading-[0.95] mb-6">
               ANDREAS IS A<br/>GLOBAL OPERATOR.
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-[#efe7d7]/82 leading-relaxed">
               Artist. DJ. Designer. Curator. The work moves between continents — but the lineage is one. Sound, image, ritual, family.
             </p>
           </motion.div>

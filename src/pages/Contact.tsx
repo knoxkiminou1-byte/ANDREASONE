@@ -48,8 +48,10 @@ export default function Contact() {
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-background">
-      <section className="pt-32 pb-24 px-4 flex-1">
-        <div className="container mx-auto flex flex-col lg:flex-row gap-16">
+      <section className="pt-32 pb-24 px-4 flex-1 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="container mx-auto flex flex-col lg:flex-row gap-16 relative z-10">
           
           {/* Info Side */}
           <motion.div 
@@ -58,8 +60,8 @@ export default function Contact() {
             transition={{ duration: 0.65 }}
             className="w-full lg:w-1/3"
           >
-            <h1 className="font-display text-6xl md:text-8xl uppercase mb-6 text-[#111111]">Booking<br/>& Contact</h1>
-            <p className="font-sans text-muted-foreground text-lg mb-12">
+            <h1 className="font-display text-6xl md:text-8xl uppercase mb-6 text-[#efe7d7]">Booking<br/>& Contact</h1>
+            <p className="font-sans text-[#efe7d7]/82 text-lg mb-12">
               For DJ bookings, creative direction, brand partnerships, or general inquiries, please use the form. 
               Serious inquiries only.
             </p>
@@ -67,11 +69,11 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-display tracking-widest uppercase text-[#cf5d27] text-sm mb-2">Management</h3>
-                <p className="font-sans text-[#111111]">mgmt@andreasone.co</p>
+                <p className="font-sans text-[#efe7d7]">mgmt@andreasone.co</p>
               </div>
               <div>
                 <h3 className="font-display tracking-widest uppercase text-[#cf5d27] text-sm mb-2">Location</h3>
-                <p className="font-sans text-[#111111]">Los Angeles / Global</p>
+                <p className="font-sans text-[#efe7d7]">Los Angeles / Global</p>
               </div>
             </div>
           </motion.div>

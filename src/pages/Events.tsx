@@ -131,12 +131,14 @@ export default function Events() {
   return (
     <div className="flex flex-col w-full">
       {/* Header */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16 px-4 bg-background">
-        <div className="container mx-auto max-w-6xl">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-16 px-4 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <p className="font-display text-sm tracking-[0.3em] text-primary mb-6">LIVE & DIRECT · 2024 — 2026</p>
+            <p className="font-display text-sm tracking-[0.3em] text-[#f6c45a] mb-6">LIVE & DIRECT · 2024 — 2026</p>
             <h1 className="font-display text-6xl md:text-8xl leading-[0.95] mb-6">EVENTS<br/>& GATHERINGS</h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-[#efe7d7]/82 max-w-2xl leading-relaxed">
               Immersive event design and global sound curation. From private beach sunsets to all-night warehouse rituals — every gathering is built like a room you don't want to leave.
             </p>
           </motion.div>

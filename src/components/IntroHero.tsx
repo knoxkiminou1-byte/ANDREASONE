@@ -36,32 +36,11 @@ export function IntroHero() {
 
   return (
     <div 
-      className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#f3efe6] transition-opacity duration-[840ms]
-        ${isSwirlingOut ? "animate-[sceneWarp_1.38s_cubic-bezier(0.15,0.86,0.24,1)_forwards]" : "animate-[sceneVibrate_0.12s_steps(2,end)_infinite]"}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#4b5728] transition-opacity duration-[840ms]
+        ${isSwirlingOut ? "animate-[sceneWarp_1.38s_cubic-bezier(0.15,0.86,0.24,1)_forwards]" : "animate-[sceneDrift_18s_cubic-bezier(0.42,0,0.2,1)_infinite_alternate]"}`}
     >
-      {/* Gradient Layers from original CSS */}
-      <div 
-        className="absolute inset-[-35%] rounded-full origin-center mix-blend-normal opacity-100 filter contrast-108 saturate-116 
-          animate-[swirlOne_14.4s_linear_infinite,colorCycle_9.6s_linear_infinite]"
-        style={{
-          background: `radial-gradient(circle at 18% 72%, rgba(207, 93, 39, 0.4) 0%, transparent 46%),
-                       radial-gradient(circle at 82% 24%, rgba(68, 88, 41, 0.36) 0%, transparent 38%),
-                       radial-gradient(circle at 50% 50%, rgba(246, 196, 90, 0.26) 0%, transparent 62%),
-                       conic-gradient(from 220deg at 50% 50%, #cf5d27, #f6c45a, #445829, #d9decf, #efe7d7, #cf5d27)`
-        }}
-      />
-      <div 
-        className="absolute inset-[-35%] rounded-full origin-center mix-blend-soft-light opacity-[0.88]
-          animate-[swirlTwo_10.8s_linear_infinite_reverse,colorCycle_12s_linear_infinite_reverse]"
-        style={{
-          background: `radial-gradient(circle at 65% 72%, rgba(207, 93, 39, 0.32) 0%, transparent 42%),
-                       radial-gradient(circle at 38% 36%, rgba(68, 88, 41, 0.3) 0%, transparent 42%),
-                       repeating-conic-gradient(from 0deg at 50% 50%, rgba(239, 231, 215, 0.65) 0deg, rgba(239, 231, 215, 0.65) 8deg, rgba(246, 196, 90, 0.4) 12deg, rgba(207, 93, 39, 0.45) 22deg, rgba(68, 88, 41, 0.44) 30deg, rgba(217, 222, 207, 0.5) 38deg)`
-        }}
-      />
-
-      <div className="absolute w-[50vmax] h-[50vmax] rounded-full mix-blend-multiply blur-[72px] bg-[rgba(207,93,39,0.32)] -left-[10vmax] -bottom-[8vmax] animate-[orbitOrange_10.8s_ease-in-out_infinite_alternate]" />
-      <div className="absolute w-[50vmax] h-[50vmax] rounded-full mix-blend-multiply blur-[72px] bg-[rgba(68,88,41,0.3)] -right-[10vmax] -top-[8vmax] animate-[orbitOlive_12s_ease-in-out_infinite_alternate]" />
+      <div className="ao-contour-swirl ao-contour-swirl--intro" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(246,196,90,0.05),transparent_28%)]" />
 
       <section 
         className={`relative z-10 w-[min(54vw,390px)] max-w-[330px] sm:max-w-[390px]
@@ -76,9 +55,9 @@ export function IntroHero() {
           aria-label="Enter site"
         >
           <svg className="w-full h-auto block drop-shadow-[0_12px_26px_rgba(0,0,0,0.22)]" viewBox="0 0 320 360">
-            <circle cx="160" cy="114" r="74" fill="none" stroke="#111111" strokeWidth="14" strokeLinejoin="round" strokeLinecap="round" />
-            <polygon points="160,122 74,274 246,274" fill="none" stroke="#111111" strokeWidth="10" strokeLinejoin="round" strokeLinecap="round" />
-            <line x1="70" y1="304" x2="250" y2="304" fill="none" stroke="#111111" strokeWidth="10" strokeLinecap="round" />
+            <circle cx="160" cy="114" r="74" fill="none" stroke="#f2cb6b" strokeWidth="14" strokeLinejoin="round" strokeLinecap="round" />
+            <polygon points="160,122 74,274 246,274" fill="none" stroke="#f2cb6b" strokeWidth="10" strokeLinejoin="round" strokeLinecap="round" />
+            <line x1="70" y1="304" x2="250" y2="304" fill="none" stroke="#f2cb6b" strokeWidth="10" strokeLinecap="round" />
           </svg>
 
           <div 
@@ -87,18 +66,25 @@ export function IntroHero() {
             `}
           >
             <svg className="w-full h-full overflow-visible drop-shadow-[0_14px_24px_rgba(0,0,0,0.28)]" viewBox="0 0 180 300">
-              <circle cx="90" cy="24" r="17" fill="none" stroke="#111111" strokeWidth="6.5" />
-              <line x1="90" y1="42" x2="90" y2="198" fill="none" stroke="#111111" strokeWidth="6.5" strokeLinecap="round" />
-              <path d="M56 66 L124 66" fill="none" stroke="#111111" strokeWidth="6.5" strokeLinecap="round" />
-              <path d="M36 108 L144 108" fill="none" stroke="#111111" strokeWidth="6.5" strokeLinecap="round" />
-              <path d="M52 146 L128 146" fill="none" stroke="#111111" strokeWidth="6.5" strokeLinecap="round" />
-              <circle cx="90" cy="226" r="64" fill="none" stroke="#111111" strokeWidth="6.5" />
-              <line x1="28" y1="226" x2="152" y2="226" fill="none" stroke="#111111" strokeWidth="6.5" strokeLinecap="round" />
-              <line x1="90" y1="198" x2="90" y2="290" fill="none" stroke="#111111" strokeWidth="6.5" strokeLinecap="round" />
-              <text x="58" y="242" fontFamily="Space Grotesk, sans-serif" fontSize="37" fontWeight="800" fill="#111111" textAnchor="middle">A</text>
-              <text x="106" y="242" fontFamily="Space Grotesk, sans-serif" fontSize="37" fontWeight="800" fill="#111111" textAnchor="middle">O</text>
+              <circle cx="90" cy="24" r="17" fill="none" stroke="#f2cb6b" strokeWidth="6.5" />
+              <line x1="90" y1="42" x2="90" y2="198" fill="none" stroke="#f2cb6b" strokeWidth="6.5" strokeLinecap="round" />
+              <path d="M56 66 L124 66" fill="none" stroke="#f2cb6b" strokeWidth="6.5" strokeLinecap="round" />
+              <path d="M36 108 L144 108" fill="none" stroke="#f2cb6b" strokeWidth="6.5" strokeLinecap="round" />
+              <path d="M52 146 L128 146" fill="none" stroke="#f2cb6b" strokeWidth="6.5" strokeLinecap="round" />
+              <circle cx="90" cy="226" r="64" fill="none" stroke="#f2cb6b" strokeWidth="6.5" />
+              <line x1="28" y1="226" x2="152" y2="226" fill="none" stroke="#f2cb6b" strokeWidth="6.5" strokeLinecap="round" />
+              <line x1="90" y1="198" x2="90" y2="290" fill="none" stroke="#f2cb6b" strokeWidth="6.5" strokeLinecap="round" />
+              <text x="58" y="242" fontFamily="Space Grotesk, sans-serif" fontSize="37" fontWeight="800" fill="#f2cb6b" textAnchor="middle">A</text>
+              <text x="106" y="242" fontFamily="Space Grotesk, sans-serif" fontSize="37" fontWeight="800" fill="#f2cb6b" textAnchor="middle">O</text>
             </svg>
           </div>
+
+          <span className="block mt-6 font-display text-2xl sm:text-4xl tracking-[0.2em] text-[#f3efe6] drop-shadow-[0_8px_18px_rgba(0,0,0,0.35)]">
+            ANDREASONE
+          </span>
+          <span className="block mt-3 font-display text-sm sm:text-lg tracking-[0.3em] text-[#f3efe6]/70">
+            CLICK TO ENTER
+          </span>
         </button>
       </section>
     </div>

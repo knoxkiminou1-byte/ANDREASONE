@@ -78,12 +78,14 @@ export default function Work() {
   return (
     <div className="flex flex-col w-full bg-background">
       {/* Hero */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-16 px-4 bg-[#445829] text-[#efe7d7] relative overflow-hidden">
+        <div className="ao-contour-swirl ao-contour-swirl--panel" />
+        <div className="ao-contour-scrim" />
+        <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <p className="font-display text-sm tracking-[0.3em] text-primary mb-6">CREATIVE PRACTICE</p>
+            <p className="font-display text-sm tracking-[0.3em] text-[#f6c45a] mb-6">CREATIVE PRACTICE</p>
             <h1 className="font-display text-6xl md:text-8xl leading-[0.95] mb-6">WORK<br/>& OFFERINGS</h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-[#efe7d7]/82 max-w-2xl leading-relaxed">
               Sound, visual systems, cultural strategy. FMLY BZNS is a small studio operating across three lanes — built to take on a few right partners at a time.
             </p>
           </motion.div>
